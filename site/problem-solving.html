@@ -304,6 +304,7 @@
     
     
         @media (max-width: 480px) {
+          
           .nav-toggle {
             display: block;
           }
@@ -388,6 +389,131 @@
             width: 20px;
             height: 20px;
         }
+        @media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  .container {
+      width: 95%;
+      padding: 10px;
+  }
+  header .header-text {
+      font-size: 12vw;
+      line-height: 1.2;
+  }
+  .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .text-content {
+      order: 1;
+  }
+  .project-item {
+    width: 95vw;
+    padding: 15px;
+  }
+
+  #attractor-root {
+      order: 2;
+      position: static;
+      transform: none;
+      margin-top: 20px;
+      width: 100%;
+  }
+  
+  #attractor-root .absolute {
+      top: 10%;
+      right: 1px;
+  }
+
+  canvas {
+      width: 90vw !important;
+      height: 90vw !important;
+  }
+
+  input[type="range"] {
+      width: auto;
+      height: 150px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+      width: 20px;
+      height: 20px;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+  }
+
+  .absolute {
+    position: static;
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Slideshow mobile styles */
+  .slideshow-container {
+    margin-top: 20px;
+  }
+
+  .slideshow-nav-button {
+    padding: 8px !important;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slideshow-fullscreen-button {
+    padding: 8px !important;
+    top: 8px !important;
+    right: 8px !important;
+  }
+
+  .slideshow-dots {
+    margin-top: 12px !important;
+    gap: 8px !important;
+  }
+
+  .slideshow-dot {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .slideshow-dot.active {
+    width: 24px !important;
+  }
+
+  /* Text sizing for mobile */
+  h2, .text-3xl {
+    font-size: 1.75rem !important;
+  }
+
+  h3, .text-2xl {
+    font-size: 1.5rem !important;
+  }
+
+  .text-lg {
+    font-size: 1rem !important;
+  }
+
+  /* Button sizing for mobile */
+  .button, a.bg-\[\#32e875\] {
+    font-size: 1rem !important;
+    padding: 12px 24px !important;
+  }
+}
     }
     
     
@@ -1076,12 +1202,22 @@
 
 
 <!-- Slideshow -->
-   <script type="text/babel">
+<script type="text/babel">
   const Slideshow = ({ images, interval = 5000 }) => {
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const [isFullscreen, setIsFullscreen] = React.useState(false);
+    const [isMobile, setIsMobile] = React.useState(false);
     const containerRef = React.useRef(null);
     const timerRef = React.useRef(null);
+
+    React.useEffect(() => {
+      const checkMobile = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const startTimer = React.useCallback(() => {
       if (timerRef.current) {
@@ -1140,14 +1276,16 @@
       }
     };
 
+    const slideHeight = isMobile ? '400px' : '600px';
+
     return (
       <div 
         ref={containerRef}
-        className={`relative w-full max-w-4xl mx-auto mt-4 mb-8 ${isFullscreen ? 'max-w-none h-screen bg-black' : ''}`}
+        className={`slideshow-container relative w-full max-w-4xl mx-auto mt-4 mb-8 ${isFullscreen ? 'max-w-none h-screen bg-black' : ''}`}
       >
         <div 
           className={`relative overflow-hidden rounded-lg border-4 border-[#7b2cbf] ${isFullscreen ? 'h-full border-0 bg-black' : 'bg-[#f5f0ff]'}`}
-          style={{ height: isFullscreen ? '100%' : '600px' }}
+          style={{ height: isFullscreen ? '100%' : slideHeight }}
         >
           {images.map((image, index) => (
             <div
@@ -1161,7 +1299,7 @@
                 className="max-w-full max-h-full w-auto h-auto object-contain"
                 loading="eager"
               />
-              {image.caption && (
+              {image.caption && !isMobile && (
                 <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4 text-center">
                   {image.caption}
                 </div>
@@ -1173,16 +1311,16 @@
         {/* Fullscreen Button */}
         <button
           onClick={toggleFullscreen}
-          className="absolute top-4 right-4 bg-[#7b2cbf] bg-opacity-80 hover:bg-opacity-100 text-white p-2 rounded transition-all z-10"
+          className="slideshow-fullscreen-button absolute top-4 right-4 bg-[#7b2cbf] bg-opacity-80 hover:bg-opacity-100 text-white p-2 rounded transition-all z-10"
           aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
           title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
         >
           {isFullscreen ? (
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className={`${isMobile ? 'w-6 h-6' : 'w-5 h-5'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className={`${isMobile ? 'w-6 h-6' : 'w-5 h-5'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
             </svg>
           )}
@@ -1191,27 +1329,29 @@
         {/* Navigation Buttons */}
         <button
           onClick={goToPrevious}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#7b2cbf] bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full transition-all z-10"
+          className="slideshow-nav-button absolute left-4 top-1/2 -translate-y-1/2 bg-[#7b2cbf] bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full transition-all z-10"
           aria-label="Previous slide"
+          style={{ fontSize: isMobile ? '1.5rem' : '1.25rem' }}
         >
           &#8249;
         </button>
         <button
           onClick={goToNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#7b2cbf] bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full transition-all z-10"
+          className="slideshow-nav-button absolute right-4 top-1/2 -translate-y-1/2 bg-[#7b2cbf] bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full transition-all z-10"
           aria-label="Next slide"
+          style={{ fontSize: isMobile ? '1.5rem' : '1.25rem' }}
         >
           &#8250;
         </button>
 
         {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-4">
+        <div className="slideshow-dots flex justify-center gap-2 mt-4">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                currentIndex === index ? 'bg-[#32e875] w-8' : 'bg-gray-400 hover:bg-gray-500'
+              className={`slideshow-dot w-3 h-3 rounded-full transition-all ${
+                currentIndex === index ? 'bg-[#32e875] w-8 active' : 'bg-gray-400 hover:bg-gray-500'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -1279,6 +1419,6 @@
 
   const procurementRoot = ReactDOM.createRoot(document.getElementById('procurement-slideshow'));
   procurementRoot.render(<Slideshow images={procurementImages} />);
-</script> 
+</script>
   </body>
 </html>
