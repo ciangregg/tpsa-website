@@ -373,11 +373,29 @@ img.hero-content {
   width: max(40vw, 600px);
   height: auto;
   padding: 10px;
-  text-align: left;
   font-size: 15px;
   box-shadow: 0 5px 6px 1px var(--tpsa-blue);
   gap: var(--spacing-2vw);
-  text-align: justify;
+}
+
+        .intern-box a {
+            align-self: center;
+            margin-top: 10px;
+        }
+
+        .intern-box {
+            text-align: center;
+        }
+        .intern-box p,
+        .intern-box h2 {
+            text-align: justify;
+        }
+        .intern-box h2 {
+            text-align: center;
+        }
+
+.centre-stuff{
+  align-items: center;
 }
 
 .button {
