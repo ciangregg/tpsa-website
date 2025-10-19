@@ -372,7 +372,7 @@ img.hero-content {
 .intern-box {
   width: max(40vw, 600px);
   height: auto;
-  padding: 10px;
+  padding: 25px;
   font-size: 15px;
   box-shadow: 0 5px 6px 1px var(--tpsa-blue);
   gap: var(--spacing-2vw);
