@@ -6,8 +6,11 @@ RewriteRule ^problemsolving$ /problem-solving [R=301,L]
 # Redirect project to calendar
 RewriteRule ^projects$ /calendar [R=301,L]
 
-# Redirect homepage to index
-RewriteRule ^homepage$ /index [R=301,L]
+# Redirect homepage to student
+RewriteRule ^homepage$ /student [R=301,L]
+
+#Redirect internship to internships
+RewriteRule ^internship$ /internships [R=301,L]
 
 # Redirects for sign up
 RewriteRule ^signup$ /sign-up [R=301,L]
