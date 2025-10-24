@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TPSA</title>
+ <link rel="icon" type="image/x-icon" href="images/logo.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="tpsa.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css">
+</head>
+<body>
+
+<!--navbar-->
+
+<div class="navbar">
+  <li><a href="student.html">Home</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Events</a>
+    <div class="dropdown-content">
+      <a href="calendar.html">Calendar</a>
+      <a href="talks.html">Talks</a>
+      <a href="plancks.html">Plancks</a>
+      <a href="hackathons.html">Hackathons & Workshops</a>
+      <a href="qiskit.html">Qiskit Fall Fest 2025</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Resources</a>
+    <div class="dropdown-content">
+      <a href="lecture-series.html">Lecture Series</a>      
+      <a href="internships.html">Internships</a>
+      <a style="color: #bbbbbb" href="#" onclick="showPopup('Module Options', 'Coming soon! We\'re developing a comprehensive guide to help theoretical physics students navigate module choices, prerequisites, and fourth year options.')">Modules</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">About Us</a>
+    <div class="dropdown-content dropdown-content-cut">
+      <a href="sign-up.html">Sign Up</a>
+      <a href="constitution.html"
+      >Our Constitution</a>
+      <a href="history.html">History</a>
+      <a style="color: #bbbbbb;" href="#" onclick="showPopup('The Non-Profit', 'This section is currently under development. Our sister non-profit organisation, <a href=&quot;problem-solving.html&quot; style=&quot;color: #597bb0; text-decoration: underline;&quot;>The Problem Solving Association CLG</a>, focuses on applying theoretical physics skills for societal benefit. Check back soon for more details on our joint efforts together!')">The Non-Profit</a>
+      <a href="committee.html">Committee</a>
+    </div>
+  </li>
+</div>
+
+<!-- Popup Modal -->
+<div id="popup" class="popup-overlay" onclick="closePopup()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2 id="popup-title" class="popup-title"></h2>
+    <p id="popup-message" class="popup-message"></p>
+  </div>
+</div>
+
+<script src="tpsa.js"></script>
+<body>
+    <div class="text-image-box flex-row center-flex">
+        <div class="text-heading-box blue-shadow">
+            <h2 class="blue-center">Academic Internships</h2>
+            <p> 
+                Here is an extensive list of summer research internships for undergraduate students in physics and mathematics curated by members of the TPSA.
+                <em>This has been updated from the PDF version of the tpsa internship talk 2024/25.</em>
+            </p>
+            <p>
+                Please note that while we have made every effort to ensure the accuracy of the information provided, some details may be wrong, so please check the official websites of the respective internships for the most accurate info. <em>The TPSA does not take responsibility for any inaccuracies - webmaster.</em>
+            </p>
+        </div>
+    </div>
+    <div class="text-image-box" >
+        <h1 class="blue-center" style="margin-bottom: 0px!important;margin-top: 0px!important;"
+        >Ireland</h2>
+    </div>
+    <div class="image-wrap-box flex-row center-flex">
+                <div class="intern-box">
+            <h2 class="blue-center">DIAS Summer Studentship</h2>
+            <h2 class="blue-center">(Theoretical Physics)</h2>
+            <p>
+                The Dublin Institute for Advanced Studies offers 2-month summer studentships in its School of Theoretical Physics, starting in early June. Eleven students are selected to work on topics such as quantum state transfer, matrix models, and causal set theory. The stipend is €3,000 (€1,500/month). Applications typically open in spring and require a CV, personal statement, and confirmation of eligibility for first-class honors.
+            </p>
+            <a href="https://www.dias.ie/summer-studentships-in-the-school-of-theoretical-physics/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+        <!--<div class="intern-box">
+            <h2 class="blue-center">DIAS Summer Studentship (Geothermal)</h2>
+
+            <a href="https://www.dias.ie/positions/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>-->
+        <div class="intern-box">
+            <h2 class="blue-center">Hamilton Trust</h2>
+            <h2 class="blue-center">TCD School of Maths</h2>
+            <p>
+                Run by the School of Maths in Trinity, this is a six week research project. The professor you must find to supervise the project does not have to be from the School of Maths, but the project topic must have sufficient mathematics content. The research project can be done alone, or in groups of two or three. Financial support starts from €675 per person, depending on the group size.
+            </p>
+            <a href="https://www.marvinanashahn.com/summerinternship2025" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">SURE</h2>
+            <h2 class="blue-center">TCD School of Physics</h2>
+            <p>
+                The Summer Undergraduate Research Experience is a 10-week internship through the School of Physics. Seven positions are offered yearly with a €300/week stipend and flexible dates. Open to Junior Sophisters considering postgraduate research. Fourteen projects are available (4 Experimental, 8 Computational, 2 Theoretical). Applications open in early February and close late February, watch out for the email. Selection is based mainly on academic performance and a one-page application outlining background, goals, and project preferences.
+            </p>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">Laidlaw Scholarship</h2>
+            <h2 class="blue-center">TCD Partner</h2>
+            <p>
+                A two-year programme combining undergraduate research and leadership training. Open to 2nd-year (4-year courses) or 2nd/3rd-year (5-year courses) students. Summer 1: six-week self-designed research project (€3,500). Summer 2: six-week international leadership placement (€3,500). Includes training days, a conference, and up to €1,900 for research or travel. Around 25 scholarships are awarded annually. Applications due early February, requiring a video, research and leadership proposals, and supervisor support.
+            </p>
+            <a href="https://laidlawfoundation.com/the-laidlaw-scholars-leadership-research-programme/about-the-programme/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">Queen's University Belfast</h2>
+            <h2 class="blue-center">Astrophysics Research Centre</h2>
+            <p>
+                They offer a summer studentship in the Astrophysics Research Centre. It runs for eight weeks over summer and offers £2000. The information comes out around April, with the application due at the end of April. A transcript, cv and form is required for the application. The Centre for Light-Matter Interactions has also run studentships in previous years due at the beginning of May. The right to study in the UK is needed. (Did not run in 2025)
+            </p>
+            <a href="https://www.qub.ac.uk/research-centres/astrophysics-research-centre/EducationandOpportunities/Internships/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">Queen's University Belfast</h2>
+            <h2 class="blue-center">Mathematical Sciences Research Centre</h2>
+            <p>
+               The Mathematical Sciences Research Centre ofter a paid internship in algebra, combinatorics, number theory, or a related area of pure mathematics. It runs for eight weeks over summer and offers £2000. Projects are expected to last 6-8 weeks and will involve regular meetings with the supervisor and postdoctoral staff.  The right to study in the UK is needed.  
+            </p>
+            <a href="https://www.qub.ac.uk/research-centres/msrc/research/Internships/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">UCD Mathmatics and Statistics</h2>
+            <p>
+                Students pick from a list of projects provided by the department, see the link for 2025s list. These projects are expected to last a minimum of 8 weeks, starting in early June, with flexible start dates negotiable with individual supervisors.  A stipend of €3,000 is provided
+            </p>
+
+            <a href="https://www.ucd.ie/mathstat/newsandevents/events/undergraduatesummerresearchproject/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">UCD Physics</h2>
+            <p>
+                The School of Physics has Summer Research Studentships, with a deadline of 4th April. Some of these were research related and others were more outreach focused. There is pay of €400 per week. A cv and cover letter was required for the application. 
+            </p>
+            <a href="https://www.ucd.ie/physics/study/summerresearchstudentships/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">University of Galway Summer Scholarships</h2>
+            <p>This summer research project from the School of Mathematical and Statistical Sciences is a four week program last year starting June 2nd. This program offered a bursary of €1280 for a four day work week expected. Students must find a supervisor willing to supervise, then apply with a short description of the project (300 words max).</p>
+            <a href="https://www.universityofgalway.ie/science-engineering/school-of-maths/research/summer-scholarships/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+        <div class="intern-box">
+            <h2 class="blue-center">SETI</h2>
+            <p>
+                The Breakthrough Listen Undergraduate Research Internship offers an 8-10 week paid position in SETI research, working with Prof. Evan Keane (Head of I-LOFAR). The programme includes lectures from UC Berkeley on astrophysics, Linux servers, Git, radio telescopes, and pulsars/FRBs. The work is programming-intensive, involving Linux, Docker, and data analysis; experience with Python or similar is highly recommended. Open to undergraduate and Master's students. Stipend: €600/week. Applications typically close by February 1st and include an interview. Requires CV, transcript, cover letter, and a reference. Applicants should express interest in SETI and their motivation for applying.
+            </p>
+            <a href="https://seti.berkeley.edu/Internship.html" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+    </div>
+    <div class="text-image-box" >
+        <h1 class="blue-center" style="margin-bottom: 0px!important;margin-top: 0px!important;"
+        >Britain</h2>
+    </div>
+    <div class="image-wrap-box flex-row center-flex">
+        <div class="intern-box">
+            <h2 class="blue-center">University of Oxford</h2>
+            <p>
+                The University of Oxford offers a number of internships within its physics department. They all require the right to work in the UK and usually British or Irish citizenship. Students are typically payed the Oxford living wage. 
+            </p>
+            <h2 class="blue-center">The Rudolf Peierls Centre for Theoretical Physics</h2>
+            <p>
+                Applications for summer 2026 will open in January/February 2026 with likely due date of mid-March 2026. Applicants asked to submit one-page application and academic reference letter. This is open to second year students and above. 
+            </p>
+            <a href="https://www.physics.ox.ac.uk/research/subdepartment/rudolf-peierls-centre-theoretical-physics/undergraduate-research" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+        
+        <div class="intern-box">
+            <h2 class="blue-center">University of Oxford</h2>
+            <h2 class="blue-center">Astrophysics</h2>
+            <p>
+                The projects run for typically 8 weeks, normally from 1 July to 23 August. Open to third year students. A cv, reference  and cover letter is required. The 2025 application deadline was 12th March 2025. 
+            </p>
+            <a href="https://www.physics.ox.ac.uk/research/subdepartment/astrophysics/astrophysics-summer-research-programme" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+            <h2 class="blue-center">Atmospheric, Oceanic and Planetary Physics</h2>
+            <p>
+                As of October 2025, details of next year’s program are not available. 
+            </p>
+            <a href="https://www.physics.ox.ac.uk/research/subdepartment/atmospheric-oceanic-and-planetary-physics/aopp-undergraduate-internships" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+        <div class="intern-box">
+            <h2 class="blue-center">University of Oxford</h2>
+            <h2 class="blue-center">Atomic and Laser physics. </h2>
+            <p>
+                A number of projects are available to apply for, each with their own deadlines, with projects added throughout the year.
+            </p>
+            <a href="https://www.physics.ox.ac.uk/research/subdepartment/atomic-and-laser-physics/atomic-and-laser-summer-research-programme" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+            <h2 class="blue-center">Condensed Matter Physics</h2>
+            <p>
+                Students are asked to reach out to supervisors directly. 
+            </p>
+            <a href="https://www.physics.ox.ac.uk/research/subdepartment/condensed-matter-physics/condensed-matter-physics-internships" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <!--<div class="intern-box">
+            <h2 class="blue-center">University of Edinburgh</h2>
+            <p>More info will be available after the interhsip talk.</p>
+            <a href="https://www.ed.ac.uk/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info - not the link</button>
+            </a>
+        </div>-->
+
+        <div class="intern-box">
+            <h2 class="blue-center">Cambridge</h2>
+            <h2 class="blue-center">Philippa Fawcett Internship Programme</h2>
+            <p>
+                Cambridge offers the Philippa Fawcett Internship Programme for students who identify as female or non-binary in mathematics who are in second year and above. 
+            </p>
+
+            <a href="https://www.maths.cam.ac.uk/internships/philippa-fawcett-internship-programme" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+        <div class="intern-box">
+            <h2 class="blue-center">The Cockcroft Institute</h2>
+            <p>
+                The Cockcroft Institute located between Manchester and Liverpool offers students a minimum 6 week research project across mathematical physics, computer simulation or experimental work. It also offers students a few days training where the full cohort will be based at Daresbury Laboratory to learn about particle accelerator technology. They pay students the national living wage and students must have the right to work in the UK
+            </p>
+            <a href="https://www.cockcroft.ac.uk/education/internships/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+    </div>
+    <div class="text-image-box" >
+        <h1 class="blue-center" style="margin-bottom: 0px!important;margin-top: 0px!important;"
+        >Europe</h2>
+    </div>
+    </div>
+    <div class="image-wrap-box flex-row center-flex">
+        <div class="intern-box">
+            <h2 class="blue-center">CERN</h2>
+            <p>
+                CERN offers an 8-13 week summer programme (June-September) for Bachelor's or Master's students (not PhD) in physics, engineering, computer science, or mathematics. Students work full-time on a research project in their field and submit a report, with optional poster or public presentation. The programme includes lectures, workshops, tours, and time to explore Switzerland and France. Participants receive ~93 CHF/day, travel reimbursement (~500 CHF from Dublin), full medical insurance, and subsidised accommodation near CERN. Applications close ~31st January. Highly competitive (~2% acceptance). Requires CV, transcript, two references, and responses on motivation, relevant experience, and interests.
+            </p>
+            <a href="https://home.cern/summer-student-programme" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">DESY</h2>
+            <p>
+                DESY (Deutsches Elektronen-Synchrotron) offers a 7.5-week summer programme for undergraduate students in physics running from from late July to early September. It gives students hands on research experience in a large international labaoratory. Projects are available in photon science, elementary particle physics & accelerators and astroparticle physics. Requires CV, transcript, two references, a 1000-character motivation statement, and ranked project preferences (e.g. experimental/theoretical, particle/photon/astroparticle research). Decisions are announced by early April.
+            </p>
+            <a href="https://summerstudents.desy.de/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+        <div class="intern-box">
+            <h2 class="blue-center">RISE</h2>
+            <p>
+                RISE (Research Internships in Science and Engineering) Germany offers summer research internships for undergraduate students in physics, engineering, and related fields. The three month paid internship takes place at a top German research institutions or university. Applications for summer 2026 closes in November 2025. 
+            </p>
+            <a href="https://www.daad.de/rise/en/rise-germany/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+        <!--<div class="intern-box">
+            <h2 class="blue-center">University of Vienna</h2>
+
+            <a href="https://www.fwf.ac.at/aktuelles/jobboerse/jobdetail/open-call-summer-internships-in-physics-at-the-university-of-vienna" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>-->
+        <div class="intern-box">
+            <h2 class="blue-center">LEAPS (Leiden)</h2>
+            <p>
+                Leiden is an astrophysics programme that runs in the Netherlands. It is open to undergraduate students interested in physics and astronomy. This is a 10 week summer research project in collaboration with a research scientist from Leiden Observatory or ESA/ESTEC.
+            </p>
+            <a href="https://leaps.strw.leidenuniv.nl/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+        <div class="intern-box">
+            <h2 class="blue-center">Munich Center for Quantum Science and Technology Summer Bachelor Program</h2>
+            <p>
+                This program opens in the Bavarian Alps, before moving to Munich. This program runs from 01 August - 29 August 2026. Applications are open from 1 November 2025 - 1 February 2026. There are three weeks for introductory material and three weeks of working on a project. There is a €220 participation fee, but all costs, including accommodation and travel are fully covered. This is open to students in an undergraduate degree in physics, mathematics, computer science, electrical engineering, material science, or chemistry.
+            </p>
+            <a href="https://www.mcqst.de/support/summer-bachelor-program/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">Max Planck Institute for Astronomy</h2>
+            <p>
+                This is a three month position in Heidelberg. 2026 applications open in December 2025. A €1000 per month salary is provided. This is open to bachelor and masters students. A cv, research statement, and transcript is required. 
+            </p>
+            <a href="https://www.mpia.de/en/careers/internships/summer" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">Max Planck Institute for the Physics of Complex Systems</h2>
+            <p>
+                This is open to students in the last two years of undergraduate study. Topics include condensed matter and quantum information theory. The deadline is 30th November 2025 for the 2026 program. The program runs for a minimum of two months in Dresden. A cover letter,cv, transcript and reference letter is required for application. 
+            </p>
+            <a href="https://www.pks.mpg.de/condensed-matter/work-with-us" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+    </div>
+    <div class="text-image-box" >
+        <h1 class="blue-center" style="margin-bottom: 0px!important;margin-top: 0px!important;"
+        >Rest of the World</h2>
+    </div>
+    </div>
+    <div class="image-wrap-box flex-row center-flex">
+
+        <div class="intern-box">
+            <h2 class="blue-center">ASIAA (Taipei)</h2>
+            <p>
+            The Academia Sinica Institute of Astronomy and Astrophysics (ASIAA) in Taipei offers a summer internship programme for undergraduate students interested in astrophysics and astronomy. The internship last year ran from July 1 - August 29, 2025. Participants conduct original research in observational, theoretical, or laboratory-based projects under the supervision of a professional astronomer at ASIAA.
+
+            </p>
+            <a href="https://events.asiaa.sinica.edu.tw/ssp/2025/index.php" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">UTRIP (Tokyo)</h2>
+            <p>This is a six week program  in Tokyo open to students from outside Japan. Open to second years and above. 2025 applications were due on the 25th November 2024. A field trip to a historical or natural site in Japan, and social and cultural events including language classes are also part of the program. </p>
+            <a href="https://www.s.u-tokyo.ac.jp/en/utrip/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">Perimeter Institute</h2>
+            <p>
+                The Perimeter Scholars International (PSI) in Waterloo, Ontario, Canada offer 10-week online school in theoretical physics beginning in May.They also offer some students a paid internship program. 
+            </p>
+            <a href="https://perimeterinstitute.ca/training/undergraduate-program" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">Sao Carlos Institute of Physics</h2>
+            <p>The deadline for applications for the 2025 program was 30th November 2024. The program will be fully funded and IFSC will provide housing, airfare and a monthly allowance for all selected candidates. An academic transcript, letter of intent and letter of recommendation are required for application. </p>
+            <a href="https://www.ifsc.usp.br/ccnint/8681-2" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info </button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">SURF Caltech</h2>
+            <p>This is a ten week program which takes place on the Caltech campus. A Caltech faculty mentor must agree to support your application, help you to develop and define a research project, and assist you in the writing of the research proposal. Information about this year's program will be available in November, with applications likely due at the end of February. </p>
+            <a href="https://sfp.caltech.edu/undergraduate-research/programs/surf" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+
+        <div class="intern-box">
+            <h2 class="blue-center">Simons Foundation</h2>
+            <p>
+                The Simons Foundation offers a number of internship programs from computational programs in quantum physics and astrophysics, writing for Quanta Magazine, and the Simons-NSBP Scholars Program, each with their own deadline. Most in person programs take place in New York. 
+            </p>
+            <a href="https://www.simonsfoundation.org/summer-at-simons/" target="_blank" rel="noopener noreferrer">
+                <button class="button bs">More info</button>
+            </a>
+        </div>
+    </div>
+    <div class="text-image-box flex-row center-flex">
+        <div class="text-heading-box blue-shadow">
+            <p>
+                Please feel free contribute to this list, contact me at <a href="mailto:webmaster@tpsa.ie"> webmaster@tpsa.ie</a> with any suggestions or corrections.
+            </p>
+        </div>
+    </div>
+</body><!--footer-->
+<div class="blue-back">
+  <div class="footer flex-col center-flex">
+    <div class="footer-content flex-row center-flex">
+        <a href="index.html">
+          <img class="shakin bottom-tpsa-logo" src="images/logo.png">
+        </a>
+        <p class="footer-tpsa-text">Theoretical Physics<br>
+          Student Association
+        </p>
+        <a class="social-media-logos"  href="https://www.instagram.com/tpsa_ireland/" target="_blank" rel="noopener noreferrer">
+          <img src="images/footer/instagram.png" width="20" height="20">
+        </a>
+        <a class="social-media-logos" href="https://www.youtube.com/channel/UCAhMHA7C3mo0MaASsM4Nweg" target="_blank" rel="noopener noreferrer">
+          <img src="images/footer/yt.png" width="30" height="30">
+        </a>
+        <a class="social-media-logos"  href="https://ie.linkedin.com/company/theoretical-physics-student-association" target="_blank"
+          rel="noopener noreferrer">
+          <img src="images/footer/in.png" width="20" height="20">
+        </a>
+    </div>
+    <div class="footer-content flex-row center-flex" >
+        <p class="footer-text address">School of Mathematics,<br>
+          17 Westland Row,<br>
+          Trinity College Dublin<br><br>
+          <a style="color: white;" href="mailto:student@tpsa.ie">student@tpsa.ie</a> 
+        </p>
+        <iframe class="map" frameborder="0" scrolling="no"
+          src="https://maps.google.com/maps?width=720&amp;height=600&amp;hl=en&amp;q=School%20of%20Mathematics%2017%20Westland%20Row%20Trinity%20College%20Dublin%20Dublin%202%20Ireland+(School%20of%20Mathematics)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/collections/sports-gps/">Football GPS</a>
+        </iframe>
+    </div>
+  </div>
+  <div class="footer flex-col center-flex" style="margin-top: 0px;margin-bottom: 0px;">
+      <div class="text-center">
+          <a href="https://www.iop.org/" target="_blank" rel="noopener noreferrer">
+              <img class="image-iop" src="images/iop.png" alt="Institute of Physics Logo">
+          </a>
+      </div>
+  </div>
+  <div class="footer flex-col center-flex" style="margin-top: 0px;">
+      <div class="text-center flex-row center-flex">
+          <p class="hosted-text">Hosted by:</p>
+          <a href="https://www.blacknight.com/" target="_blank" rel="noopener noreferrer">
+              <img class="image-bt" src="images/blacknight.png" alt="Blacknight">
+          </a>
+      </div>
+    </div>
+
+    <div style="padding: 2vw;">
+      <p class="footer-text text-center">
+        &copy; 2025 Theoretical Physics Student Association of Ireland . All rights reserved.
+      </p>
+    </div>
+</div>
+</html> 
