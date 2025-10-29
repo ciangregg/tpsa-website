@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TPSA</title>
+ <link rel="icon" type="image/x-icon" href="images/logo.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="tpsa.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css">
+</head>
+<body>
+
+<!--navbar-->
+
+<div class="navbar">
+  <li><a href="student.html">Home</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Events</a>
+    <div class="dropdown-content">
+      <a href="calendar.html">Calendar</a>
+      <a href="talks.html">Talks</a>
+      <a href="plancks.html">Plancks</a>
+      <a href="hackathons.html">Hackathons & Workshops</a>
+      <a href="qiskit.html">Qiskit Fall Fest 2025</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Resources</a>
+    <div class="dropdown-content">
+      <a href="lecture-series.html">Lecture Series</a>      
+      <a href="internships.html">Internships</a>
+      <a style="color: #bbbbbb" href="#" onclick="showPopup('Module Options', 'Coming soon! We\'re developing a comprehensive guide to help theoretical physics students navigate module choices, prerequisites, and fourth year options.')">Modules</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">About Us</a>
+    <div class="dropdown-content dropdown-content-cut">
+      <a href="sign-up.html">Sign Up</a>
+      <a href="constitution.html"
+      >Our Constitution</a>
+      <a href="history.html">History</a>
+      <a style="color: #bbbbbb;" href="#" onclick="showPopup('The Non-Profit', 'This section is currently under development. Our sister non-profit organisation, <a href=&quot;problem-solving.html&quot; style=&quot;color: #597bb0; text-decoration: underline;&quot;>The Problem Solving Association CLG</a>, focuses on applying theoretical physics skills for societal benefit. Check back soon for more details on our joint efforts together!')">The Non-Profit</a>
+      <a href="committee.html">Committee</a>
+    </div>
+  </li>
+</div>
+
+<!-- Popup Modal -->
+<div id="popup" class="popup-overlay" onclick="closePopup()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2 id="popup-title" class="popup-title"></h2>
+    <p id="popup-message" class="popup-message"></p>
+  </div>
+</div>
+
+<script src="tpsa.js"></script>
+<body>
+    <div id="2026" class="outer-box blue-shadow flex-col center-flex">
+        <div class="text-image-box flex-row center-flex">
+            <a href="https://iaps.info/" target="_blank" rel="noopener noreferrer">
+                    <img class="image-box-max" src="https://iaps.info/wp-content/uploads/2024/03/IAPS_LOGO_LIGHT_BACKGROUND-1536x1536.png">
+            </a>
+            <div style="padding: 2vw;">
+                <h1 class="blue-center">PLANCKS 2026</h1>
+                <p>
+                    We are currently looking for 3rd year physics students interested in participating in PLANCKS 2026. Participation involves attending training sessions and competing in the preliminary rounds. This is an excellent opportunity to sharpen your problem-solving skills with challenging physics problems. If you're interested, please sign up!                </p>
+                <div class="flex-row center-flex">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4x9L7WJxSkBB9_q4RgA3D5wbILorhN7qFOvla33c88dg9Tg/viewform" target="_blank" rel="noopener noreferrer">
+                    <button class="button-big bs">Sign Up!</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="plancks" class="outer-box blue-shadow flex-col center-flex">
+        <div class="text-image-box flex-row center-flex">
+            <a href="https://plancks.uk/" target="_blank" rel="noopener noreferrer">
+                    <img class="image-box-max" src="images/plancks/plancks-dublin-2024.png">
+            </a>
+            <div style="padding: 2vw;">
+                <h1 class="blue-center">PLANCKS</h1>
+                <p>
+                PLANCKS — the Physics League Across Numerous Countries for Kick-ass Students — is an international theoretical physics competition designed for undergraduate students. Hosted in a different country each year, it brings together some of the brightest young physicists from around the world to test their problem-solving skills in a challenging and collaborative environment. Beyond the competition itself, PLANCKS fosters international connections through lectures, lab visits, and social events, all centered around a shared passion for physics.
+                </p>
+                <p>
+                Over the past few years, the TPSA has taken part in the UK and Ireland preliminary rounds, consistently fielding enthusiastic teams. In 2023, we were thrilled to qualify for the global finals — a testament to the hard work and enthusiasm of our members. Whether you're keen to compete, cheer from the sidelines, or simply meet other physics lovers, PLANCKS is an incredible opportunity to deepen your engagement with the subject and become part of a global community of aspiring scientists.
+                </p>
+            </div>
+        </div>
+        <div class="image-box-col flex-row center-flex">
+                <img class="image-small" src="images/plancks/2024-group.png">
+                <img class="image-small" src="images/plancks/2023-group.png">
+        </div>
+    </div>
+</body><!--footer-->
+<div class="blue-back">
+  <div class="footer flex-col center-flex">
+    <div class="footer-content flex-row center-flex">
+        <a href="index.html">
+          <img class="shakin bottom-tpsa-logo" src="images/logo.png">
+        </a>
+        <p class="footer-tpsa-text">Theoretical Physics<br>
+          Student Association
+        </p>
+        <a class="social-media-logos"  href="https://www.instagram.com/tpsa_ireland/" target="_blank" rel="noopener noreferrer">
+          <img src="images/footer/instagram.png" width="20" height="20">
+        </a>
+        <a class="social-media-logos" href="https://www.youtube.com/channel/UCAhMHA7C3mo0MaASsM4Nweg" target="_blank" rel="noopener noreferrer">
+          <img src="images/footer/yt.png" width="30" height="30">
+        </a>
+        <a class="social-media-logos"  href="https://ie.linkedin.com/company/theoretical-physics-student-association" target="_blank"
+          rel="noopener noreferrer">
+          <img src="images/footer/in.png" width="20" height="20">
+        </a>
+    </div>
+    <div class="footer-content flex-row center-flex" >
+        <p class="footer-text address">School of Mathematics,<br>
+          17 Westland Row,<br>
+          Trinity College Dublin<br><br>
+          <a style="color: white;" href="mailto:student@tpsa.ie">student@tpsa.ie</a> 
+        </p>
+        <iframe class="map" frameborder="0" scrolling="no"
+          src="https://maps.google.com/maps?width=720&amp;height=600&amp;hl=en&amp;q=School%20of%20Mathematics%2017%20Westland%20Row%20Trinity%20College%20Dublin%20Dublin%202%20Ireland+(School%20of%20Mathematics)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/collections/sports-gps/">Football GPS</a>
+        </iframe>
+    </div>
+  </div>
+  <div class="footer flex-col center-flex" style="margin-top: 0px;margin-bottom: 0px;">
+      <div class="text-center">
+          <a href="https://www.iop.org/" target="_blank" rel="noopener noreferrer">
+              <img class="image-iop" src="images/iop.png" alt="Institute of Physics Logo">
+          </a>
+      </div>
+  </div>
+  <div class="footer flex-col center-flex" style="margin-top: 0px;">
+      <div class="text-center flex-row center-flex">
+          <p class="hosted-text">Hosted by:</p>
+          <a href="https://www.blacknight.com/" target="_blank" rel="noopener noreferrer">
+              <img class="image-bt" src="images/blacknight.png" alt="Blacknight">
+          </a>
+      </div>
+    </div>
+
+    <div style="padding: 2vw;">
+      <p class="footer-text text-center">
+        &copy; 2025 Theoretical Physics Student Association of Ireland . All rights reserved.
+      </p>
+    </div>
+</div>
+</html> 
