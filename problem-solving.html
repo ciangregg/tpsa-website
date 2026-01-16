@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Problem Solving Association</title>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                font-family: Arial, sans-serif;
+                line-height: 1;
+                color: #333;
+                scroll-behavior: smooth;
+            }
+            .container {
+                width: 80%;
+                margin: auto;
+                overflow: hidden;
+                padding: 20px;
+            }
+            header {
+                background: #000000;
+                color: #ffffff;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-bottom: #32e875 0.5vh solid;
+                position: relative;
+            }
+            header .header-content {
+                padding: 5vh 0;
+                width: 100%;
+                text-align: center;
+            }
+            header .header-text {
+                display: block;
+                font-size: 7vw;
+                text-align: left;
+                margin: 0;
+                padding: 0;
+                line-height: 1;
+                font-weight: bold;
+            }
+    
+    
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            
+            .animated-letter {
+                display: inline-block;
+                opacity: 0;
+                animation: fadeIn 3s forwards;
+            }
+            
+            .animated-letter:nth-child(1) {
+                animation-delay: 0s;
+            }
+            
+            .animated-letter:nth-child(2) {
+                animation-delay: 0.12s;
+            }
+            
+            .animated-letter:nth-child(3) {
+                animation-delay: 0.24s;
+            }
+            
+            .animated-letter:nth-child(4) {
+                animation-delay: 0.36s;
+            }
+    
+            .animated-word {
+                display: inline-block;
+                opacity: 0;
+                animation: fadeIn 3s forwards;
+            }
+            
+            .word-1 {
+                animation-delay: 1s;
+            }
+            .word-2 {
+                animation-delay: 1.12s;
+            }
+            .word-3 {
+                animation-delay: 1.24s;
+            }
+            .word-4 {
+                animation-delay: 1.36s;
+            }
+    
+    
+            header h1 {
+                margin: 0;
+                font-size: 24px;
+                padding: 0 20px;
+            }
+            nav {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #7b2cbf;
+                height: 6vh;
+                position: relative;  /* Added to contain the hover effects */
+                overflow: hidden; 
+            }
+            nav a {
+                color: #ffffff;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 2vh;
+                padding: 2vh 5vh;
+                display: inline-block;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+            nav a::after {
+                content: '';
+                position: absolute;
+                bottom: 0.5vh;
+                left: 0;
+                width: 100%;
+                height: 0.5vh;
+                background-color: #32e875;
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+            nav a:hover::after, nav a.active::after {
+                transform: scaleX(1);
+            }
+            nav a:hover, nav a.active {
+                background-color: #3c096cff;
+            }
+    
+            #attractor-root {
+                position: absolute;  /* Position absolutely */
+                right: 5vw;  /* Distance from right edge */
+                top: 50%;  /* Center vertically */
+                transform: translateY(-50%);  /* Perfect vertical centering */
+            }
+    
+            #showcase {
+                min-height: 400px;
+                background: url('/api/placeholder/1600/400') no-repeat center center/cover;
+                text-align: center;
+                color: #ffffff;
+            }
+            #showcase h1 {
+                margin-top: 100px;
+                font-size: 55px;
+                margin-bottom: 10px;
+            }
+            #showcase p {
+                font-size: 20px;
+            }
+            .button {
+                display: inline-block;
+                font-size: 18px;
+                color: #ffffff;
+                background: #2ecc71;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                text-decoration: none;
+                margin-top: 20px;
+                transition: background-color 0.3s ease;
+            }
+            .button:hover {
+                background: #27ae60;
+            }
+            #projects {
+                margin-top: 20px;
+            }
+            .project-item {
+                background: #f4f4f4;
+                padding: 20px;
+                width: 70vw;
+                margin-bottom: 20px;
+                transition: all 0.3s ease;
+            }
+            .project-item:hover {
+                transform: scale(1.03);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            #papers {
+                margin-top: 20px;
+            }
+            .paper-item {
+                background: #f4f4f4;
+                padding: 20px;
+                margin-bottom: 10px;
+            }
+            #team {
+                margin-top: 20px;
+            }
+            .team-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            .team-member {
+                background: #f4f4f4;
+                padding: 20px;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+            .team-member:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            .team-member img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 15px;
+                display: block;
+                margin: 0 auto;
+            }
+            footer {
+                padding: 20px;
+                margin-top: 20px;
+                color: #ffffff;
+                background-color: #3c096cff;
+                text-align: center;
+            }
+    
+    
+    
+    
+            canvas {
+          border: 1px solid black;
+          background: black;
+          cursor: move;
+        }
+        .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem;
+        }
+        .controls {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+        }
+        .parameter-controls {
+          display: grid;
+          grid-template-columns: auto auto auto;
+          gap: 0.5rem;
+          align-items: center;
+          background: #f5f5f5;
+          padding: 1rem;
+          border-radius: 4px;
+        }
+        .camera-info {
+          font-family: monospace;
+          background: #f5f5f5;
+          padding: 0.5rem;
+          border-radius: 4px;
+          margin-top: 1rem;
+        }
+        .parameter-controls label {
+          text-align: right;
+          padding-right: 0.5rem;
+        }
+        .parameter-controls input[type="number"] {
+          width: 70px;
+          padding: 0.25rem;
+        }
+        button {
+          padding: 0.5rem 1rem;
+          cursor: pointer;
+        }
+        .no-border {
+                border: none !important;
+        }
+    
+        .svg-border {
+            background-image: url('./TPSA_Unit.svg');
+              position: absolute;  /* Takes it out of document flow */
+              top: 100vh;             /* Align to top of nearest positioned ancestor */
+              left: 0;            /* Align to left edge */
+              width: 50px;        /* Width of your SVG tile */
+              height: 800px;       /* Full height of the container */
+              background-repeat: repeat-y;  /* Repeat vertically */
+              background-position: 110%;
+              z-index: 3;         /* Ensure it's above background but below content */
+              pointer-events: none; /* Allow clicking through the border */
+          }
+    
+    
+        @media (max-width: 480px) {
+          
+          .nav-toggle {
+            display: block;
+          }
+          .container {
+              width: 100%;
+              padding: 10px;
+          }
+          header .header-text {
+              font-size: 10vw;
+              line-height: 1.2;
+          }
+          .header-content {
+              display: flex;
+              flex-direction: column; /* Stack the elements vertically */
+              align-items: center; /* Center the items horizontally */
+          }
+          
+          .text-content {
+              order: 1; /* Ensure .text-content stays on top */
+          }
+          .project-item {
+            width: 90vw;
+        }
+    
+          #attractor-root {
+              order: 2; /* Move #attractor-root below .text-content */
+              position: static; /* Reset positioning for flow-based layout */
+              transform: none; /* Remove transform to avoid misalignment */
+              margin-top: 20px; /* Optional spacing between elements */
+              width: 100%; /* Full width */
+          }
+          
+          #attractor-root .absolute {
+              top: 10%; /* Vertically centered on mobile */
+              right: 1px; /* Slightly further from the edge for mobile */
+          }
+          header .header-text {
+              font-size: 10vw;
+              line-height: 1.2;
+          }
+    
+          canvas {
+              width: 90vw !important; /* Scale canvas for smaller screens */
+              height: 90vw !important;
+          }
+    
+          input[type="range"] {
+              width: auto;
+              height: 150px; /* Increase height for better usability */
+          }
+    
+          input[type="range"]::-webkit-slider-thumb {
+              width: 20px; /* Larger thumb for touch */
+              height: 20px;
+          }
+    
+          input[type="range"]::-moz-range-thumb {
+              width: 20px;
+              height: 20px;
+          }
+    
+          
+        .absolute {
+            position: static; /* Make the slider follow normal document flow */
+            width: 90%; /* Full width for better usability */
+            height: auto;
+            display: flex;
+            justify-content: center; /* Center slider */
+        }
+    
+        input[type="range"] {
+            width: 100%; /* Horizontal slider width */
+            height: auto;
+        }
+    
+        input[type="range"]::-webkit-slider-thumb {
+            width: 20px; /* Larger thumb for touch */
+            height: 20px;
+        }
+    
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+        }
+        @media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  .container {
+      width: 95%;
+      padding: 10px;
+  }
+  header .header-text {
+      font-size: 12vw;
+      line-height: 1.2;
+  }
+  .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .text-content {
+      order: 1;
+  }
+  .project-item {
+    width: 95vw;
+    padding: 15px;
+  }
+
+  #attractor-root {
+      order: 2;
+      position: static;
+      transform: none;
+      margin-top: 20px;
+      width: 100%;
+  }
+  
+  #attractor-root .absolute {
+      top: 10%;
+      right: 1px;
+  }
+
+  canvas {
+      width: 90vw !important;
+      height: 90vw !important;
+  }
+
+  input[type="range"] {
+      width: auto;
+      height: 150px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+      width: 20px;
+      height: 20px;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+  }
+
+  .absolute {
+    position: static;
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Slideshow mobile styles */
+  .slideshow-container {
+    margin-top: 20px;
+  }
+
+  .slideshow-nav-button {
+    padding: 8px !important;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slideshow-fullscreen-button {
+    padding: 8px !important;
+    top: 8px !important;
+    right: 8px !important;
+  }
+
+  .slideshow-dots {
+    margin-top: 12px !important;
+    gap: 8px !important;
+  }
+
+  .slideshow-dot {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .slideshow-dot.active {
+    width: 24px !important;
+  }
+
+  /* Text sizing for mobile */
+  h2, .text-3xl {
+    font-size: 1.75rem !important;
+  }
+
+  h3, .text-2xl {
+    font-size: 1.5rem !important;
+  }
+
+  .text-lg {
+    font-size: 1rem !important;
+  }
+
+  /* Button sizing for mobile */
+  .button, a.bg-\[\#32e875\] {
+    font-size: 1rem !important;
+    padding: 12px 24px !important;
+  }
+}
+    }
+    
+    
+        </style>
+    
+    <link rel="icon" href="https://gist.githubusercontent.com/farrencc/07eaa26e80c8e28957981f07a788ea13/raw/e41c3520af1fcf2cf0577372dfe256fbdc1d16c3/TPSA_logo.svg" type="image/x-icon">
+    
+    </head>
+    <body>
+        <header>
+            <div class="header-content">
+                <div class="text-content">
+                  <div class="header-text" style="color: #32e875;">
+                      <span class="animated-letter">T</span><span class="animated-letter">P</span><span class="animated-letter">S</span><span class="animated-letter">A</span>
+                  </div>
+                  <div class="header-text animated-word word-1">The</div>
+                  <div class="header-text animated-word word-2">Problem</div>
+                  <div class="header-text animated-word word-3">Solving</div>
+                  <div class="header-text animated-word word-4">Association</div>
+                </div>
+                <div id="attractor-root"></div>
+            </div>
+        </header>
+        
+    
+    
+    
+    <style>
+      .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #7b2cbf;
+        color: #fff;
+        padding: 0.5rem;
+        width: 100%
+      }
+      .nav-toggle {
+        display: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+      }
+      .nav-links {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+      }
+      .nav-links li a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .nav-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+      .nav-popup.active {
+        display: flex;
+      }
+      .nav-popup ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+      }
+      .nav-popup li a {
+        color: #fff;
+        text-decoration: underline;
+        text-decoration-color: #32e875;
+        text-decoration-thickness: 0.2rem;
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 1rem;
+        color: #fff;
+        cursor: pointer;
+      }
+      @media (max-width: 768px) {
+        .nav-toggle {
+          display: block;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+      <!-- Nav toggle button for small screens -->
+      <button class="nav-toggle" onclick="togglePopup()">&#9776;</button>
+    
+      <!-- Standard navigation links for large screens -->
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#team">The Team</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Popup Navigation for small screens -->
+    <div id="navPopup" class="nav-popup">
+      <button class="close-btn" onclick="togglePopup()">&#10006;</button>
+      <ul>
+        <li><a href="#home" onclick="togglePopup()">Home</a></li>
+        <li><a href="#about" onclick="togglePopup()">About</a></li>
+        <li><a href="#projects" onclick="togglePopup()">Projects</a></li>
+        <li><a href="#team" onclick="togglePopup()">The Team</a></li>
+      </ul>
+    </div>
+    
+    <script>
+      // Toggle the popup menu visibility
+      function togglePopup() {
+        const navPopup = document.getElementById('navPopup');
+        navPopup.classList.toggle('active');
+      }
+    
+      // Handle display of navigation elements based on screen width
+      function checkScreenWidth() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const navPopup = document.getElementById('navPopup');
+    
+        if (window.innerWidth < 768) {
+          navToggle.style.display = 'block'; // Show toggle button
+          navLinks.style.display = 'none'; // Hide standard nav links
+        } else {
+          navToggle.style.display = 'none'; // Hide toggle button
+          navLinks.style.display = 'flex'; // Show standard nav links
+          navPopup.classList.remove('active'); // Close popup if open
+        }
+      }
+    
+      // Event listener to check screen width on resize
+      window.addEventListener('resize', checkScreenWidth);
+    
+      // Initial check on page load
+      checkScreenWidth();
+    </script>
+    
+    
+    
+    
+    
+        <section id="about" class="bg-gray-50">
+          <div class="container py-16 max-w-7xl">
+              <div class="flex flex-col md:flex-row items-start gap-12">
+                  <!-- Logo container -->
+                  <div class="w-full md:w-1/3 flex justify-center">
+                    <img src="images/problem-solving/TPSA_logo.svg" alt="TPSA Logo" class="w-80">
+                  </div>
+                  
+                  <!-- Text content container -->
+                  <div class="w-full md:w-2/3 flex flex-col">
+                      <h2 class="text-3xl font-bold mb-6">About Us</h2>
+                      <p class="text-lg leading-relaxed mb-8">
+                          The Problem Solving Association is a non-profit organisation dedicated to improving 
+                          public services through the application of mathematics and technology. Our team of 
+                          experts works tirelessly to develop innovative solutions for complex societal 
+                          challenges. Through our commitment to open-source development and transparent 
+                          methodology, we aim to create lasting positive change in electoral systems, 
+                          crisis management, and educational access.
+                      </p>
+                      <div class="flex justify-center">
+                      <a href="#projects" class="bg-[#32e875] text-white px-8 py-3 rounded inline-block w-fit hover:bg-[#2bc764] transition-colors justify-center">
+                          Learn More
+                      </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+        <section id="projects">
+            <div class="container">
+              <h2 class="text-3xl font-bold mb-6">Our Projects</h2>
+
+
+                         <div class="project-item">
+              <h3 class="text-2xl font-bold mb-6">Public Payments Tracker: Ireland's Comprehensive Government Spending Database</h3>
+              <p class="text-lg leading-relaxed mb-8">
+                Public procurement generates vast amounts of transactional data, but this information remains fragmented across departments, agencies, and reporting systems. The Public Payments Tracker consolidates this distributed data into a unified analytical framework, aggregating records from over 190 state entities covering €78.5 billion across 400,000+ transactions.
+              </p>
+              <p class="text-lg leading-relaxed mb-8">
+                The system addresses a fundamental data infrastructure problem: individual agencies publish payment records in inconsistent formats with varying levels of detail, making cross-government analysis practically impossible. By building data pipelines to extract, clean, and standardise these records, we've created a comprehensive view of state expenditure flows accessible to researchers, journalists, policymakers, and citizens alike. The consolidated database tracks payment recipients, contract purposes, amounts, and originating entities - revealing spending concentration patterns, supplier market structure, and variations in reporting practices across the public sector. This visibility into how resources flow through the system enables evidence-based analysis of procurement efficiency, market concentration dynamics, and the evolving boundaries between direct state capacity and contracted services.
+              </p>
+               <div class="flex justify-center mt-6">
+    <a 
+      href="https://lookerstudio.google.com/u/1/reporting/75264647-4a9c-4f49-8bf7-e588bac58d84/page/p_48bq3umf5c" 
+      target="_blank"
+      rel="noopener noreferrer"
+      class="bg-[#32e875] text-white px-8 py-3 rounded inline-block hover:bg-[#2bc764] transition-colors text-lg font-semibold"
+    >
+      View Interactive Dashboard
+    </a>
+  </div>
+              <div id="procurement-slideshow"></div>
+              
+            </div> 
+              
+                <div class="project-item">
+                <div class="flex flex-col md:flex-row gap-8">
+                  <div class="w-full md:w-1/3 mt-8">
+                    <img src="images/problem-solving/praxis.svg" alt="PRAXIS design" class="w-full h-auto rounded-lg"/>
+                  </div>
+                  <div class="flex-1">
+                  <h3 class="text-2xl font-bold mb-6"><b>PRAXIS:</b> Infrastructure </h3>
+                      <p class="text-lg leading-relaxed mb-8">
+                    The decisions on where to place high voltage stations to serve communities for the next fifty years could save taxpayers millions if done correctly. However, traditional demographic forecasting struggles with the complexity and uncertainty of population dynamics. PRAXIS applies theoretical physics principles to this challenge, treating population patterns as a complex system exhibiting power laws and collective behavior.</p>
+                  <p class="text-lg leading-relaxed mb-8">
+                    We're building a collaborator network including EirGrid, the Central Statistics Office, and the Irish Centre for High End Computing to develop stochastic forecasting models that provide probabilistic population projections with quantified confidence intervals. These forecasts integrate directly with network optimisation algorithms, enabling infrastructure planning that accounts for demographic uncertainty while balancing economic efficiency, system resilience, and social equity. By bridging mathematical theory with practical policy implementation, we're ensuring Ireland's infrastructure investments serve communities effectively for generations to come.
+                  </p>
+                  </div>
+                  
+              </div>
+                </div>
+
+
+
+
+
+  
+
+
+              <div class="project-item">
+                <div class="flex flex-col md:flex-row gap-8">
+                  <div class="w-full md:w-1/3 mt-8">
+                    <img src="images/problem-solving/Electoral_Boundaries.png" alt="Electoral Boundaries Example" class="w-full h-auto rounded-lg"/>
+                  </div>
+                  <div class="flex-1">
+                      <h3 class="text-2xl font-bold mb-6"> <b>COTHROM:</b> Algorithm-Based, Provably Fair Electoral Redistricting</h3>
+                      <p class="text-lg leading-relaxed mb-8">We have developed an algorithm for electoral redistricting in Ireland based on a physics model used for condensed matter systems (the Potts model). 
+                        Constitutional objectives are encoded into an “energy” description, where we then
+                        using advanced numerical techniques to find optimal electoral boundary configurations. This first-principles method processes in minutes what takes a year by hand. This approach can explore vastly more boundary configurations than a human could.
+                        With this transparent, lean algorithm for redistricting, we can offer quantifiable, consistent, auditable application of constitutional objectives. We are adamant on eliminating any potential for gerrymandering.
+                        Providing aim to provide the public the means to verify the boundaries. All the while, we retain the ability to incorporate key inter-community relationships and population projections.</p>
+                  </div>
+                  
+              </div>
+              </div>
+                <div class="project-item">
+                    <div class="flex flex-col md:flex-row gap-8">
+                      <div class="flex-1">
+                          <h3 class="text-2xl font-bold mb-6">Introduction to AI for Charities</h3>
+                          <p class="text-lg leading-relaxed mb-8">Charities are a valuable stakeholder in ensuring rule of law and social justice values are embedded in the AI policy-making process. Our introductory 
+                            session informs and empowers charities to actively take part in policy discussions advocating for the values they espouse and the groups they represent. 
+                            The session introduces deep learning models with special emphasis on large language models, the EU AI Act and relevant EU and Irish authorities, 
+                            the risks AI can pose, and the benefits charities themselves can derive from ethical AI use - with particular emphasis on grant writing.</p>
+                      </div>
+                      <div class="w-full md:w-1/3 mt-8">
+                          <img src="images/problem-solving/AI_For_Charities.svg" alt="AI for Charities" class="w-full h-auto rounded-lg"/>
+                      </div>
+                  </div>
+                </div>
+                <div class="project-item">
+                  <div class="flex flex-col md:flex-row gap-8">
+                    <div class="w-full md:w-1/3 mt-8">
+                      <img src='images/problem-solving/Political_Advert.png' alt="Political Advertising Compliance" class="w-full h-auto rounded-lg"/>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-6">Tracking Political Advertising Compliance</h3>
+                        <p class="text-lg leading-relaxed mb-8">The tensions that arise in a paradigm of both 'transparency' and 'self-regulation' require independent verifications of compliance to take place. This project assesses the extent to which the spend figures, disclaimers, and sources of funds for online political advertising are compliant with existing regulation, and identifies gaps in existing regulation practice.</p>
+                    </div>
+                    
+                </div>
+              </div>
+                <div id="ecnetica" class="project-item">
+                    <h3 class="text-2xl font-bold mb-6">The Ecnetica Project</h3>
+                    <p class="text-lg leading-relaxed mb-8">The Ecnetica project exists to induce a paradigm shift in Irish education by tearing down the barriers
+                      that have turned advanced mathematical understanding into a privilege rather than a right. Through
+                      cutting-edge animations, expert instruction, and freely accessible content, we’re dismantling the pay-to-
+                      win culture of private tuition while simultaneously raising the standard of mathematics education across
+                      the nation.</p>
+    
+                    <p class="text-lg leading-relaxed mb-8">Our mission transcends exam preparation – we aim to ignite a deep, intuitive understanding of mathematics that will empower the next generation of Irish problem solvers. We’re building a future where
+                      understanding of Higher Level mathematics is democratised, where every student can develop the
+                      quantitative reasoning skills needed to tackle tomorrow’s challenges, and where Ireland’s tradition of
+                      academic excellence is accessible to all. This is mathematics education reimagined: comprehensive,
+                      inspired, and absolutely free</p>
+                   <div id="ecnetica-slideshow"></div> 
+                </div>
+            </div>
+        </section>
+        <!-- <a href="https://ibb.co/Hh6h00p"><img src="https://i.ibb.co/Hh6h00p/Lightboard-Animation.png" alt="Lightboard-Animation" border="0"></a> <a href="https://ibb.co/F5MzH9Y"><img src="https://i.ibb.co/F5MzH9Y/Political-Advert.png" alt="Political-Advert" border="0"></a> -->
+        
+        <!---
+        <section id="papers">
+            <div class="container">
+                <h2>Our Research Papers</h2>
+                <div class="paper-item">
+                    <h3>Optimizing Electoral District Boundaries: A Mathematical Approach</h3>
+                    <p>Authors: Smith, J., Johnson, L., Williams, R.</p>
+                    <a href="#" class="button">Download PDF</a>
+                </div>
+                <div class="paper-item">
+                    <h3>Population Density Modeling for Efficient Emergency Response</h3>
+                    <p>Authors: Brown, A., Davis, M., Miller, S.</p>
+                    <a href="#" class="button">Download PDF</a>
+                </div>
+            </div>
+        </section>-->
+    
+    
+        <section id="team">
+            <div class="container">
+                <h2 class="text-3xl font-bold mb-6">The Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="images/problem-solving/michael.jpg" alt="Michael">
+                        <h3 class="text-2xl font-bold mb-6">Michael Mitchell</h3>
+                        <p class="text-1xl font-bold mb-6">Director and CEO</p>
+                        <p class="text-md leading-relaxed mb-6">Michael uses his expertise in a broad range of topics from theoretical and computational physics to deep learning to conceptualise, coordinate, and personally work on each of our projects.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/problem-solving/cas.jpg" alt="Cas">
+                        <h3 class="text-2xl font-bold mb-6">Casey-Farren Colloty</h3>
+                        <p class="text-1xl font-bold mb-6">Director and COO</p>
+                        <p class="text-md leading-relaxed mb-6">Coming from a theoretical physics background, alongside project involvement, Casey coordinates with our sister organisation, the Theoretical Physics Student Association.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/problem-solving/jen.jpg" alt="Jen">
+                        <h3 class="text-2xl font-bold mb-6">Jennifer Waters</h3>
+                        <p class="text-1xl font-bold mb-6">Humanities Lead</p>
+                        <p class="text-md leading-relaxed mb-6">Jennifer's main research interests include AI implementation strategies and the impact of AI on the democratic and legal tenets of rule of law.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/problem-solving/may.jpg" alt="May">
+                        <h3 class="text-2xl font-bold mb-6">May Taylor</h3>
+                        <p class="text-1xl font-bold mb-6">Chief Administrator</p>
+                        <p class="text-md leading-relaxed mb-6">May is a theoretical physics graduate with an affinity for communication owing to her time spent in the digital publications sphere. </p>
+                    </div>
+                    <div class="team-member">
+                        <img src="images/problem-solving/brendan.jpg" alt="Brendan">
+                        <h3 class="text-2xl font-bold mb-6">Brendan Tuohy</h3>
+                        <p class="text-1xl font-bold mb-6">Advisor to the Board</p>
+                        <p class="text-md leading-relaxed mb-6">Brendan qualified as a civil engineer (in UCC) and  spent thirty years as a public servant. He is currently Chair of the Board of EirGrid.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="bg-gray-50">
+                  <div class="container py-16 max-w-7xl">
+                      <div class="flex flex-col md:flex-row items-start gap-12">
+                          <!-- Logo container -->
+                          <div class="w-full md:w-1/3 flex justify-center">
+                            <img src="images/problem-solving/TPSA_logo.svg" alt="TPSA Logo" class="w-80">
+                          </div>
+                  <!-- Contact information container -->
+                  <div class="w-full md:w-2/3 flex flex-col">
+                      <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+
+                      <div class="space-y-6 mb-8">
+                        <p class="text-lg leading-relaxed text-gray-700">
+                         If you'd like to collaborate on any of our projects please reach out to any of the following.
+                        </p>
+                          <div>
+                              <a href="mailto:problemsolving@tpsa.ie"
+                                 class="inline-flex items-center space-x-2 text-lg text-[#7b2cbf] hover:text-[#32e875] transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                </svg>                          
+                    
+                                  <span>problemsolving@tpsa.ie</span>
+                              </a>
+                          </div>
+                          
+                          <div>
+                              <a href="https://ie.linkedin.com/company/the-problem-solving-association" target="_blank" rel="noopener noreferrer" 
+                                 class="inline-flex items-center space-x-2 text-lg text-[#7b2cbf] hover:text-[#32e875] transition-colors">
+                                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                  </svg>
+                                  <span>LinkedIn</span>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+    
+        <footer>
+            <p>&copy; 2025 The Problem Solving Association. All rights reserved.</p>
+        </footer>
+        <hosted>
+          <div style="display: flex;flex-direction: row;justify-content: center;align-items: center;text-align: center;background-color: #32e875;">
+            <p style="font-weight: bold;font-size:18px ;">Hosted by:</p>
+            <a href="https://www.blacknight.com/" target="_blank" rel="noopener noreferrer">
+                <img style="  width: 150px;height: auto;padding-left: 1vw;" src="images/blacknight.png" alt="Blacknight">
+            </a>
+          </div>
+        </hosted>
+    
+        <script>
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+    
+      <div id="root"></div>
+      <script type="text/babel">
+        const { useEffect, useRef } = React;
+    
+        const HalvorsenAttractor = () => {
+          const canvasRef = useRef(null);
+          const animationRef = useRef(null);
+          const rotationRef = useRef({ 
+            x: -146.10 * Math.PI / 180,
+            y: -46.41 * Math.PI / 180,
+            z: 0 
+          });
+          const isDraggingRef = useRef(false);
+          const previousMousePositionRef = useRef({ x: 0, y: 0 });
+          const pointsRef = useRef(null);
+          const minZRef = useRef(Infinity);
+          const maxZRef = useRef(-Infinity);
+    
+          const params = {
+            a: 1.89,
+            dt: 0.005
+          };
+    
+          const initializePoints = () => {
+            const viewAngleX = -146.10 * Math.PI / 180;
+            const viewAngleY = -46.41 * Math.PI / 180;
+            
+            const points = [];
+            const gridSize = 20;
+            const spacing = 0.1;
+            
+            for (let i = -gridSize; i <= gridSize; i++) {
+              for (let j = -gridSize; j <= gridSize; j++) {
+                const x = i * spacing;
+                const y = j * spacing;
+                const z = (Math.random() - 0.5) * 0.01;
+                
+                points.push({
+                  x: x * Math.cos(viewAngleY) - z * Math.sin(viewAngleY),
+                  y: y,
+                  z: x * Math.sin(viewAngleY) + z * Math.cos(viewAngleY)
+                });
+              }
+            }
+            
+            return points;
+          };
+    
+          const rotatePoint = (point) => {
+            const rotation = rotationRef.current;
+            let x = point.x;
+            let y = point.y;
+            let z = point.z;
+    
+            let tempX = x * Math.cos(rotation.z) - y * Math.sin(rotation.z);
+            let tempY = x * Math.sin(rotation.z) + y * Math.cos(rotation.z);
+            x = tempX;
+            y = tempY;
+    
+            tempX = x * Math.cos(rotation.y) + z * Math.sin(rotation.y);
+            let tempZ = -x * Math.sin(rotation.y) + z * Math.cos(rotation.y);
+            x = tempX;
+            z = tempZ;
+    
+            tempY = y * Math.cos(rotation.x) - z * Math.sin(rotation.x);
+            tempZ = y * Math.sin(rotation.x) + z * Math.cos(rotation.x);
+            y = tempY;
+            z = tempZ;
+    
+            return { x, y, z };
+          };
+    
+          const getColor = (z) => {
+            minZRef.current = Math.min(minZRef.current, z);
+            maxZRef.current = Math.max(maxZRef.current, z);
+            
+            const normalizedZ = (z - minZRef.current) / (maxZRef.current - minZRef.current || 1);
+            
+            const colors = [
+              { h: 315, s: 100, l: 65 },  // pink-purple
+              { h: 280, s: 100, l: 50 },  // purple
+              { h: 240, s: 100, l: 50 },  // blue
+              { h: 180, s: 100, l: 50 },  // cyan
+              { h: 120, s: 100, l: 50 }   // green
+            ];
+            
+            const numSegments = colors.length - 1;
+            const segment = Math.min(Math.floor(normalizedZ * numSegments), numSegments - 1);
+            const segmentProgress = (normalizedZ * numSegments) % 1;
+            
+            const color1 = colors[segment];
+            const color2 = colors[segment + 1];
+            
+            const h = color1.h + (color2.h - color1.h) * segmentProgress;
+            const s = color1.s + (color2.s - color1.s) * segmentProgress;
+            const l = color1.l + (color2.l - color1.l) * segmentProgress;
+            
+            return 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.65)';
+
+          };
+    
+          const drawPoint = (ctx, point, scale, offsetX, offsetY) => {
+            const rotated = rotatePoint(point);
+            const projX = rotated.x * (scale*1.7) + offsetX;
+            const projY = rotated.y * (scale*1.7) + offsetY;
+            
+            ctx.fillStyle = getColor(rotated.z);
+            ctx.beginPath();
+            ctx.arc(projX, projY, 2, 0, Math.PI * 2);
+            ctx.fill();
+          };
+    
+          const updatePoint = (point) => {
+            const dx = (-params.a * point.x - 4 * point.y - 4 * point.z - point.y * point.y) * params.dt;
+            const dy = (-params.a * point.y - 4 * point.z - 4 * point.x - point.z * point.z) * params.dt;
+            const dz = (-params.a * point.z - 4 * point.x - 4 * point.y - point.x * point.x) * params.dt;
+            
+            point.x += dx;
+            point.y += dy;
+            point.z += dz;
+          };
+    
+          const animate = () => {
+            const canvas = canvasRef.current;
+            const ctx = canvas.getContext('2d');
+            const scale = 10;
+            const offsetX = canvas.width / 2;
+            const offsetY = canvas.height / 2;
+            
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            pointsRef.current.forEach((point) => {
+              updatePoint(point);
+              drawPoint(ctx, point, scale, offsetX, offsetY);
+            });
+            
+            animationRef.current = requestAnimationFrame(animate);
+          };
+    
+          useEffect(() => {
+            const canvas = canvasRef.current;
+            pointsRef.current = initializePoints();
+    
+            const handleMouseDown = (e) => {
+              isDraggingRef.current = true;
+              previousMousePositionRef.current = {
+                x: e.clientX,
+                y: e.clientY
+              };
+            };
+    
+            const handleMouseMove = (e) => {
+              if (isDraggingRef.current) {
+                const deltaX = e.clientX - previousMousePositionRef.current.x;
+                const deltaY = e.clientY - previousMousePositionRef.current.y;
+    
+                rotationRef.current.y += deltaX * 0.01;
+                rotationRef.current.x += deltaY * 0.01;
+    
+                previousMousePositionRef.current = {
+                  x: e.clientX,
+                  y: e.clientY
+                };
+              }
+            };
+    
+            const handleMouseUp = () => {
+              isDraggingRef.current = false;
+            };
+    
+            const handleMouseLeave = () => {
+              isDraggingRef.current = false;
+            };
+    
+            canvas.addEventListener('mousedown', handleMouseDown);
+            canvas.addEventListener('mousemove', handleMouseMove);
+            canvas.addEventListener('mouseup', handleMouseUp);
+            canvas.addEventListener('mouseleave', handleMouseLeave);
+    
+            animate();
+    
+            return () => {
+              cancelAnimationFrame(animationRef.current);
+              canvas.removeEventListener('mousedown', handleMouseDown);
+              canvas.removeEventListener('mousemove', handleMouseMove);
+              canvas.removeEventListener('mouseup', handleMouseUp);
+              canvas.removeEventListener('mouseleave', handleMouseLeave);
+            };
+          }, []);
+    
+          useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 480);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    
+          return (
+            <div className="relative w-fit" style={{
+       margin: window.innerWidth <= 480 ? "0 auto" : "initial"
+    }}>
+                        <canvas
+                            ref={canvasRef}
+                            width={500}    // Slightly smaller width
+                            height={500}   // Made square and larger height
+                            className="no-border bg-black cursor-move"
+                            style={{
+                                width: '45vw',
+                                height: '45vw',
+                                aspectRatio: '1',
+                            }}
+                        />
+                        <div className="absolute top-[30%] bottom-[30%] right-0 px-2 py-4 bg-black bg-opacity-50 flex items-center" 
+                          style={{
+                              flexDirection: window.innerWidth <= 480 ? "row" : "column",
+                              position: window.innerWidth <= 480 ? "static" : "absolute",
+                              marginTop: window.innerWidth <= 480 ? "20px" : "0",
+                              width: window.innerWidth <= 480 ? "70%" : "auto",
+                              marginLeft: window.innerWidth <= 480 ? "auto" : "0",
+                              marginRight: window.innerWidth <= 480 ? "auto" : "0"
+                          }}>
+                          <input
+        type="range"
+        id="a"
+        min="1.5"
+        max="5"
+        step="0.01"
+        defaultValue={params.a}
+        style={{
+            accentColor: '#32e875',
+            // Remove writing-mode
+            // Use transform for vertical orientation on desktop
+            transform: window.innerWidth <= 480 ? "none" : "rotate(270deg)",
+            width: window.innerWidth <= 480 ? "100%" : "250px", // Explicit width for desktop
+            height: window.innerWidth <= 480 ? "1rem" : "auto",
+            // Add some margin to account for rotation space
+            margin: window.innerWidth <= 480 ? "0" : "100px -100px"
+        }}
+        className="[&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-2 [&::-moz-range-thumb]:w-2 [&::-moz-range-thumb]:h-2"
+        onChange={(e) => {
+            params.a = parseFloat(e.target.value);
+        }}
+    />
+                      </div>
+                    </div>
+                );
+        };
+    
+        const root = ReactDOM.createRoot(document.getElementById('attractor-root'));
+        root.render(<HalvorsenAttractor />);
+      </script>
+
+
+<!-- Slideshow -->
+<script type="text/babel">
+  const Slideshow = ({ images, interval = 5000 }) => {
+    const [currentIndex, setCurrentIndex] = React.useState(0);
+    const [isFullscreen, setIsFullscreen] = React.useState(false);
+    const [isMobile, setIsMobile] = React.useState(false);
+    const containerRef = React.useRef(null);
+    const timerRef = React.useRef(null);
+
+    React.useEffect(() => {
+      const checkMobile = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const startTimer = React.useCallback(() => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+      timerRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % images.length);
+      }, interval);
+    }, [images.length, interval]);
+
+    React.useEffect(() => {
+      startTimer();
+      return () => {
+        if (timerRef.current) {
+          clearInterval(timerRef.current);
+        }
+      };
+    }, [startTimer]);
+
+    React.useEffect(() => {
+      const handleFullscreenChange = () => {
+        setIsFullscreen(!!document.fullscreenElement);
+      };
+      document.addEventListener('fullscreenchange', handleFullscreenChange);
+      return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    }, []);
+
+    const goToSlide = (index) => {
+      setCurrentIndex(index);
+      startTimer();
+    };
+
+    const goToPrevious = () => {
+      setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+      startTimer();
+    };
+
+    const goToNext = () => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+      startTimer();
+    };
+
+    const toggleFullscreen = async () => {
+      if (!document.fullscreenElement) {
+        try {
+          await containerRef.current.requestFullscreen();
+        } catch (err) {
+          console.error('Error attempting to enable fullscreen:', err);
+        }
+      } else {
+        try {
+          await document.exitFullscreen();
+        } catch (err) {
+          console.error('Error attempting to exit fullscreen:', err);
+        }
+      }
+    };
+
+    const slideHeight = isMobile ? '400px' : '600px';
+
+    return (
+      <div 
+        ref={containerRef}
+        className={`slideshow-container relative w-full max-w-4xl mx-auto mt-4 mb-8 ${isFullscreen ? 'max-w-none h-screen bg-black' : ''}`}
+      >
+        <div 
+          className={`relative overflow-hidden rounded-lg border-4 border-[#7b2cbf] ${isFullscreen ? 'h-full border-0 bg-black' : 'bg-[#f5f0ff]'}`}
+          style={{ height: isFullscreen ? '100%' : slideHeight }}
+        >
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="absolute inset-0 transition-opacity duration-500 flex items-center justify-center p-4"
+              style={{ opacity: currentIndex === index ? 1 : 0 }}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="max-w-full max-h-full w-auto h-auto object-contain"
+                loading="eager"
+              />
+              {image.caption && !isMobile && (
+                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4 text-center">
+                  {image.caption}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Fullscreen Button */}
+        <button
+          onClick={toggleFullscreen}
+          className="slideshow-fullscreen-button absolute top-4 right-4 bg-[#7b2cbf] bg-opacity-80 hover:bg-opacity-100 text-white p-2 rounded transition-all z-10"
+          aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+          title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+        >
+          {isFullscreen ? (
+            <svg className={`${isMobile ? 'w-6 h-6' : 'w-5 h-5'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className={`${isMobile ? 'w-6 h-6' : 'w-5 h-5'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+            </svg>
+          )}
+        </button>
+
+        {/* Navigation Buttons */}
+        <button
+          onClick={goToPrevious}
+          className="slideshow-nav-button absolute left-4 top-1/2 -translate-y-1/2 bg-[#7b2cbf] bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full transition-all z-10"
+          aria-label="Previous slide"
+          style={{ fontSize: isMobile ? '1.5rem' : '1.25rem' }}
+        >
+          &#8249;
+        </button>
+        <button
+          onClick={goToNext}
+          className="slideshow-nav-button absolute right-4 top-1/2 -translate-y-1/2 bg-[#7b2cbf] bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full transition-all z-10"
+          aria-label="Next slide"
+          style={{ fontSize: isMobile ? '1.5rem' : '1.25rem' }}
+        >
+          &#8250;
+        </button>
+
+        {/* Dots Indicator */}
+        <div className="slideshow-dots flex justify-center gap-2 mt-4">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`slideshow-dot w-3 h-3 rounded-full transition-all ${
+                currentIndex === index ? 'bg-[#32e875] w-8 active' : 'bg-gray-400 hover:bg-gray-500'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  // Ecnetica Slideshow
+  const ecneticaImages = [
+    {
+      src: 'images/problem-solving/ecnetica_0.png',
+      alt: 'Ecnetica lightboard',
+      caption: 'Free, comprehensive resources for Irish students'
+    },
+    {
+      src: 'images/problem-solving/ecnetica_1.png',
+      alt: 'Quadratic Function Interactive',
+      caption: 'Interactive mathematics education through cutting-edge animations'
+    },
+    {
+      src: 'images/problem-solving/ecnetica_2.png',
+      alt: 'Quadratic Formula Overview',
+      caption: 'Expert instruction making Higher Level mathematics accessible to all'
+    },
+    {
+      src: 'images/problem-solving/ecnetica_3.png',
+      alt: 'Practice Problems',
+      caption: 'Consistent quizzes to develop student understanding'
+    },
+    {
+      src: 'images/problem-solving/ecnetica_4.png',
+      alt: 'Knowledge Graph',
+      caption: 'A state-of-the-art knowledge tracking algorithm to dynamically optimise student learning'
+    },
+    {
+      src: 'images/problem-solving/ecnetica_5.png',
+      alt: 'Skill Tracking',
+      caption: 'Monitoring student understanding to inform content generation'
+    }
+  ];
+
+  const ecneticaRoot = ReactDOM.createRoot(document.getElementById('ecnetica-slideshow'));
+  ecneticaRoot.render(<Slideshow images={ecneticaImages} />);
+
+  // Procurement Slideshow
+  const procurementImages = [
+    {
+      src: 'images/problem-solving/payment_tracker_1.png',
+      alt: 'Public Payments Tracker dashboard',
+      caption: 'Comprehensive view of €78.5 billion in state expenditure'
+    },
+    {
+      src: 'images/problem-solving/payment_tracker_2.png',
+      alt: 'Spending pattern analysis',
+      caption: 'Revealing concentration patterns and market structures'
+    },
+    {
+      src: 'images/problem-solving/payment_tracker_3.png',
+      alt: 'Temporal spending patterns',
+      caption: 'Tracking expenditure flows across 190+ state entities'
+    }
+  ];
+
+  const procurementRoot = ReactDOM.createRoot(document.getElementById('procurement-slideshow'));
+  procurementRoot.render(<Slideshow images={procurementImages} />);
+</script>
+  </body>
+</html>

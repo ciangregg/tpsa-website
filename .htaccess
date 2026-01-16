@@ -1,0 +1,30 @@
+RewriteEngine On
+
+# Redirect problemsolving to problem-solving
+RewriteRule ^problemsolving$ /problem-solving [R=301,L]
+
+# Redirect project to calendar
+RewriteRule ^projects$ /calendar [R=301,L]
+
+# Redirect homepage to student
+RewriteRule ^homepage$ /student [R=301,L]
+
+#Redirect internship to internships
+RewriteRule ^internship$ /internships [R=301,L]
+
+# Redirects for sign up
+RewriteRule ^signup$ /sign-up [R=301,L]
+RewriteRule ^sign-ups$ /sign-up [R=301,L]
+RewriteRule ^signups$ /sign-up [R=301,L]
+
+# Redirect both hackathon/s and workshop/s to hackathons
+RewriteRule ^hackathon$ /hackathons [R=301,L]
+RewriteRule ^workshop$ /hackathons [R=301,L]
+RewriteRule ^workshops$ /hackathons [R=301,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^.]+)$ $1.html [L]
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1? [NC,L,R=301]

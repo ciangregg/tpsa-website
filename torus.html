@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TPSA</title>
+ <link rel="icon" type="image/x-icon" href="images/logo.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="tpsa.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css">
+</head>
+<body>
+
+<!--navbar-->
+
+<div class="navbar">
+  <li><a href="student.html">Home</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Events</a>
+    <div class="dropdown-content">
+      <a href="calendar.html">Calendar</a>
+      <a href="talks.html">Talks</a>
+      <a href="plancks.html">Plancks</a>
+      <a href="hackathons.html">Hackathons & Workshops</a>
+      <a href="qiskit.html">Qiskit Fall Fest 2025</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Resources</a>
+    <div class="dropdown-content">
+      <a href="lecture-series.html">Lecture Series</a>      
+      <a href="internships.html">Internships</a>
+      <a style="color: #bbbbbb" href="#" onclick="showPopup('Module Options', 'Coming soon! We\'re developing a comprehensive guide to help theoretical physics students navigate module choices, prerequisites, and fourth year options.')">Modules</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">About Us</a>
+    <div class="dropdown-content dropdown-content-cut">
+      <a href="sign-up.html">Sign Up</a>
+      <a href="constitution.html"
+      >Our Constitution</a>
+      <a href="history.html">History</a>
+      <a style="color: #bbbbbb;" href="#" onclick="showPopup('The Non-Profit', 'This section is currently under development. Our sister non-profit organisation, <a href=&quot;problem-solving.html&quot; style=&quot;color: #597bb0; text-decoration: underline;&quot;>The Problem Solving Association CLG</a>, focuses on applying theoretical physics skills for societal benefit. Check back soon for more details on our joint efforts together!')">The Non-Profit</a>
+      <a href="committee.html">Committee</a>
+    </div>
+  </li>
+</div>
+
+<!-- Popup Modal -->
+<div id="popup" class="popup-overlay" onclick="closePopup()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2 id="popup-title" class="popup-title"></h2>
+    <p id="popup-message" class="popup-message"></p>
+  </div>
+</div>
+
+<script src="tpsa.js"></script>
+<body>
+<style>
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.current-player {
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.player-indicator {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 3px solid #2d232e;
+}
+
+.player1 {
+  background: linear-gradient(135deg, var(--tpsa-blue-hover), var(--tpsa-blue));
+  color: white;
+}
+
+.player2 {
+  background: linear-gradient(135deg, var(--problem-solving-green), #4a6b9e);
+  color: #2d232e;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  background: #2d232e;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.cell {
+  aspect-ratio: 1;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
+  border: 2px solid transparent;
+  min-height: 60px;
+}
+
+.cell:hover:not(.occupied) {
+  background: #f7f7f2;
+  transform: scale(1.05);
+  border-color: var(--tpsa-blue);
+}
+
+.cell.occupied {
+  cursor: not-allowed;
+}
+
+.cell.player1 {
+  background: linear-gradient(135deg, var(--tpsa-blue-hover), var(--tpsa-blue));
+  color: white;
+  border-color: #4a6b9e;
+}
+
+.cell.player2 {
+  background: linear-gradient(135deg, var(--problem-solving-green), #055f26);
+  color: #2d232e;
+  border-color: var(--tpsa-blue);
+}
+
+.cell.winning {
+  animation: pulse 1s infinite;
+  box-shadow: 0 0 20px var(--tpsa-blue);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.game-status {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  min-height: 2rem;
+}
+
+.winner {
+  color: var(--tpsa-blue);
+  animation: celebrate 0.5s ease-in-out;
+}
+
+@keyframes celebrate {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 650px) {
+  .game-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .cell {
+    font-size: 1.5rem;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 450px) {
+  .game-board {
+    gap: 4px;
+    padding: 8px;
+  }
+  
+  .cell {
+    min-height: 35px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .game-board {
+    gap: 2px;
+    padding: 5px;
+  }
+  
+  .cell {
+    min-height: 30px;
+    font-size: 1rem;
+  }
+}
+
+.torus-container {
+  /*width: 100%;
+  height: 100vh;*/
+  background: var(--dropdown-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.no-border {
+  border: none;
+  outline: none;
+}
+
+.cursor-move {
+  cursor: move;
+}
+
+</style>
+
+<div class="text-image-box blue-shadow flex-col center-flex" style="max-width: 1200px; margin: 2vw auto; border-radius: 2vw">
+  <div class="text-heading-box">
+    <h1 class="blue-center">Tick-Tack-Torus</h1>
+    <h4 class="grey-center">by Casey Farren-Colloty</h4>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!--<script src="https://cdn.tailwindcss.com"></script>-->
+    
+    <div style="background-color: var(--dropdown-grey); border-radius: 2vw; width: 100%; box-sizing: border-box;">
+        <div id="root"></div>
+        <script src="torus.js" type="text/babel"></script>
+
+        <p style="word-break: break-word; padding: 20px">
+        This game was written by Casey Farren-Colloty our former Auditor and current Seminar Director. It's a game born from his experiences at his internship at Oxford. 
+        Check out his 
+        <a href="https://farrencc.github.io/" target="_blank" rel="noopener noreferrer" style="color: #597bb0;">
+        site</a> for more of his projects.
+        </p>
+        <!--<p style="word-break: break-word;">
+            <strong>How to Play:</strong> Get four pieces in a row to win, just like Connect 4! But we've joined the board's edges, creating a wrap-around torus topology, and there is now no gravity - you can place pieces anywhere.
+        </p>-->
+        <div class="flex-col center-flex">
+            <button class="button" onclick="toggleRules()">How to Play</button>
+            <div id="rulesContent" style="display: none;margin-top: 2vw;"> 
+                <p>Get four pieces in a row to win, just like Connect 4! But we've joined the board's edges, creating a wrap-around torus topology, and there is now no gravity - you can place pieces anywhere.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-info">
+      <div class="current-player">
+        <span>Current Player:</span>
+        <div class="player-indicator player1" id="playerIndicator">×</div>
+        <span id="playerName">Player 1 (×)</span>
+      </div>
+      <button class="button bs" onclick="resetGame()">New Game</button>
+    </div>
+
+    <div class="game-status" id="gameStatus"></div>
+
+    <div class="game-board" id="gameBoard"></div>
+    
+    <div style="padding-top: 2vw;">
+      <p class="footer-text text-center" style="color: black;">
+        &copy; 2025 Casey Farren-Colloty. All rights reserved.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+class Connect4Torus {
+  constructor() {
+    this.rows = 6;
+    this.cols = 7;
+    this.board = Array(this.rows).fill().map(() => Array(this.cols).fill(0));
+    this.currentPlayer = 1; // 1 for X, 2 for O
+    this.gameOver = false;
+    this.winner = null;
+    this.winningCells = [];
+    this.initializeBoard();
+  }
+
+  initializeBoard() {
+    const gameBoard = document.getElementById('gameBoard');
+    gameBoard.innerHTML = '';
+    
+    for (let row = 0; row < this.rows; row++) {
+      for (let col = 0; col < this.cols; col++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.dataset.row = row;
+        cell.dataset.col = col;
+        cell.addEventListener('click', () => this.handleCellClick(row, col));
+        gameBoard.appendChild(cell);
+      }
+    }
+    this.updateDisplay();
+  }
+
+  handleCellClick(row, col) {
+    if (this.gameOver || this.board[row][col] !== 0) {
+      return;
+    }
+
+    this.board[row][col] = this.currentPlayer;
+    
+    if (this.checkWin(row, col)) {
+      this.gameOver = true;
+      this.winner = this.currentPlayer;
+    } else if (this.isBoardFull()) {
+      this.gameOver = true;
+      this.winner = 0; // Tie
+    } else {
+      this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
+    }
+
+    this.updateDisplay();
+  }
+
+  checkWin(row, col) {
+    const player = this.board[row][col];
+    
+    // Check all 4 directions
+    const directions = [
+      [0, 1],  // horizontal
+      [1, 0],  // vertical
+      [1, 1],  // diagonal /
+      [1, -1]  // diagonal \
+    ];
+
+    for (let [dr, dc] of directions) {
+      const winningCells = this.checkDirection(row, col, dr, dc, player);
+      if (winningCells.length >= 4) {
+        this.winningCells = winningCells;
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  checkDirection(startRow, startCol, dr, dc, player) {
+    let cells = [{row: startRow, col: startCol}]; // Include the current piece
+    
+    // Check forward direction
+    for (let i = 1; i < 4; i++) {
+      const newRow = (startRow + i * dr + this.rows) % this.rows;
+      const newCol = (startCol + i * dc + this.cols) % this.cols;
+      
+      if (this.board[newRow][newCol] === player) {
+        cells.push({row: newRow, col: newCol});
+      } else {
+        break;
+      }
+    }
+    
+    // Check backward direction
+    for (let i = 1; i < 4; i++) {
+      const newRow = (startRow - i * dr + this.rows) % this.rows;
+      const newCol = (startCol - i * dc + this.cols) % this.cols;
+      
+      if (this.board[newRow][newCol] === player) {
+        cells.unshift({row: newRow, col: newCol});
+      } else {
+        break;
+      }
+    }
+    
+    return cells;
+  }
+
+  isBoardFull() {
+    return this.board.every(row => row.every(cell => cell !== 0));
+  }
+
+  updateDisplay() {
+    // Update board display
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+      const row = parseInt(cell.dataset.row);
+      const col = parseInt(cell.dataset.col);
+      const value = this.board[row][col];
+      
+      cell.className = 'cell';
+      if (value === 1) {
+        cell.className += ' player1 occupied';
+        cell.textContent = '×';
+      } else if (value === 2) {
+        cell.className += ' player2 occupied';
+        cell.textContent = '○';
+      } else {
+        cell.textContent = '';
+      }
+
+      // Highlight winning cells
+      if (this.winningCells.some(winCell => winCell.row === row && winCell.col === col)) {
+        cell.className += ' winning';
+      }
+    });
+
+    // Update player indicator
+    const playerIndicator = document.getElementById('playerIndicator');
+    const playerName = document.getElementById('playerName');
+    const gameStatus = document.getElementById('gameStatus');
+
+    if (this.gameOver) {
+      if (this.winner === 0) {
+        gameStatus.textContent = "It's a tie!";
+        gameStatus.className = 'game-status';
+      } else {
+        const winnerName = this.winner === 1 ? 'Player 1 (×)' : 'Player 2 (○)';
+        gameStatus.textContent = `🎉 ${winnerName} Wins! 🎉`;
+        gameStatus.className = 'game-status winner';
+      }
+    } else {
+      gameStatus.textContent = '';
+      gameStatus.className = 'game-status';
+      
+      if (this.currentPlayer === 1) {
+        playerIndicator.className = 'player-indicator player1';
+        playerIndicator.textContent = '×';
+        playerName.textContent = 'Player 1 (×)';
+      } else {
+        playerIndicator.className = 'player-indicator player2';
+        playerIndicator.textContent = '○';
+        playerName.textContent = 'Player 2 (○)';
+      }
+    }
+  }
+}
+
+// Global game instance
+let game = new Connect4Torus();
+
+function resetGame() {
+  game = new Connect4Torus();
+}
+
+// Initialize the game when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  game = new Connect4Torus();
+});
+
+function toggleRules() {
+  const rulesContent = document.getElementById('rulesContent');
+  if (rulesContent.style.display === 'none' || rulesContent.style.display === '') {
+    rulesContent.style.display = 'block';
+  } else {
+    rulesContent.style.display = 'none';
+  }
+}
+</script>
+
+</body><!--footer-->
+<div class="blue-back">
+  <div class="footer flex-col center-flex">
+    <div class="footer-content flex-row center-flex">
+        <a href="index.html">
+          <img class="shakin bottom-tpsa-logo" src="images/logo.png">
+        </a>
+        <p class="footer-tpsa-text">Theoretical Physics<br>
+          Student Association
+        </p>
+        <a class="social-media-logos"  href="https://www.instagram.com/tpsa_ireland/" target="_blank" rel="noopener noreferrer">
+          <img src="images/footer/instagram.png" width="20" height="20">
+        </a>
+        <a class="social-media-logos" href="https://www.youtube.com/channel/UCAhMHA7C3mo0MaASsM4Nweg" target="_blank" rel="noopener noreferrer">
+          <img src="images/footer/yt.png" width="30" height="30">
+        </a>
+        <a class="social-media-logos"  href="https://ie.linkedin.com/company/theoretical-physics-student-association" target="_blank"
+          rel="noopener noreferrer">
+          <img src="images/footer/in.png" width="20" height="20">
+        </a>
+    </div>
+    <div class="footer-content flex-row center-flex" >
+        <p class="footer-text address">School of Mathematics,<br>
+          17 Westland Row,<br>
+          Trinity College Dublin<br><br>
+          <a style="color: white;" href="mailto:student@tpsa.ie">student@tpsa.ie</a> 
+        </p>
+        <iframe class="map" frameborder="0" scrolling="no"
+          src="https://maps.google.com/maps?width=720&amp;height=600&amp;hl=en&amp;q=School%20of%20Mathematics%2017%20Westland%20Row%20Trinity%20College%20Dublin%20Dublin%202%20Ireland+(School%20of%20Mathematics)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/collections/sports-gps/">Football GPS</a>
+        </iframe>
+    </div>
+  </div>
+  <div class="footer flex-col center-flex" style="margin-top: 0px;margin-bottom: 0px;">
+      <div class="text-center">
+          <a href="https://www.iop.org/" target="_blank" rel="noopener noreferrer">
+              <img class="image-iop" src="images/iop.png" alt="Institute of Physics Logo">
+          </a>
+      </div>
+  </div>
+  <div class="footer flex-col center-flex" style="margin-top: 0px;">
+      <div class="text-center flex-row center-flex">
+          <p class="hosted-text">Hosted by:</p>
+          <a href="https://www.blacknight.com/" target="_blank" rel="noopener noreferrer">
+              <img class="image-bt" src="images/blacknight.png" alt="Blacknight">
+          </a>
+      </div>
+    </div>
+
+    <div style="padding: 2vw;">
+      <p class="footer-text text-center">
+        &copy; 2025 Theoretical Physics Student Association of Ireland . All rights reserved.
+      </p>
+    </div>
+</div>
+</html> 

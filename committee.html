@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TPSA</title>
+ <link rel="icon" type="image/x-icon" href="images/logo.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="tpsa.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css">
+</head>
+<body>
+
+<!--navbar-->
+
+<div class="navbar">
+  <li><a href="student.html">Home</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Events</a>
+    <div class="dropdown-content">
+      <a href="calendar.html">Calendar</a>
+      <a href="talks.html">Talks</a>
+      <a href="plancks.html">Plancks</a>
+      <a href="hackathons.html">Hackathons & Workshops</a>
+      <a href="qiskit.html">Qiskit Fall Fest 2025</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Resources</a>
+    <div class="dropdown-content">
+      <a href="lecture-series.html">Lecture Series</a>      
+      <a href="internships.html">Internships</a>
+      <a style="color: #bbbbbb" href="#" onclick="showPopup('Module Options', 'Coming soon! We\'re developing a comprehensive guide to help theoretical physics students navigate module choices, prerequisites, and fourth year options.')">Modules</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">About Us</a>
+    <div class="dropdown-content dropdown-content-cut">
+      <a href="sign-up.html">Sign Up</a>
+      <a href="constitution.html"
+      >Our Constitution</a>
+      <a href="history.html">History</a>
+      <a style="color: #bbbbbb;" href="#" onclick="showPopup('The Non-Profit', 'This section is currently under development. Our sister non-profit organisation, <a href=&quot;problem-solving.html&quot; style=&quot;color: #597bb0; text-decoration: underline;&quot;>The Problem Solving Association CLG</a>, focuses on applying theoretical physics skills for societal benefit. Check back soon for more details on our joint efforts together!')">The Non-Profit</a>
+      <a href="committee.html">Committee</a>
+    </div>
+  </li>
+</div>
+
+<!-- Popup Modal -->
+<div id="popup" class="popup-overlay" onclick="closePopup()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2 id="popup-title" class="popup-title"></h2>
+    <p id="popup-message" class="popup-message"></p>
+  </div>
+</div>
+
+<script src="tpsa.js"></script>
+<body>
+  <div class="text-image-box flex-row center-flex">
+    <div class="text-heading-box blue-shadow">
+      <h2 class="blue-center">Our Committee</h2>
+      <p> We hold our annual general meeting, AGM, at the end of the academic year, sometime early April. 
+        At our AGMs students are able to run for one of the 17 available positions.
+        Please refer to our <a href="constitution.html" target="_blank" rel="noopener noreferrer">constitution</a> for more information on each role.
+      </p>
+    </div>
+  </div>
+
+  <div class="image-wrap-box">
+    
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Artem.png">
+      <h2 class="blue-center tiny-bottom">Artem</h2>
+      <h3 class="grey-center no-top">Auditor</h3>
+      <p>The role of Auditor shall encompass substantial discretion in the
+      pursuit of specific objectives and strategies of the TPSA, contingent
+      upon the possession of considerable initiative, motivation, and determination.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Caoimhe.png">
+      <h2 class="blue-center tiny-bottom">Caoimhe</h2>
+      <h3 class="grey-center no-top">Secretary</h3>
+      <p>The Secretary shall be responsible for ensuring that meetings are
+      organized and documented appropriately, maintaining effective administration, and disseminating updates.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/daniel.png">
+      <h2 class="blue-center tiny-bottom">Daniel</h2>
+      <h3 class="grey-center no-top">Treasurer</h3>
+      <p>The Treasurer shall be responsible for the financial management of
+      the association.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Eden.png">
+      <h2 class="blue-center tiny-bottom">Eden</h2>
+      <h3 class="grey-center no-top">PRO</h3>
+      <p>The PROs shall have significant influence on the public perception
+      of the association among students, academics, and industry professionals.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Conor.png">
+      <h2 class="blue-center tiny-bottom">Conor</h2>
+      <h3 class="grey-center no-top">PRO</h3>
+      <p>The PROs shall have significant influence on the public perception
+      of the association among students, academics, and industry professionals.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Cian.png">
+      <h2 class="blue-center tiny-bottom">Cian</h2>
+      <h3 class="grey-center no-top">Webmaster</h3>
+      <p>The Webmaster shall be responsible for maintaining and updating
+      the TPSA website.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Ameilia.png">
+      <h2 class="blue-center tiny-bottom">Ameilia</h2>
+      <h3 class="grey-center no-top">Video Coordinator</h3>
+      <p>The VC shall be particularly active during the summer months,
+      overseeing the recruitment, recording, editing, and publication of
+      student-run lecture series.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="https://i.ibb.co/GvNgh3p/auditor.webp">
+      <h2 class="blue-center tiny-bottom" >Cas</h2>
+      <h3 class="grey-center no-top">Seminar Director</h3>
+      <p>The Seminar Director shall oversee the weekly seminars, including
+      the booking of lecture theatres and ensuring their responsible use. Historically, this role included organizing a teacher roster to ensure
+      consistent seminar leadership.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Vedanth.png">
+      <h2 class="blue-center tiny-bottom">Vedanth</h2>
+      <h3 class="grey-center no-top">IOP Rep</h3>
+      <p>The IOP Representative shall represent the IOP within the TPSA. This role involves applying for annual funding from the IOP, receiving emails from the IOP, and forwarding pertinent information to
+      the committee.
+      </p>
+    </div>
+    
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Joe.png">
+      <h2 class="blue-center tiny-bottom">Aidan</h2>
+      <h3 class="grey-center no-top">PLANCKS Captain</h3>
+      <p> The PLANCKS Captain shall assemble and train a team of skilled
+      problem solvers for the PLANCKS competition. This individual should possess strong problem-solving skills and
+      leadership capabilities.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Ed.png">
+      <h2 class="blue-center tiny-bottom">Ed</h2>
+      <h3 class="grey-center no-top">Outreach Officer</h3>
+      <p>The Outreach Officer shall devise strategies to engage the broader
+      college community and general public with theoretical physics.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Joe.png">
+      <h2 class="blue-center tiny-bottom">Alen</h2>
+      <h3 class="grey-center no-top">Administrative Officer</h3>
+      <p>The Administrative Officer shall assist with administrative tasks
+      within the committee.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Max.png">
+      <h2 class="blue-center tiny-bottom">Max</h2>
+      <h3 class="grey-center no-top">Maths Rep</h3>
+      <p>The Mathematics Rep shall be elected from
+      the respective student body. The sole requirement for this role is that the representative must be
+      a student of the relevant discipline. These representatives shall communicate pertinent information to
+      their respective courses and represent their courses in committee meetings.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Joe.png">
+      <h2 class="blue-center tiny-bottom">Genna</h2>
+      <h3 class="grey-center no-top">Physics Rep</h3>
+      <p>The Physics Rep shall be elected from
+      the respective student body. The sole requirement for this role is that the representative must be
+      a student of the relevant discipline. These representatives shall communicate pertinent information to
+      their respective courses and represent their courses in committee meetings.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Gustavo.png">
+      <h2 class="blue-center tiny-bottom">Gustavo</h2>
+      <h3 class="grey-center no-top">First Year Rep</h3>
+      <p>The purpose of the First-Year Representative is dynamic and 
+        subject to change given the year and wishes of the present committee. Fundamentally, the purpose of the First-Year Representative is to
+        ensure the First-Year students ample access and attendance to TPSA events particularly seminars.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="https://i.ibb.co/3sW1PFq/webmaster.webp">
+      <h2 class="blue-center tiny-bottom">Seán</h2>
+      <h3 class="grey-center no-top">Postgrad Rep</h3>
+      <p>
+      The Postgraduate Representative shall be elected from the respective student body. This representative shall communicate relevant information to postgraduate students, represent postgraduate interests in committee meetings, and encourage further participation among the postgraduate student body, acting as a link between the committee and the postgraduate students.
+      </p>
+    </div>
+
+    <div class="image-committee-box">
+      <img class="image-committee" src="images/committee/Joe.png">
+      <h2 class="blue-center tiny-bottom">Maria</h2>
+      <h3 class="grey-center no-top">Queens Rep</h3>
+      <p>
+      The Queen's Representative shall be elected from the respective student body. The sole requirement for this role is that the representative must be a student with affiliation to Queen's University Belfast. This representative shall communicate relevant information to students and represent Queen's-related interests in committee meetings. 
+      </p>
+    </div>
+  </div>
+</body><!--footer-->
+<div class="blue-back">
+  <div class="footer flex-col center-flex">
+    <div class="footer-content flex-row center-flex">
+        <a href="index.html">
+          <img class="shakin bottom-tpsa-logo" src="images/logo.png">
+        </a>
+        <p class="footer-tpsa-text">Theoretical Physics<br>
+          Student Association
+        </p>
+        <a class="social-media-logos"  href="https://www.instagram.com/tpsa_ireland/" target="_blank" rel="noopener noreferrer">
+          <img src="images/footer/instagram.png" width="20" height="20">
+        </a>
+        <a class="social-media-logos" href="https://www.youtube.com/channel/UCAhMHA7C3mo0MaASsM4Nweg" target="_blank" rel="noopener noreferrer">
+          <img src="images/footer/yt.png" width="30" height="30">
+        </a>
+        <a class="social-media-logos"  href="https://ie.linkedin.com/company/theoretical-physics-student-association" target="_blank"
+          rel="noopener noreferrer">
+          <img src="images/footer/in.png" width="20" height="20">
+        </a>
+    </div>
+    <div class="footer-content flex-row center-flex" >
+        <p class="footer-text address">School of Mathematics,<br>
+          17 Westland Row,<br>
+          Trinity College Dublin<br><br>
+          <a style="color: white;" href="mailto:student@tpsa.ie">student@tpsa.ie</a> 
+        </p>
+        <iframe class="map" frameborder="0" scrolling="no"
+          src="https://maps.google.com/maps?width=720&amp;height=600&amp;hl=en&amp;q=School%20of%20Mathematics%2017%20Westland%20Row%20Trinity%20College%20Dublin%20Dublin%202%20Ireland+(School%20of%20Mathematics)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/collections/sports-gps/">Football GPS</a>
+        </iframe>
+    </div>
+  </div>
+  <div class="footer flex-col center-flex" style="margin-top: 0px;margin-bottom: 0px;">
+      <div class="text-center">
+          <a href="https://www.iop.org/" target="_blank" rel="noopener noreferrer">
+              <img class="image-iop" src="images/iop.png" alt="Institute of Physics Logo">
+          </a>
+      </div>
+  </div>
+  <div class="footer flex-col center-flex" style="margin-top: 0px;">
+      <div class="text-center flex-row center-flex">
+          <p class="hosted-text">Hosted by:</p>
+          <a href="https://www.blacknight.com/" target="_blank" rel="noopener noreferrer">
+              <img class="image-bt" src="images/blacknight.png" alt="Blacknight">
+          </a>
+      </div>
+    </div>
+
+    <div style="padding: 2vw;">
+      <p class="footer-text text-center">
+        &copy; 2025 Theoretical Physics Student Association of Ireland . All rights reserved.
+      </p>
+    </div>
+</div>
+</html> 

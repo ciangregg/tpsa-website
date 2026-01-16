@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TPSA</title>
+ <link rel="icon" type="image/x-icon" href="images/logo.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="tpsa.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css">
+</head>
+<body>
+
+<!--navbar-->
+
+<div class="navbar">
+  <li><a href="student.html">Home</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Events</a>
+    <div class="dropdown-content">
+      <a href="calendar.html">Calendar</a>
+      <a href="talks.html">Talks</a>
+      <a href="plancks.html">Plancks</a>
+      <a href="hackathons.html">Hackathons & Workshops</a>
+      <a href="qiskit.html">Qiskit Fall Fest 2025</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Resources</a>
+    <div class="dropdown-content">
+      <a href="lecture-series.html">Lecture Series</a>      
+      <a href="internships.html">Internships</a>
+      <a style="color: #bbbbbb" href="#" onclick="showPopup('Module Options', 'Coming soon! We\'re developing a comprehensive guide to help theoretical physics students navigate module choices, prerequisites, and fourth year options.')">Modules</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">About Us</a>
+    <div class="dropdown-content dropdown-content-cut">
+      <a href="sign-up.html">Sign Up</a>
+      <a href="constitution.html"
+      >Our Constitution</a>
+      <a href="history.html">History</a>
+      <a style="color: #bbbbbb;" href="#" onclick="showPopup('The Non-Profit', 'This section is currently under development. Our sister non-profit organisation, <a href=&quot;problem-solving.html&quot; style=&quot;color: #597bb0; text-decoration: underline;&quot;>The Problem Solving Association CLG</a>, focuses on applying theoretical physics skills for societal benefit. Check back soon for more details on our joint efforts together!')">The Non-Profit</a>
+      <a href="committee.html">Committee</a>
+    </div>
+  </li>
+</div>
+
+<!-- Popup Modal -->
+<div id="popup" class="popup-overlay" onclick="closePopup()">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2 id="popup-title" class="popup-title"></h2>
+    <p id="popup-message" class="popup-message"></p>
+  </div>
+</div>
+
+<script src="tpsa.js"></script>
+<body>
+    <!-- Language Toggle Buttons -->
+    <!--
+    <div class="language-toggle" style="margin-top: 2vw; text-align: center; margin-bottom: 5px !important;">
+        <button id="btn-irish" class="language-btn active" onclick="switchLanguage('irish')">Gaeilge</button>
+        <button class="language-btn" onclick="showPopup('Language Notice', 'The Irish version of the constitution is currently under development. We appreciate your patience as we work to provide a complete translation.')">Irish</button>
+        <button id="btn-english" class="language-btn" onclick="switchLanguage('english')">English</button>
+    </div>-->
+
+    <!-- PDF Download Notice -->
+    <div class="blue-shadow" style="padding: 2vw; margin: 2vw;">
+        <p id="pdf-notice-english"><strong>Note:</strong> This is the complete transcription of the TPSA Constitution. For the original PDF document, 
+        <a href="pdf/constitution.pdf" target="_blank" rel="noopener noreferrer" style="color: #597bb0;">download the PDF here</a>.</p>
+        
+        <p id="pdf-notice-irish" style="display: none;"><strong>Nóta:</strong> Is é seo trasscríobh iomlán Bhunreacht TPSA. Don cháipéis bunaidh PDF, 
+        <a href="pdf/constitution.pdf" target="_blank" rel="noopener noreferrer" style="color: #597bb0;">íoslódáil an PDF anseo</a>.</p>
+    </div>
+
+    <!-- English Version -->
+    <div id="content-english" class="text-box-col">
+        <h1 class="blue-center">Theoretical Physics Student Association of Ireland</h1>
+        <h2 class="blue-center">Trinity College Dublin Branch</h2>
+        
+        <div style="text-align: center; margin: 2vw;">
+            <img style="width: 200px;" src="images/logo.png" alt="TPSA Logo">
+        </div>
+
+        <h2 class="blue-center">The Theoretical Physics Student Association To The People of Ireland</h2>
+        
+        <p>Irish People: In the name of science, reason, and the advancement of knowledge, we, the members of the Theoretical Physics Student Association of Ireland, hereby declare our mission to promote the pursuit of academic excellence, intellectual freedom, and scientific innovation in our field.</p>
+
+        <p>We affirm the right of the students of Ireland to cultivate their talents, to explore the frontiers of knowledge, and to contribute to the enrichment of the scientific community without hindrance or restriction. The TPSA shall be the unwavering representative of all students, striving to unite the student body in the common cause of understanding the profound laws that govern our universe.</p>
+
+        <p>We pledge ourselves to the promotion of collaboration among students, to the fostering of creativity in research, and to the dissemination of knowledge through workshops, seminars, and communal efforts. In this endeavor, we extend the hand of friendship to all institutions of learning, both within our shores and beyond, seeking to make Ireland a beacon of excellence in theoretical physics.</p>
+
+        <p>Recognizing that education and the pursuit of truth are the birthright of every student, we declare that the TPSA shall be governed on principles of equality, inclusivity, and democratic participation. All members, regardless of their background, shall have a voice in shaping our mission and a role in the advancement of the sciences.</p>
+
+        <p>We call upon the students of Ireland to rally to our cause, to support the growth of a vibrant intellectual community, and to work with us toward the common goal of building a future where Ireland stands proudly among the nations of the world as a leader in theoretical physics and scientific achievement.</p>
+
+        <p>In this sacred endeavor, we place our trust in the students of Ireland, confident in their commitment, their resolve, and their unyielding pursuit of truth and understanding.</p>
+
+        <p><em>Signed on behalf of the Theoretical Physics Student Association,</em></p>
+
+        <h1 class="blue-center">The Constitution of the Theoretical Physics Student Association</h1>
+        <p class="text-center"><em>As prepared by the 2023/24 Committee.</em></p>
+
+        <div style="text-align: center; margin: 2vw;">
+            <p><strong>Auditor:</strong> Casey Farren-Colloty<br>
+            <strong>Secretary:</strong> Vedanth Subramanian<br>
+            <strong>Treasurer:</strong> Luke Hodgkiss<br>
+            <strong>Admin Officer:</strong> John Marley<br>
+            <strong>Efficiency Ordinary Committee Member:</strong> Isabel Costello<br>
+            <strong>First Year Representative:</strong> Artem Tarasenko<br>
+            <strong>Institute of Physics Representative:</strong> Matthew Blakeney<br>
+            <strong>Outreach Officer:</strong> Sarah Rae Kelly<br>
+            <strong>PLANCKS Captain:</strong> Thomas Brosnan<br>
+            <strong>Public Relations Officers:</strong> Ethan Davis · Álvaro Romero Castillo<br>
+            <strong>Seminar Director:</strong> Michael A.J. Mitchell<br>
+            <strong>Video Coordinator:</strong> Daniel Barron<br>
+            <strong>Webmaster:</strong> Seán Alexander</p>
+        </div>
+
+        <h2 class="blue-center">Mission Statement</h2>
+        
+        <p>The Theoretical Physics Student Association (TPSA) of Ireland is dedicated to fostering a vibrant and collaborative community of students passionate about theoretical physics throughout the island of Ireland. Our mission is to promote academic excellence, stimulate intellectual curiosity, and facilitate the professional development of our members across the entire nation. We aim to achieve this by providing a platform for students to engage in cutting-edge research, participate in educational initiatives, and connect with leading academics and industry professionals, both locally and internationally.</p>
+
+        <p>To cultivate a dynamic and supportive environment, the TPSA shall organize a variety of activities including seminars, workshops, and lecture series that cover a wide range of topics within theoretical physics. These events are designed to enhance our members' knowledge and understanding of the field, as well as to inspire innovative thinking and problem-solving skills. Our reach extends beyond individual institutions, aiming to unify and strengthen the theoretical physics community across Ireland.</p>
+
+        <p>We are committed to inclusivity and strive to make theoretical physics accessible to all students, regardless of their background or level of expertise. Our outreach programs aim to demystify complex concepts and ignite a passion for physics in the wider community. By collaborating with schools, colleges, and other organizations across Ireland, we seek to bridge the gap between theoretical physics and the public, fostering a greater appreciation for the sciences throughout the country.</p>
+
+        <p>The TPSA also places a strong emphasis on professional development. We provide opportunities for members to gain practical experience through student-led projects, internships, and networking events. Our goal is to prepare our members for successful careers in academia, industry, and beyond, equipping them with the skills and knowledge necessary to excel in their chosen fields. We actively engage with the physics community across Ireland to create a robust network of support and opportunity.</p>
+
+        <p>As an association, we are dedicated to continuous improvement and adaptability. We actively seek feedback from our members to ensure that our activities and initiatives remain relevant and impactful. Our commitment to excellence drives us to explore new ideas and approaches, keeping the TPSA at the forefront of theoretical physics education and community engagement throughout Ireland.</p>
+
+        <p>In summary, the TPSA is committed to advancing the study and appreciation of theoretical physics through a comprehensive program of academic, professional, and outreach activities. We aspire to create a community where every member across Ireland can thrive, contribute, and achieve their fullest potential in the fascinating world of theoretical physics.</p>
+
+        <h2 class="blue-center">A Brief History</h2>
+        
+        <p>The Theoretical Physics Student Association (TPSA) of Ireland was founded in 2019 by Michael Mitchell, alongside a group of dedicated students from Trinity College Dublin (TCD). While pursuing their studies in Theoretical Physics, these forward-thinking individuals identified a significant gap in their overall development as emerging professionals. They envisioned and established a space where students could collaborate and hone their social, problem-solving, and explanatory skills, thus filling this gap and enhancing their professional growth.</p>
+
+        <p>Driven by a passion for excellence and a desire to make a substantial impact, the founders also aimed to elevate Ireland's standing in the global physics community. They believed that through their collective efforts, they could contribute to placing Ireland on the map of physics excellence.</p>
+
+        <p>Since its inception, the TPSA has achieved notable milestones. It has played a pivotal role in advancing Ireland's involvement with CERN thereby integrating Ireland more deeply into the global physics research community. Moreover, the TPSA has collaborated with state branches to support and uphold democratic processes, demonstrating a commitment to civic engagement and societal betterment as well as a keenness to work with experts outside of theoretical physics.</p>
+
+        <p>This particular endeavor led to the creation of a sister organization, The Problem Solving Association CLG. This non-profit entity is dedicated to providing members with opportunities to apply their unique skillsets for the benefit of society. Embracing a philosophy of open-source collaboration, this organization underscores the TPSA's commitment to utilizing theoretical physics and problem-solving skills for the greater good.</p>
+
+        <p>Through these initiatives and its ongoing dedication to fostering a collaborative, inclusive, and intellectually stimulating environment, the TPSA continues to contribute significantly to the academic and professional development of theoretical physics students across Ireland, while also enhancing Ireland's reputation in the global scientific community.</p>
+
+        <h2 class="blue-center">1 | Membership</h2>
+
+        <h3 class="blue-center">1.1 Eligibility and Registration</h3>
+        
+        <p>1. Membership in the TPSA is open to all students enrolled in an accredited college or university in Ireland who have an interest in theoretical physics.</p>
+        <p style="margin-left: 2em;">a) In particular, members with voting rights must be currently enrolled in either an undergraduate or postgraduate capacity.</p>
+        <p style="margin-left: 2em;">b) Members who are not enrolled at the time are free to attend events.</p>
+
+        <p>2. To become a member of the TPSA, individuals must sign up using their official college or university email address. This process ensures the validity of their student status and allows the association to maintain accurate records of its members.</p>
+
+        <p>3. Upon signing up, members will be added to the TPSA mailing list, which will be used for all official communications, including event notifications, newsletters, and membership confirmations.</p>
+
+        <h3 class="blue-center">1.2 Annual Membership Confirmation</h3>
+        
+        <p>1. At the beginning of each academic year, a reminder email will be sent out to all members on the TPSA mailing list to confirm their continued membership in the association.</p>
+
+        <p>2. The reminder email will contain a simple confirmation process, which members must complete to remain active. The process will include:</p>
+        <p style="margin-left: 2em;">a) A prompt for members to confirm their wish to continue their membership by responding affirmatively to the reminder email.</p>
+        <p style="margin-left: 2em;">b) Instructions on how to re-register if they wish to renew their membership after being marked as inactive.</p>
+
+        <h3 class="blue-center">1.3 Membership Status</h3>
+        
+        <p>1. <strong>Active Members:</strong></p>
+        <p style="margin-left: 2em;">a) Members who respond affirmatively to the annual reminder email will retain their status as active members.</p>
+        <p style="margin-left: 2em;">b) Active members will continue to receive all communications from the TPSA, including event invitations, newsletters, and other pertinent information.</p>
+
+        <p>2. <strong>Inactive Members:</strong></p>
+        <p style="margin-left: 2em;">a) If a member responds negatively to the reminder email, or if no response is received within a specified period (e.g., one month from the date of the reminder email), the member will be considered inactive.</p>
+        <p style="margin-left: 2em;">b) Inactive members will no longer receive communications from the TPSA and will lose access to member-exclusive events and benefits.</p>
+        <p style="margin-left: 2em;">c) Inactive members who wish to regain their active status must sign up again using their college or university email address, following the same process as new members.</p>
+
+        <h3 class="blue-center">1.4 Member Responsibilities</h3>
+        
+        <p>1. It is the responsibility of each member to ensure their contact information is up to date, particularly their email address, to continue receiving communications from the TPSA.</p>
+
+        <p>2. Members are encouraged to participate in TPSA events and activities and to contribute positively to the association's goals and community.</p>
+
+        <h3 class="blue-center">1.5 Termination of Membership</h3>
+        
+        <p>1. Membership in the TPSA may be voluntarily terminated by a member at any time by notifying the association in writing.</p>
+
+        <p>2. The TPSA reserves the right to terminate the membership of any individual<sup>1</sup> whose actions are deemed detrimental to the interests and objectives of the association, subject to a review by the TPSA executive committee.</p>
+
+        <p>3. Termination of membership results in an indefinite inability to join rejoin the Association and reinstation of membership is solely up to a majority committee vote.</p>
+
+        <p style="font-size: 14px;"><sup>1</sup>This pertains only to non-committee members as the protocol for termination of committee member status is described in 2.2.1</p>
+
+        <h3 class="blue-center">1.6 Membership Fees</h3>
+        
+        <p>1. There are no membership fees required to join the TPSA. Membership is free to ensure accessibility for all interested students.</p>
+
+        <p>2. The association may conduct fundraising activities and seek sponsorships to support its events and initiatives.</p>
+
+        <p>By maintaining a clear and structured membership process, the TPSA aims to foster an engaged and active community of theoretical physics students across Ireland, enhancing their academic and professional development through collaboration and shared interests.</p>
+
+        <h2 class="blue-center">2 | The Committee</h2>
+
+        <h3 class="blue-center">2.1 Committee Roles & Structure</h3>
+
+        <h4 class="blue-center">2.1.1. Committee Roles</h4>
+
+        <p><strong>1. Purposes of Each Role</strong></p>
+        <p style="margin-left: 2em;">a) Executive vs non-executive roles.</p>
+
+        <p><strong>2. Necessity for Each Role</strong></p>
+        <p style="margin-left: 2em;">a) The Auditor cannot run for more than two terms.</p>
+        <p style="margin-left: 2em;">b) New auditors must either be a previous executive committee member or be guided by a previous auditor.</p>
+        <p style="margin-left: 2em;">c) Executive committee members should be undergraduate students.</p>
+
+        <p><strong>3. Scope of the Roles</strong></p>
+
+        <p style="margin-left: 2em;"><strong>a) Auditor</strong></p>
+        <p style="margin-left: 4em;">(i) The role of Auditor shall encompass substantial discretion in the pursuit of specific objectives and strategies of the TPSA, contingent upon the possession of considerable initiative, motivation, and determination.</p>
+        <p style="margin-left: 4em;">(ii) The Auditor shall be obligated to devise both short-term and long-term strategies to facilitate the attainment of TPSA's objectives, both at a local level in student-driven projects and on a broader scale in the enhancement of the physics ecosystem in Ireland.</p>
+        <p style="margin-left: 4em;">(iii) The Auditor shall preside over committee meetings, ensure that all members fulfill their respective roles, and oversee the efficient and effective operation of the TPSA.</p>
+        <p style="margin-left: 4em;">(iv) Additionally, the Auditor shall represent the TPSA in external engagements, including but not limited to, meetings with industry stakeholders.</p>
+
+        <p style="margin-left: 2em;"><strong>b) Secretary</strong></p>
+        <p style="margin-left: 4em;">(i) The Secretary shall be responsible for ensuring that meetings are organized and documented appropriately, maintaining effective administration, and disseminating updates.</p>
+        <p style="margin-left: 4em;">(ii) This role shall include the collection and filing of internal documents such as mailing lists and election ballots.</p>
+        <p style="margin-left: 4em;">(iii) The Secretary shall compose and dispatch emails from the TPSA to its members.</p>
+        <p style="margin-left: 4em;">(iv) The Secretary shall collaborate closely with the Auditor to identify and address issues as they arise.</p>
+
+        <p style="margin-left: 2em;"><strong>c) Treasurer</strong></p>
+        <p style="margin-left: 4em;">(i) The Treasurer shall be responsible for the financial management of the association.</p>
+        <p style="margin-left: 4em;">(ii) This shall involve drafting an annual budget outlining the association's income and expenditure, and updating this budget as necessary.</p>
+        <p style="margin-left: 4em;">(iii) The Treasurer shall work in conjunction with other committee members when financial assistance is required.</p>
+        <p style="margin-left: 4em;">(iv) The Treasurer shall seek funding from external entities such as companies, organizations, grant providers, and college departments, in collaboration with the Auditor.</p>
+
+        <p style="margin-left: 2em;"><strong>d) Public Relations Officer (PRO)</strong></p>
+        <p style="margin-left: 4em;">(i) The PROs shall have significant influence on the public perception of the association among students, academics, and industry professionals.</p>
+        <p style="margin-left: 4em;">(ii) They shall manage all online communication channels, excluding email, including but not limited to Instagram, LinkedIn, Discord, and Twitter (X).</p>
+        <p style="margin-left: 4em;">(iii) To manage the responsibilities effectively, the TPSA shall elect two PROs.</p>
+
+        <p style="margin-left: 2em;"><strong>e) Webmaster</strong></p>
+        <p style="margin-left: 4em;">(i) The Webmaster shall be responsible for maintaining and updating the TPSA website.</p>
+        <p style="margin-left: 4em;">(ii) The individual holding this position shall ensure the website is current and shall occasionally post updates on current events to showcase the association's activities to external audiences.</p>
+        <p style="margin-left: 4em;">(iii) Competence in computer skills and creativity shall be advantageous for this role.</p>
+
+        <p style="margin-left: 2em;"><strong>f) Video Coordinator (VC)</strong></p>
+        <p style="margin-left: 4em;">(i) The VC shall be particularly active during the summer months, overseeing the recruitment, recording, editing, and publication of student-run lecture series.</p>
+        <p style="margin-left: 4em;">(ii) While the VC may encourage volunteers to edit their own series, they shall provide support and ensure the completion of necessary steps.</p>
+        <p style="margin-left: 4em;">(iii) The VC shall also record TPSA-organized talks and upload them to the association's YouTube channel.</p>
+        <p style="margin-left: 4em;">(iv) Additionally, the VC shall edit videos for the Education Project.</p>
+
+        <p style="margin-left: 2em;"><strong>g) Seminar Director</strong></p>
+        <p style="margin-left: 4em;">(i) The Seminar Director shall oversee the weekly seminars, including the booking of lecture theatres and ensuring their responsible use.</p>
+        <p style="margin-left: 4em;">(ii) Historically, this role included organizing a teacher roster to ensure consistent seminar leadership.</p>
+        <p style="margin-left: 4em;">(iii) However, given the recent adoption of a more flexible seminar structure, this responsibility is not currently required.</p>
+
+        <p style="margin-left: 2em;"><strong>h) Institute of Physics (IOP) Representative</strong></p>
+        <p style="margin-left: 4em;">(i) The IOP Representative shall represent the IOP within the TPSA.</p>
+        <p style="margin-left: 4em;">(ii) This role involves applying for annual funding from the IOP, receiving emails from the IOP, and forwarding pertinent information to the committee.</p>
+        <p style="margin-left: 4em;">(iii) The IOP Representative shall ensure that TPSA meets the funding criteria and addresses any related issues.</p>
+        <p style="margin-left: 4em;">(iv) Past representatives have also organized the PLANCKS theoretical physics competition.</p>
+
+        <p style="margin-left: 2em;"><strong>i) PLANCKS Captain</strong></p>
+        <p style="margin-left: 4em;">(i) The PLANCKS Captain shall assemble and train a team of skilled problem solvers for the PLANCKS competition.</p>
+        <p style="margin-left: 4em;">(ii) This individual should possess strong problem-solving skills and leadership capabilities.</p>
+        <p style="margin-left: 4em;">(iii) The PLANCKS captain should coordinate with the the Auditor and the Treasurer to organise the logistics of attending.</p>
+
+        <p style="margin-left: 2em;"><strong>j) Outreach Officer</strong></p>
+        <p style="margin-left: 4em;">(i) The Outreach Officer shall devise strategies to engage the broader college community and general public with theoretical physics.</p>
+        <p style="margin-left: 4em;">(ii) Utilizing the YouTube channel to disseminate information and enthusiasm for theoretical physics is a key component of this role.</p>
+        <p style="margin-left: 4em;">(iii) The Outreach Officer is invited to participate in ongoing projects, such as the LC Maths education initiative.</p>
+
+        <p style="margin-left: 2em;"><strong>k) Administrative Officer</strong></p>
+        <p style="margin-left: 4em;">(i) The Administrative Officer shall assist with administrative tasks within the committee.</p>
+        <p style="margin-left: 4em;">(ii) Responsibilities include aiding in the organization of association events and ensuring their smooth execution.</p>
+        <p style="margin-left: 4em;">(iii) The Administrative Officer shall collaborate with the PRO in designing event posters for publication on official social media channels and in emails.</p>
+
+        <p style="margin-left: 2em;"><strong>l) Mathematics/Physics Representatives</strong></p>
+        <p style="margin-left: 4em;">(i) The Mathematics and Physics Representatives shall be elected from the respective student bodies.</p>
+        <p style="margin-left: 4em;">(ii) The sole requirement for this role is that the representative must be a student of the relevant discipline.</p>
+        <p style="margin-left: 4em;">(iii) These representatives shall communicate pertinent information to their respective courses and represent their courses in committee meetings.</p>
+
+        <p style="margin-left: 2em;"><strong>m) First-Year Representative</strong></p>
+        <p style="margin-left: 4em;">(i) The First-Year Representative shall be appointed in September.</p>
+        <p style="margin-left: 4em;">(ii) The purpose of the First-Year Representative is dynamic and subject to change given the year and wishes of the present committee.</p>
+        <p style="margin-left: 4em;">(iii) Fundamentally, the purpose of the First-Year Representative is to ensure the First-Year students ample access and attendance to TPSA events particularly seminars.</p>
+
+        <p><strong>4. Structure of the Committee</strong></p>
+
+        <p style="margin-left: 2em;"><strong>a) Executive Committee</strong></p>
+        <p style="margin-left: 3em;">The Executive Committee shall consist of the following three positions, which form the core leadership of the TPSA:</p>
+
+        <p style="margin-left: 4em;"><strong>1) Auditor</strong></p>
+        <p style="margin-left: 6em;">(i) The Auditor shall be the head of the TPSA and hold the highest authority within the association.</p>
+        <p style="margin-left: 6em;">(ii) The Auditor shall oversee all operations and ensure the overall effectiveness and success of the TPSA.</p>
+
+        <p style="margin-left: 4em;"><strong>2) Secretary</strong></p>
+        <p style="margin-left: 6em;">(i) The Secretary shall be responsible for administrative duties.</p>
+        <p style="margin-left: 6em;">(ii) In particular, ensuring meetings are well-organized, documented, and that communication within the association is effective.</p>
+
+        <p style="margin-left: 4em;"><strong>3) Treasurer</strong></p>
+        <p style="margin-left: 6em;">(i) The Treasurer shall manage the financial affairs of the TPSA</p>
+        <p style="margin-left: 6em;">(ii) This includes drafting and maintaining the budget, and securing funding.</p>
+
+        <p style="margin-left: 2em;"><strong>b) Non-Executive Committee</strong></p>
+        <p style="margin-left: 3em;">The Non-Executive Committee shall consist of the following positions, which support the Executive Committee and contribute to the various functions and activities of the TPSA:</p>
+
+        <p style="margin-left: 4em;"><strong>1) Public Relations Officer (PRO)</strong></p>
+        <p style="margin-left: 6em;">(i) The PROs shall manage the public image and online communications of the TPSA.</p>
+
+        <p style="margin-left: 4em;"><strong>2) Webmaster</strong></p>
+        <p style="margin-left: 6em;">(i) The Webmaster shall maintain and update the TPSA website.</p>
+
+        <p style="margin-left: 4em;"><strong>3) Video Coordinator (VC)</strong></p>
+        <p style="margin-left: 6em;">(i) The VC shall oversee the production and dissemination of video content for the TPSA.</p>
+
+        <p style="margin-left: 4em;"><strong>4) Seminar Director</strong></p>
+        <p style="margin-left: 6em;">(i) The Seminar Director shall organize and manage the weekly seminars.</p>
+
+        <p style="margin-left: 4em;"><strong>5) Institute of Physics (IOP) Representative</strong></p>
+        <p style="margin-left: 6em;">(i) The IOP Representative shall liaise with the IOP and ensure TPSA meets funding criteria and handles relevant communications.</p>
+
+        <p style="margin-left: 4em;"><strong>6) PLANCKS Captain</strong></p>
+        <p style="margin-left: 6em;">(i) The PLANCKS Captain shall assemble and train a team for the PLANCKS competition.</p>
+
+        <p style="margin-left: 4em;"><strong>7) Outreach Officer</strong></p>
+        <p style="margin-left: 6em;">(i) The Outreach Officer shall engage the broader college community and public with theoretical physics.</p>
+
+        <p style="margin-left: 4em;"><strong>8) Administrative Officer</strong></p>
+        <p style="margin-left: 6em;">(i) The Administrative Officer shall assist with administrative tasks and event organization.</p>
+
+        <p style="margin-left: 4em;"><strong>9) Mathematics/Physics Representatives</strong></p>
+        <p style="margin-left: 6em;">(i) The Mathematics and Physics Representatives shall communicate pertinent information to their respective courses and represent their courses in committee meetings.</p>
+
+        <p style="margin-left: 4em;"><strong>10) First-Year Representative</strong></p>
+        <p style="margin-left: 6em;">(i) The First-Year Representative shall be appointed in September to represent first-year students.</p>
+
+        <p><strong>5. Procedure for Replacement/Redistribution of Roles/Duties</strong> (refer to Section 1c.iv for details)</p>
+        <p style="margin-left: 2em;">a) If there is a suitable candidate, then the committee will anoint one.</p>
+        <p style="margin-left: 2em;">b) Different procedure for executive vs non-executive roles.</p>
+
+        <p><strong>6. Grounds for Termination</strong></p>
+        <p style="margin-left: 2em;">a) If a committee member does not show up to three (3) meetings without a good reason throughout the year.</p>
+        <p style="margin-left: 2em;">b) Any actions which deface the reputation of the TPSA.</p>
+        <p style="margin-left: 2em;">c) Misuse of responsibility or resources.</p>
+        <p style="margin-left: 2em;">d) Explicitly working against the interest of the committee.</p>
+        <p style="margin-left: 2em;">e) Abuse of the constitution rules.</p>
+        <p style="margin-left: 2em;">f) If two-thirds (2/3) of the executive committee deem that a committee member has broken a ground for termination.</p>
+        <p style="margin-left: 2em;">g) If someone breaks the grounds for termination, then the termination protocol will take effect without a vote of no confidence.</p>
+
+        <h3 class="blue-center">2.2 Turnover and Committee Modification</h3>
+
+        <h4 class="blue-center">2.2.1. Termination Protocol</h4>
+
+        <p>1. A vote of no confidence can be invoked as long as two-thirds (2/3) of the committee is present at the vote.</p>
+        <p style="margin-left: 2em;">a) It will be passed if the majority vote in favour.</p>
+
+        <p>2. If a vote of no confidence is invoked, then the redistribution protocol must be followed for that role.</p>
+
+        <p>3. The vote of no confidence will instigate the termination protocol:</p>
+        <p style="margin-left: 2em;">a) Notice of accusation.</p>
+        <p style="margin-left: 2em;">b) Minimum wait of one week.</p>
+        <p style="margin-left: 2em;">c) Then the vote of termination will occur at the next meeting.</p>
+
+        <p>4. If a committee member feels unsafe around another committee member (executive or non-executive), they may write to either:</p>
+        <p style="margin-left: 2em;">a) Another executive committee member.</p>
+        <p style="margin-left: 2em;">b) If they do not feel like they can contact another committee member, then they should contact founder Michael A.J. Mitchell, or someone on the list of Arbitrators appointed by Michael.</p>
+        <p style="margin-left: 4em;">1) A committee member cannot simultaneously be an arbitrator.</p>
+        <p style="margin-left: 2em;">c) If Michael is not available, it will go to the most senior Arbitrator. That person will decide whether a vote of termination will occur, with or without the person. If they agree to the vote of termination, then the vote will occur with or without the accused committee member in question.</p>
+
+        <p>5. The vote of termination will occur as follows:</p>
+        <p style="margin-left: 2em;">a) In order for a non-executive member to be voted out, two-thirds (2/3) of committee votes are needed plus at least one executive committee member vote.</p>
+        <p style="margin-left: 2em;">b) In order for an executive member to be voted out, two-thirds (2/3) of committee votes are needed plus both other executive member votes.</p>
+
+        <p>6. Votes are not anonymous and will take place during meetings.</p>
+
+        <h4 class="blue-center">2.2.2. Committee Turnover</h4>
+
+        <p>1. Following the AGM, the turnover protocol begins.</p>
+
+        <p>2. The old committee will keep their duties until the start of the following academic year. At that point, the new committee will take over.</p>
+
+        <p>3. Information for the committee handover for the respective roles is detailed on the notion.</p>
+
+        <p>4. Furthermore, in the case of new members for a role, the old member for that position must ensure that the new member is able to take over the role efficiently.</p>
+
+        <h4 class="blue-center">2.2.3. Capacity to Make New Positions</h4>
+
+        <p><strong>1. Protocol for Making New Positions</strong></p>
+        <p style="margin-left: 2em;">a) The proposal for a new position must be submitted in writing to the executive committee.</p>
+        <p style="margin-left: 2em;">b) The proposal must include the rationale for the new position, a detailed description of the role, and its necessity for the TPSA.</p>
+        <p style="margin-left: 2em;">c) The executive committee will review the proposal and, if deemed appropriate, present it to the full committee for a vote.</p>
+        <p style="margin-left: 2em;">d) A new position will be created if it receives a majority vote in favour by the committee.</p>
+
+        <p><strong>2. Maximum Number of Positions/Temporary Positions</strong></p>
+        <p style="margin-left: 2em;">a) The total number of committee positions, including temporary positions, shall not exceed twenty (20).</p>
+        <p style="margin-left: 2em;">b) Temporary positions may be created for specific projects or events and will be dissolved upon the completion of those projects or events.</p>
+
+        <h4 class="blue-center">2.2.4. Elections</h4>
+
+        <p><strong>1. Fundamental Prerequisites to Committee Membership</strong></p>
+        <p style="margin-left: 2em;">a) A prospective committee member must be a member of the TPSA before the time of the election.</p>
+        <p style="margin-left: 2em;">b) In the case of suspected foul play, either seen in the past or the potential seen ahead, the committee may instate a mandatory minimum time as a member before being able to run for</p>
+
+        <p><strong>2. Voting System</strong></p>
+        <p style="margin-left: 2em;">a) If only one person is running for a position, a vote must still be held. If the candidate does not receive a majority vote, the role will be reopened for election at the EGM. If still no one is instated, the role is redistributed through the committee until a replacement is found.</p>
+        <p style="margin-left: 2em;">b) Only the Secretary can see votes for all other elections, except the vote for the Secretary if they are rerunning. In this case, the votes are handled by the committee member with the most experience.</p>
+        <p style="margin-left: 2em;">c) Voters are elements of the electorate, which are a subset of the member list, valid until:</p>
+        <p style="margin-left: 4em;">1) Two weeks before the AGM.</p>
+        <p style="margin-left: 4em;">2) By the scheduled time for the EGM.</p>
+        <p style="margin-left: 2em;">d) If RON (Re-Open Nominations) wins any votes, or if no one runs for a position, the vote is rerun without the additional caveats as mentioned in 2a.ii.</p>
+
+        <p><strong>3. Order of Voting</strong></p>
+        <p style="margin-left: 2em;">a) A time limit will be set for speeches by candidates.</p>
+
+        <p><strong>4. Times for Voting</strong></p>
+        <p style="margin-left: 2em;">a) AGM (end of the academic year)</p>
+        <p style="margin-left: 4em;">1) The AGM will be announced a minimum of three weeks before the event.</p>
+        <p style="margin-left: 2em;">b) EGM (start of the academic year)</p>
+
+        <p><strong>5. Procedure for When a Committee Member Cannot Perform Their Role Before the Committee Handover</strong></p>
+        <p style="margin-left: 2em;">a) If a committee member cannot perform their role before the committee handover, the executive committee will appoint an interim replacement. The procedure will depend on the timing of the vacancy and the specific circumstances involved.</p>
+
+        <h3 class="blue-center">2.3 Meetings</h3>
+
+        <h4 class="blue-center">2.3.1. Frequency of Meetings</h4>
+
+        <p>1. Ideally, meetings will be held every two (2) weeks, with a minimum frequency of every four (4) weeks during term time.</p>
+
+        <p>2. During the Christmas or Summer breaks, the meeting schedule is at the discretion of the committee.</p>
+
+        <h4 class="blue-center">2.3.2. Attendance</h4>
+
+        <p>1. A valid reason is necessary for not attending a meeting. The validity of the reason will be decided by the committee.</p>
+
+        <p>2. If a committee member misses too many meetings without a valid reason, refer to Section 2a for grounds for termination.</p>
+
+        <h4 class="blue-center">2.3.3. Structure and Protocol</h4>
+
+        <p>1. Meetings will follow a structured agenda, including but not limited to:</p>
+        <p style="margin-left: 2em;">a) Approval of the previous meeting's minutes.</p>
+        <p style="margin-left: 2em;">b) Reports from executive committee members.</p>
+        <p style="margin-left: 2em;">c) Discussion of ongoing projects and events.</p>
+        <p style="margin-left: 2em;">d) New business and proposals.</p>
+        <p style="margin-left: 2em;">e) Any other business (AOB).</p>
+
+        <p>2. A vote of no confidence can be called for by any member during a meeting. If such a vote is passed, the termination vote will be scheduled to take place at the next meeting.</p>
+
+        <h4 class="blue-center">2.3.4. Meeting Notes</h4>
+
+        <p>1. Minutes of each meeting will be taken by the Secretary or an appointed member in their absence.</p>
+
+        <p>2. Meeting notes will be distributed to all committee members within one week of the meeting.</p>
+
+        <p>3. Minutes will be approved at the beginning of the next meeting.</p>
+
+        <p>4. Approved minutes will be archived and made accessible to all members of the TPSA.</p>
+
+        <h2 class="blue-center">3 | Finances</h2>
+
+        <h3 class="blue-center">3.1 Handling of Finances</h3>
+
+        <p>1. The handling of finances will primarily be the responsibility of the Treasurer, who will work under the supervision of the Auditor.</p>
+
+        <p>2. Upon dissolution of the Association, any remaining funds will default to The Problem Solving Association CLG.</p>
+
+        <h3 class="blue-center">3.2 Funding/Sources of Funding</h3>
+
+        <p>1. <strong>Alignment and Anti-alignment Protocol:</strong> Funds should be allocated in alignment with the objectives and goals of the Theoretical Physics Student Association of Ireland (TPSA). Any potential conflicts of interest or misuse of funds should be identified and addressed promptly.</p>
+
+        <h3 class="blue-center">3.3 Reimbursement Policy</h3>
+
+        <p>1. Wherever possible, committee members should make purchases on behalf of the committee and get reimbursed appropriately.</p>
+
+        <p>2. Ideally, expenditure with the expectation of reimbursement will be made with the approval of a member of the executive committee or the committee itself.</p>
+
+        <p>3. If expenditure is made by a committee member on behalf of the committee that has not been pre-approved, the matter should be raised at the next committee meeting to decide whether reimbursement is appropriate.</p>
+
+        <p>4. In the case that expenditure is made by a non-committee member, it is up to the committee to decide whether reimbursement is appropriate.</p>
+
+        <p>5. Reimbursements requires appropriate documentation, such as receipts, sent to the Treasurer with in 30 days of the expenditure.</p>
+
+        <h3 class="blue-center">3.4 Financial Logs</h3>
+
+        <p>1. Logs for finances should be kept independently by the Treasurer, regardless of official bank statements.</p>
+        <p style="margin-left: 2em;">a) These logs must be in a standardized format, clear, and readable, and must be continued from committee to committee.</p>
+        <p style="margin-left: 2em;">b) These logs should be available for committee members to view upon request.</p>
+        <p style="margin-left: 2em;">c) Each log entry must store all of the following pieces of information:</p>
+        <p style="margin-left: 4em;"><strong>Who:</strong> The individual or entity receiving the funds.</p>
+        <p style="margin-left: 4em;"><strong>What:</strong> The purpose or reason for the expenditure.</p>
+        <p style="margin-left: 4em;"><strong>When:</strong> The date of the expenditure.</p>
+        <p style="margin-left: 4em;"><strong>Where:</strong> The location or platform where the funds will be used.</p>
+        <p style="margin-left: 4em;"><strong>Why:</strong> The justification or rationale behind the expenditure.</p>
+
+        <h3 class="blue-center">3.5 Annual Budget</h3>
+
+        <p>1. At the first committee meeting of the college year the committee will discuss the details of the Annual Budget. This includes:</p>
+        <p style="margin-left: 2em;">a) The expected sources of funding for the coming year, including their amounts and conditions.</p>
+        <p style="margin-left: 2em;">b) Allocation of funds based on anticipated events, projects or initiatives.</p>
+        <p style="margin-left: 2em;">c) Any financial commitments carried over from the previous year, including unpaid invoices or ongoing projects.</p>
+        <p style="margin-left: 2em;">d) Review of financial performance from the previous year to identify any areas of improvement or necessary adjustment.</p>
+
+        <p>2. Upon approval of the committee the details of the Budget will be finalised and documented by the Treasurer.</p>
+
+        <h2 class="blue-center">4 | Amendments</h2>
+
+        <h3 class="blue-center">4.1 Proposal of Amendments</h3>
+
+        <p>1. Amendments to the TPSA constitution can be proposed by any current member on the committee.</p>
+
+        <p>2. Any changes proposed must be done so at a committee meeting, with a clear proposal of what to change/add.</p>
+
+        <h3 class="blue-center">4.2 Voting Procedure</h3>
+
+        <p>1. A vote will be held by the committee to determine whether the amendment shall be voted on at a general meeting (AGM, EGM, or general).</p>
+        <p style="margin-left: 2em;">a) This vote will be held at the next committee meeting.</p>
+        <p style="margin-left: 2em;">b) In order for the vote to take place, a quorum of two-thirds (2/3) of the committee needs to be present.</p>
+        <p style="margin-left: 2em;">c) In order for the vote to be passed to a general meeting, a majority of the committee needs to vote in favor of the amendment.</p>
+
+        <h3 class="blue-center">4.3 Member Voting</h3>
+
+        <p>1. If an amendment has been passed in committee, then the amendment will be voted on online by the members.</p>
+        <p style="margin-left: 2em;">a) Members can only vote once, using their registered email to the TPSA. Any other email will be discarded for the vote.</p>
+        <p style="margin-left: 2em;">b) The voting period will be up for three (3) weeks.</p>
+        <p style="margin-left: 2em;">c) In order for the vote to be eligible:</p>
+        <p style="margin-left: 4em;">1) Forty percent (40 %) of the active members must vote within the three-week period.</p>
+        <p style="margin-left: 4em;">2) If this quorum is not met, the vote is considered spoiled and must be recast in accordance with the above protocol.</p>
+
+        <h3 class="blue-center">4.4 Changes to the Amendment Protocol</h3>
+
+        <p>1. Any change to the amendment protocol of the constitution must be voted on by the committee and ratified by Michael Mitchell or the an appointed individual from list of Arbitrators.</p>
+        <p style="margin-left: 2em;">a) A majority must be needed for the vote to go to Michael or the list of Arbitrators.</p>
+
+        <h2 class="blue-center">5 | External Bodies</h2>
+
+        <h3 class="blue-center">5.1 Relationship to The Problem Solving Association</h3>
+
+        <p>1. The Problem Solving Association CLG. (TPSA CLG.) is the non-profit wing of the TPSA.</p>
+
+        <p>2. As a corporate body, the TPSA CLG. shall have a continued relation with the TPSA, as enforced by the directors of The Problem Solving Association in co-operation with the committee, in particular the auditor.</p>
+
+        <p>3. Any dynamics between the TPSA and The Problem Solving Association will be led by The Problem Solving Association unless otherwise specified.</p>
+
+        <h3 class="blue-center">5.2 Relationship to Other Branches of the TPSA</h3>
+
+        <p>1. When another branch of the TPSA is made, this will be revisited and amended as per protocol, including confirmation from Michael Mitchell.</p>
+    </div>
+
+    <!-- Irish Version -->
+    <div id="content-irish" class="text-box-col" style="display: none;">
+        <h1 class="blue-center">Lorem Ipsum Dolor Sit Amet</h1>
+        <h2 class="blue-center">Consectetur Adipiscing Elit Branch</h2>
+        
+        <div style="text-align: center; margin: 2vw;">
+            <img style="width: 200px;" src="images/logo.png" alt="TPSA Logo">
+        </div>
+
+        <h2 class="blue-center">Lorem Ipsum Dolor Sit Amet Consectetur</h2>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+
+        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+
+        <p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio nam libero tempore.</p>
+
+        <p><em>Lorem ipsum dolor sit amet consectetur,</em></p>
+
+        <h1 class="blue-center">Lorem Ipsum Constitution</h1>
+        <p class="text-center"><em>Ut enim ad minim veniam quis nostrud 2023/24.</em></p>
+
+        <div style="text-align: center; margin: 2vw;">
+            <p><strong>Lorem Ipsum:</strong> Casey Farren-Colloty<br>
+            <strong>Dolor Sit:</strong> Vedanth Subramanian<br>
+            <strong>Amet Consectetur:</strong> Luke Hodgkiss<br>
+            <strong>Adipiscing Elit:</strong> John Marley<br>
+            <strong>Sed Do Eiusmod:</strong> Isabel Costello<br>
+            <strong>Tempor Incididunt:</strong> Artem Tarasenko<br>
+            <strong>Ut Labore Et:</strong> Matthew Blakeney<br>
+            <strong>Dolore Magna:</strong> Sarah Rae Kelly<br>
+            <strong>Aliqua Ut:</strong> Thomas Brosnan<br>
+            <strong>Enim Ad Minim:</strong> Ethan Davis · Álvaro Romero Castillo<br>
+            <strong>Veniam Quis:</strong> Michael A.J. Mitchell<br>
+            <strong>Nostrud Exercitation:</strong> Daniel Barron<br>
+            <strong>Ullamco Laboris:</strong> Seán Alexander</p>
+        </div>
+
+        <h2 class="blue-center">Mission Statement Lorem</h2>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
+
+        <h2 class="blue-center">Brief History Lorem</h2>
+        
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+
+        <h2 class="blue-center">1 | Lorem Ipsum</h2>
+
+        <h3 class="blue-center">1.1 Dolor Sit Amet</h3>
+        
+        <p>1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p style="margin-left: 2em;">a) Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p style="margin-left: 2em;">b) Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+
+        <p>2. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+        <p>3. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <!-- Continue with more Lorem ipsum sections as needed -->
+    </div>
+</body><!--footer-->
+<div class="blue-back">
+  <div class="footer flex-col center-flex">
+    <div class="footer-content flex-row center-flex">
+        <a href="index.html">
+          <img class="shakin bottom-tpsa-logo" src="images/logo.png">
+        </a>
+        <p class="footer-tpsa-text">Theoretical Physics<br>
+          Student Association
+        </p>
+        <a class="social-media-logos"  href="https://www.instagram.com/tpsa_ireland/" target="_blank" rel="noopener noreferrer">
+          <img src="images/footer/instagram.png" width="20" height="20">
+        </a>
+        <a class="social-media-logos" href="https://www.youtube.com/channel/UCAhMHA7C3mo0MaASsM4Nweg" target="_blank" rel="noopener noreferrer">
+          <img src="images/footer/yt.png" width="30" height="30">
+        </a>
+        <a class="social-media-logos"  href="https://ie.linkedin.com/company/theoretical-physics-student-association" target="_blank"
+          rel="noopener noreferrer">
+          <img src="images/footer/in.png" width="20" height="20">
+        </a>
+    </div>
+    <div class="footer-content flex-row center-flex" >
+        <p class="footer-text address">School of Mathematics,<br>
+          17 Westland Row,<br>
+          Trinity College Dublin<br><br>
+          <a style="color: white;" href="mailto:student@tpsa.ie">student@tpsa.ie</a> 
+        </p>
+        <iframe class="map" frameborder="0" scrolling="no"
+          src="https://maps.google.com/maps?width=720&amp;height=600&amp;hl=en&amp;q=School%20of%20Mathematics%2017%20Westland%20Row%20Trinity%20College%20Dublin%20Dublin%202%20Ireland+(School%20of%20Mathematics)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/collections/sports-gps/">Football GPS</a>
+        </iframe>
+    </div>
+  </div>
+  <div class="footer flex-col center-flex" style="margin-top: 0px;margin-bottom: 0px;">
+      <div class="text-center">
+          <a href="https://www.iop.org/" target="_blank" rel="noopener noreferrer">
+              <img class="image-iop" src="images/iop.png" alt="Institute of Physics Logo">
+          </a>
+      </div>
+  </div>
+  <div class="footer flex-col center-flex" style="margin-top: 0px;">
+      <div class="text-center flex-row center-flex">
+          <p class="hosted-text">Hosted by:</p>
+          <a href="https://www.blacknight.com/" target="_blank" rel="noopener noreferrer">
+              <img class="image-bt" src="images/blacknight.png" alt="Blacknight">
+          </a>
+      </div>
+    </div>
+
+    <div style="padding: 2vw;">
+      <p class="footer-text text-center">
+        &copy; 2025 Theoretical Physics Student Association of Ireland . All rights reserved.
+      </p>
+    </div>
+</div>
+</html> 
