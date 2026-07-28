@@ -75,11 +75,40 @@ A few conventions the JavaScript relies on:
   labels.
 - **Team** — three groups keyed by `data-group` (`leadership`, `researchers`,
   `interns`) on the triquetra loops, the selector buttons and the card grids.
-  Each card's bio sits in `data-bio`; the modal reads it from there. Group
+  Each card's bio sits in `data-bio`; the modal reads it from there, and
+  `data-member` is the slug other sections use to open that profile. Group
   colours are defined once as `--group` at the bottom of `css/team.css`.
+
+  The modal's buttons come off the same card, all of them optional:
+
+  | attribute | effect |
+  | --- | --- |
+  | `data-email` | address the email button writes to. Defaults to `problemsolving@tpsa.ie`, and only that shared address gets a `For <name>` subject line — a personal address is written to directly. |
+  | `data-email-label` | the email button's whole text, including any glyph you want in front of it. Without it the label is `✉ Email <first word of the name>`, which reads badly for anyone whose name does not split on a space that way — set it rather than live with the guess. |
+  | `data-linkedin` | profile URL. Adds a blue LinkedIn button; `data-linkedin-label` overrides its text. |
+  | `data-github` | profile URL. Adds a black GitHub button; `data-github-label` overrides its text. |
+  | `data-website` | personal site. Adds a purple button with a globe; `data-website-label` overrides its text. |
+
+  The three link buttons appear only for the members that carry a URL, always
+  in that order after the email button — LinkedIn, GitHub, then website
+  furthest right — and open in a new tab. So a fully specified card looks
+  like:
+
+  ```html
+  <button class="tm" style="--tmd:0s" data-member="ada-lovelace"
+          data-bio="…"
+          data-email="ada@tpsa.ie" data-email-label="✉ Write to Ada"
+          data-linkedin="https://www.linkedin.com/in/ada-lovelace/"
+          data-github="https://github.com/adalovelace"
+          data-website="https://adalovelace.ie">
+  ```
 - **Press** — add a `.pr` block inside `.spine`, newest first, alternating
   `pr--l` / `pr--r`. `data-visible` on `.spine` caps how many show; once there
   are more, the three-diamond terminus becomes an expand button on its own.
+  An article closes with a single `.pr__link`; a podcast closes with a
+  `.pr__listen` row carrying one `.pr__pod` link per platform. To credit one of
+  ours, add a `.pr__with` line whose `.pr__person` button names them by
+  `data-member` — clicking it opens their profile in the Team section.
 - **Stat counters** — `data-count-to`, with optional `data-prefix`,
   `data-suffix` and `data-decimals`. The element's text is the final value, so
   the figures are correct with JavaScript disabled.

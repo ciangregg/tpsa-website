@@ -21,6 +21,10 @@
 .px__meta div{display:flex;flex-direction:column;gap:4px;font-size:15px;font-weight:600;color:var(--ink)}
 .px__meta span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
 .px__status{color:var(--green-600)}
+/* Ties the row back to the Themes box in About - clicking opens that theme. */
+.px__theme{font:inherit;color:var(--purple-600);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--purple-300);text-underline-offset:3px;transition:color .3s var(--ease),text-decoration-color .3s var(--ease)}
+.px__theme:hover{color:var(--purple-800);text-decoration-color:var(--purple-600)}
+.px__theme:focus-visible{outline:2px solid var(--purple-500);outline-offset:3px;border-radius:2px}
 .px__status_down{color:var(--red-600)}
 .px__info h3{font-size:clamp(24px,2.6vw,36px);font-weight:700;line-height:1.08;letter-spacing:-.02em;margin-bottom:16px;text-wrap:balance}
 .px__info p{font-size:17px;line-height:1.62;color:var(--ink);margin-bottom:16px}
