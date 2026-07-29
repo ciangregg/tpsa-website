@@ -9,7 +9,7 @@
 }
 @media(max-width:860px){
 .about__grid{grid-template-columns:1fr;gap:28px}
-.aims{grid-template-columns:1fr}
+.pillars{grid-template-columns:1fr}
 .stats{grid-template-columns:1fr 1fr;gap:32px 20px}
 .team{grid-template-columns:1fr;gap:36px}
 .team__mark{position:static;flex-direction:row;flex-wrap:wrap;justify-content:center}
@@ -17,6 +17,7 @@
 .team__pick{border-left:none;border-radius:var(--radius-sm)}
 .team__pick.is-active{border-left:none}
 .tmodal__card{grid-template-columns:1fr;justify-items:center;text-align:center;gap:20px;padding:32px 24px}
+.tmodal__links{justify-content:center}
 }
 @media(max-width:520px){
 .hero__cta{flex-direction:column;align-items:flex-start}

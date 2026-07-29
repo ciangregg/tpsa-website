@@ -43,6 +43,9 @@
 .tmodal__info h3{font-size:26px;margin-bottom:4px}
 .tmodal__role{font-size:15px;font-weight:700;margin-bottom:16px}
 .tmodal__info p{font-size:16px;line-height:1.6;color:var(--ink);margin-bottom:22px}
+/* email, LinkedIn and GitHub, however many of them the card carries */
+.tmodal__links{display:flex;flex-wrap:wrap;gap:10px}
+.tmodal__links .btn{padding:13px 20px;font-size:15px}
 .intake{background:var(--surface-card);border-radius:var(--radius-lg);padding:44px;animation:tmIn .5s cubic-bezier(0.16,1,0.3,1) both}
 .intake__body h3{font-size:24px;margin-bottom:12px}
 .intake__body p{font-size:16px;line-height:1.6;color:var(--ink-soft);max-width:52ch;margin-bottom:22px}

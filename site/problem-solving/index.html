@@ -121,9 +121,73 @@
         <p>Our work has two complementary aims: applying mathematical and technological tools where they can help, and ensuring those same technologies don’t create new problems or deepen existing inequalities.</p>
       </div>
     </div>
-    <div class="aims">
-      <div class="aim" data-reveal><span class="aim__idx">Aim 01</span><h3>Apply</h3><p>Rigorous, open-source methods on electoral systems, infrastructure and educational access.</p></div>
-      <div class="aim" data-reveal style="--rd:.08s"><span class="aim__idx">Aim 02</span><h3>Interrogate</h3><p>Every capability is paired with responsibility - asking for who a system works, and for who it fails.</p></div>
+    <div class="pillars">
+      <div class="pillar" data-reveal>
+        <span class="pillar__idx">Our Themes</span>
+        <h3>What we work on</h3>
+        <!-- Each theme expands to the projects working under it. To add a written
+             introduction to a theme, drop a <p class="theme__desc"> in ahead of
+             the "Projects under this theme" label. -->
+        <ol class="pillar__list">
+          <li class="theme" id="theme-transparency">
+            <button class="pillar__row theme__row" type="button" id="theme-btn-transparency" data-theme="transparency" aria-expanded="false" aria-controls="theme-body-transparency">
+              <span class="pillar__n">01</span>
+              <span class="pillar__t">Democratic Integrity and Transparency</span>
+              <span class="theme__chev" aria-hidden="true"></span>
+            </button>
+            <div class="theme__body" id="theme-body-transparency" role="region" aria-labelledby="theme-btn-transparency">
+              <div class="theme__inner">
+                <div class="theme__lab">Projects under this theme</div>
+                <ul class="theme__projects">
+                  <li><button type="button" class="theme__proj" data-project="payments"><b>SPARÁN</b><span>Public finance</span></button></li>
+                  <li><button type="button" class="theme__proj" data-project="cothrom"><b>COTHROM</b><span>Electoral systems</span></button></li>
+                  <li><button type="button" class="theme__proj" data-project="advert"><b>Political Advertising</b><span>Democratic integrity</span></button></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="theme" id="theme-education">
+            <button class="pillar__row theme__row" type="button" id="theme-btn-education" data-theme="education" aria-expanded="false" aria-controls="theme-body-education">
+              <span class="pillar__n">02</span>
+              <span class="pillar__t">Education and Upskilling</span>
+              <span class="theme__chev" aria-hidden="true"></span>
+            </button>
+            <div class="theme__body" id="theme-body-education" role="region" aria-labelledby="theme-btn-education">
+              <div class="theme__inner">
+                <div class="theme__lab">Projects under this theme</div>
+                <ul class="theme__projects">
+                  <li><button type="button" class="theme__proj" data-project="ecnetica"><b>The Ecnetica Project</b><span>Education</span></button></li>
+                  <li><button type="button" class="theme__proj" data-project="tpsai"><b><span class="tpsai">TPSA<b class="tpsai__i">I</b></span></b><span>AI ethics &amp; compliance</span></button></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="theme" id="theme-foresight">
+            <button class="pillar__row theme__row" type="button" id="theme-btn-foresight" data-theme="foresight" aria-expanded="false" aria-controls="theme-body-foresight">
+              <span class="pillar__n">03</span>
+              <span class="pillar__t">Foresight and Preparedness</span>
+              <span class="theme__chev" aria-hidden="true"></span>
+            </button>
+            <div class="theme__body" id="theme-body-foresight" role="region" aria-labelledby="theme-btn-foresight">
+              <div class="theme__inner">
+                <div class="theme__lab">Projects under this theme</div>
+                <ul class="theme__projects">
+                  <li><button type="button" class="theme__proj" data-project="praxis"><b>PRAXIS</b><span>Infrastructure</span></button></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="pillar pillar--roles" data-reveal style="--rd:.08s">
+        <span class="pillar__idx">Our Roles</span>
+        <h3>How we work</h3>
+        <ol class="pillar__list">
+          <li><span class="pillar__row"><span class="pillar__n">01</span><span class="pillar__t">Bridging academic insight and governance</span></span></li>
+          <li><span class="pillar__row"><span class="pillar__n">02</span><span class="pillar__t">Developing citizen democratic involvement in the information age</span></span></li>
+          <li><span class="pillar__row"><span class="pillar__n">03</span><span class="pillar__t">Evidencing the capability of non-profit business models in Ireland</span></span></li>
+        </ol>
+      </div>
     </div>
     <div class="stats">
       <div class="stat" data-reveal>
@@ -203,6 +267,7 @@
         <div class="px__info">
           <div class="px__meta">
             <div><span>Field</span>Public finance</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="transparency">Transparency</button></div>
             <div><span>Status</span><b class="px__status">Live</b></div>
             <div><span>Working with</span>200+ state entities</div>
             <div><span>Method</span>Open data</div>
@@ -247,6 +312,7 @@
         <div class="px__info">
           <div class="px__meta">
             <div><span>Field</span>Electoral systems</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="transparency">Transparency</button></div>
             <div><span>Status</span><b class="px__status">In development</b></div>
             <div><span>Working with</span>ICHEC</div>
             <div><span>Method</span>Potts Model · Simulated annealing</div>
@@ -290,6 +356,7 @@
         <div class="px__info">
           <div class="px__meta">
             <div><span>Field</span>Infrastructure</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="foresight">Foresight</button></div>
             <div><span>Status</span><b class="px__status">Research Ongoing</b></div>
             <div><span>Working with</span>TCD · ICHEC</div>
             <div><span>Method</span>Physics-Inspired Population Dynamics Modelling</div>
@@ -321,6 +388,7 @@
         <div class="px__info">
           <div class="px__meta">
             <div><span>Field</span>Education</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="education">Education</button></div>
             <div><span>Status</span><b class="px__status">Development</b></div>
             <div><span>Working with</span> TCD · DCU</div>
             <div><span>Method</span>Animation · Interactivity &amp; Knowledge Tracing</div>
@@ -352,6 +420,7 @@
         <div class="px__info">
           <div class="px__meta">
             <div><span>Field</span>AI ethics &amp; compliance</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="education">Education</button></div>
             <div><span>Status</span><b class="px__status">Booking</b></div>
             <div><span>Working with</span>For SMEs · Jennifer Waters</div>
             <div><span>Method</span>EU AI Act · Irish law</div>
@@ -384,6 +453,7 @@
         <div class="px__info">
           <div class="px__meta">
             <div><span>Field</span>Democratic integrity</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="transparency">Transparency</button></div>
             <div><span>Status</span><b class="px__status">Ready for the next election</b></div>
             <div><span>Working with</span>Regulatory compliance</div>
             <div><span>Method</span>Independent audit</div>
@@ -430,53 +500,53 @@
 
       <div class="team__content">
         <div class="team__grid is-active" data-group="leadership">
-          <button class="tm" style="--tmd:0s" data-bio="Michael has a background in computational physics, and works to coordinate the organisation's research, and steer its direction.">
+          <button class="tm" style="--tmd:0s" data-bio="Michael has a background in computational physics, and works to coordinate the organisation's research, and steer its direction." data-member="michael-mitchell" data-email="michael@tpsa.ie" data-linkedin="https://www.linkedin.com/in/michael-a-j-mitchell-4301771a2/">
             <div class="tm__photo"><img src="assets/team/michael.jpg" alt="Michael Mitchell"></div>
             <h3>Michael Mitchell</h3><div class="tm__role">Director &amp; CEO</div><span class="tm__more">Read more</span>
           </button>
-          <button class="tm" style="--tmd:.06s" data-bio="From a theoretical physics background; Casey works to coordinate admin, engage in research, and liaise with our sister organisation, the Theoretical Physics Student Association.">
-            <div class="tm__photo"><img src="assets/team/cas.jpg" alt="Casey-Farren Colloty"></div>
+          <button class="tm" style="--tmd:.0s" data-bio="From a theoretical physics background; Casey works to coordinate admin, engage in research, and liaise with our sister organisation, the Theoretical Physics Student Association." data-member="casey-farren-colloty" data-email-label="✉ Email Casey" data-email="casey@tpsa.ie" data-linkedin="https://www.linkedin.com/in/casey-farren-colloty-4b5347223/" data-website="https://farrencc.github.io/">
+            <div class="tm__photo"><img src="assets/team/cas.jpg" alt="Casey Farren-Colloty"></div>
             <h3>Casey-Farren Colloty</h3><div class="tm__role">Director &amp; COO</div><span class="tm__more">Read more</span>
           </button>
-          <button class="tm" style="--tmd:.12s" data-bio="Researches AI implementation strategies and the impact of AI on the democratic and legal tenets of rule of law; leads our AI ethics and compliance work.">
+          <button class="tm" style="--tmd:.12s" data-bio="Researches AI implementation strategies and the impact of AI on the democratic and legal tenets of rule of law; leads our AI ethics and compliance work." data-member="jennifer-waters" data-email="jennifer@tpsa.ie" data-linkedin="https://www.linkedin.com/in/jennifer-waters-42b06519b/">
             <div class="tm__photo"><img src="assets/team/jen.jpg" alt="Jennifer Waters"></div>
             <h3>Jennifer Waters</h3><div class="tm__role">Humanities Lead</div><span class="tm__more">Read more</span>
           </button>
-          <button class="tm" style="--tmd:.18s" data-bio="Qualified civil engineer and thirty-year public servant; currently Chair of the Board of EirGrid.">
+          <button class="tm" style="--tmd:.18s" data-bio="Qualified civil engineer and thirty-year public servant; currently Chair of the Board of EirGrid." data-member="brendan-tuohy">
             <div class="tm__photo"><img src="assets/team/brendan.jpg" alt="Brendan Tuohy"></div>
             <h3>Brendan Tuohy</h3><div class="tm__role">Advisor to the Board</div><span class="tm__more">Read more</span>
           </button>
         </div>
 
         <div class="team__grid" data-group="researchers">
-          <button class="tm" style="--tmd:0s" data-bio="Ruaidhrí's background at the PhD level involves theoretical and high-performance computational physics applied to the area of Lattice QCD in Trinity College Dublin. He leads the technical development of COTHROM, turning constitutional redistricting objectives into solvable physics models.">
+          <button class="tm" style="--tmd:0s" data-bio="Ruaidhrí's background at the PhD level involves theoretical and high-performance computational physics applied to the area of Lattice QCD in Trinity College Dublin. He leads the technical development of COTHROM, turning constitutional redistricting objectives into solvable physics models." data-member="ruaidhri-campion" data-linkedin="https://www.linkedin.com/in/ruaidhr%C3%AD-campion/" data-github="https://github.com/campioru/" data-website="https://www.maths.tcd.ie/~rcampion/">
             <div class="tm__photo"><img src="assets/team/ruaidhri.jpg" alt="Ruaidhrí Campion"></div>
             <h3>Ruaidhrí Campion</h3><div class="tm__role">COTHROM Technical Lead</div><span class="tm__more">Read more</span>
           </button>
-          <button class="tm" style="--tmd:.06s" data-bio="Researches the public-policy dimensions of our work, connecting technical methods to real regulatory and democratic questions.">
+          <button class="tm" style="--tmd:.06s" data-bio="Researches the public-policy dimensions of our work, connecting technical methods to real regulatory and democratic questions. Matthew heads our involvement in the SPARÁN project and had been vital to its success via its technical development." data-member="matthew-fenlon" data-linkedin="https://www.linkedin.com/in/matthew-fenlon-959a78173/" data-email="matthew@tpsa.ie">
             <div class="tm__photo"><img src="assets/team/matthew_f.jpeg" alt="Matthew Fenlon"></div>
             <h3>Matthew Fenlon</h3><div class="tm__role">Policy Researcher</div><span class="tm__more">Read more</span>
           </button>
-          <button class="tm" style="--tmd:.12s" data-bio="Eliza's background in Theoretical Physics, with qualifications from Trinity College Dublin and the University of Cambridge, uniquely positions her to research and develop physics-inspired population dynamics models which will inform future infrastructure planning. She is also involved in the development of the COTHROM Framework.">
+          <button class="tm" style="--tmd:.12s" data-bio="Eliza's background in Theoretical Physics, with qualifications from Trinity College Dublin and the University of Cambridge, uniquely positions her to research and develop physics-inspired population dynamics models which will inform future infrastructure planning. She is also involved in the development of the COTHROM Framework." data-member="eliza-somerville" data-linkedin="https://www.linkedin.com/in/elizasomerville/" data-github="https://github.com/elizasomerville" data-website="https://elizasomerville.com/">
             <div class="tm__photo"><img src="assets/team/eliza.jpeg" alt="Eliza Somerville"></div>
             <h3>Eliza Somerville</h3><div class="tm__role">PRAXIS Lead Researcher</div><span class="tm__more">Read more</span>
           </button>
         </div>
 
         <div class="team__grid" data-group="interns">
-          <button class="tm" style="--tmd:0s" data-bio="Investigating an alternative route to the PRAXIS research team on stochastic forecasting.">
+          <button class="tm" style="--tmd:0s" data-bio="Investigating an alternative route to the PRAXIS research team on stochastic forecasting." data-member="daniel-barron" data-linkedin="https://www.linkedin.com/in/daniel-barron-000536277/">
             <div class="tm__photo"><img src="assets/team/daniel.jpg" alt="Daniel Barron"></div>
             <h3>Daniel Barron</h3><div class="tm__role">PRAXIS Researcher</div><span class="tm__more">Read more</span>
           </button>
-          <button class="tm" style="--tmd:.06s" data-bio="Investigating an alternative route to the PRAXIS research team on stochastic forecasting.">
+          <button class="tm" style="--tmd:.06s" data-bio="Investigating an alternative route to the PRAXIS research team on stochastic forecasting." data-member="o-daniel-ocarroll" data-github="https://github.com/odanny-oc">
             <div class="tm__photo"><img src="assets/team/daniel-o.jpeg" alt="O. Daniel O'Carroll"></div>
             <h3>O. Daniel O'Carroll</h3><div class="tm__role">PRAXIS Researcher</div><span class="tm__more">Read more</span>
           </button>
-          <button class="tm" style="--tmd:.12s" data-bio="Develops the Ecnetica platform to democratise advanced mathematics.">
+          <button class="tm" style="--tmd:.12s" data-bio="Develops the Ecnetica platform to democratise advanced mathematics." data-member="amy-shannon">
             <div class="tm__photo"><img src="assets/team/amy.jpg" alt="Amy Shannon"></div>
             <h3>Amy Shannon</h3><div class="tm__role">Ecnetica Developer</div><span class="tm__more">Read more</span>
           </button>
-          <button class="tm" style="--tmd:.18s" data-bio="Builds and maintains the tools and pipelines that power our projects across the association.">
+          <button class="tm" style="--tmd:.18s" data-bio="Builds and maintains the tools and pipelines that power our projects across the association." data-member="ella-southgate" data-email="ella.intern@tpsa.ie">
             <div class="tm__photo"><img src="assets/team/ella.jpeg" alt="Ella Southgate"></div>
             <h3>Ella Southgate</h3><div class="tm__role">Developer</div><span class="tm__more">Read more</span>
           </button>
@@ -500,10 +570,26 @@
   <div class="wrap">
     <div data-reveal><div class="kicker">Featured In</div></div>
     <div data-reveal style="--rd:.06s"><h2 class="sec__head">Our work, in the national conversation.</h2></div>
-    <div class="spine" data-visible="2">
+    <div class="spine" data-visible="3">
       <div class="spine__rule"></div>
 
       <div class="pr pr--l" data-reveal style="--rd:.1s">
+        <div class="pr__card">
+          <div class="pr__top"><span class="pr__outlet">The David McWilliams Podcast</span><span class="pr__kind">Podcast</span><span class="pr__on">On SPARÁN</span></div>
+          <a class="pr__head" href="https://shows.acast.com/the-david-mcwilliams-podcast/episodes/the-133-billion-black-hole-why-ireland-cant-track-its-spendi" target="_blank" rel="noopener noreferrer">The €133 Billion Black Hole: Why Ireland Can’t Track Its Spending</a>
+          <p class="pr__with">Featuring <button type="button" class="pr__person" data-member="matthew-fenlon">Matthew Fenlon</button>, our Policy Researcher.</p>
+          <blockquote class="pr__quote">The Problem Solving Association should be … the mission statement for every government department.</blockquote>
+          <div class="pr__listen">
+            <span class="pr__listen-lab">Listen on</span>
+            <a class="pr__pod" href="https://shows.acast.com/the-david-mcwilliams-podcast/episodes/the-133-billion-black-hole-why-ireland-cant-track-its-spendi" target="_blank" rel="noopener noreferrer">Acast</a>
+            <a class="pr__pod" href="https://podcasts.apple.com/ie/podcast/the-david-mcwilliams-podcast/id1462649946" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+            <a class="pr__pod" href="https://open.spotify.com/episode/73jj8M2YKOoA36qvK7RItf?si=ToNTwvv0Q3WYaMUdLtuPmw" target="_blank" rel="noopener noreferrer">Spotify</a>
+          </div>
+        </div>
+        <div class="pr__mid"><div class="pr__dot"></div><div class="pr__date">28 Jul 2026</div></div>
+      </div>
+
+      <div class="pr pr--r" data-reveal style="--rd:.22s">
         <div class="pr__card">
           <div class="pr__top"><span class="pr__outlet">The Irish Times</span><span class="pr__kind">Opinion</span><span class="pr__on">On SPARÁN</span></div>
           <a class="pr__head" href="https://www.irishtimes.com/opinion/2026/07/25/david-mcwilliams-theres-a-reason-the-state-gets-away-with-wasting-so-much-of-our-money/" target="_blank" rel="noopener noreferrer">David McWilliams: There’s a reason the State gets away with wasting so much of our money</a>
@@ -513,7 +599,7 @@
         <div class="pr__mid"><div class="pr__dot"></div><div class="pr__date">25 Jul 2026</div></div>
       </div>
 
-      <div class="pr pr--r" data-reveal style="--rd:.22s">
+      <div class="pr pr--l" data-reveal style="--rd:.34s">
         <div class="pr__card">
           <div class="pr__top"><span class="pr__outlet">The Irish Times</span><span class="pr__kind">Politics</span><span class="pr__on">On COTHROM</span></div>
           <a class="pr__head" href="https://www.irishtimes.com/politics/2026/07/01/tcd-mathematicians-develop-a-formula-to-solve-constituency-boundary-conundrum/" target="_blank" rel="noopener noreferrer">TCD mathematicians develop a formula to solve constituency boundary conundrum</a>

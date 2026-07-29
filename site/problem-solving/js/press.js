@@ -9,6 +9,19 @@ export function initPress() {
 
   onceVisible(spine, () => spine.classList.add("is-drawn"), { threshold: 0.2 });
 
+  // Someone of ours named in a mention opens their profile down in the Team
+  // section. Going through the group button and the card reuses team.js's own
+  // switching and modal.
+  spine.querySelectorAll(".pr__person").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = document.querySelector(`.tm[data-member="${btn.dataset.member}"]`);
+      if (!card) return;
+      document.querySelector(`.team__pick[data-group="${card.closest("[data-group]").dataset.group}"]`)?.click();
+      document.getElementById("team")?.scrollIntoView();
+      card.click();
+    });
+  });
+
   const items = [...spine.querySelectorAll(".pr")];
   const visible = parseInt(spine.dataset.visible || "0", 10) || items.length;
   const cap = spine.querySelector(".spine__cap");

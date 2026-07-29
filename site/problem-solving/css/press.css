@@ -19,6 +19,10 @@
 .pr__on{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-600)}
 .pr__head{display:block;font-size:clamp(19px,1.7vw,24px);font-weight:700;line-height:1.2;letter-spacing:-.015em;color:var(--ink);text-wrap:pretty;margin-bottom:0}
 .pr__head:hover{color:var(--purple-700)}
+.pr__with{font-size:15px;line-height:1.5;color:var(--ink-soft);margin-top:12px}
+.pr__person{font:inherit;color:var(--purple-600);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--purple-300);text-underline-offset:3px;transition:color .3s var(--ease),text-decoration-color .3s var(--ease)}
+.pr__person:hover{color:var(--purple-800);text-decoration-color:var(--purple-600)}
+.pr__person:focus-visible{outline:2px solid var(--purple-500);outline-offset:3px;border-radius:2px}
 .pr__quote{position:relative;font-size:clamp(16px,1.35vw,18.5px);line-height:1.55;color:var(--purple-800,#3c096c);border-top:1px solid var(--border,rgba(16,0,43,.12));padding-top:34px;margin:38px 0 18px}
 .pr__quote::before{content:"\201c";position:absolute;top:0;transform:translateY(-52%);font-size:64px;line-height:1;color:var(--green-500);opacity:.32;pointer-events:none}
 .pr--l .pr__quote::before{right:-6px}
@@ -27,6 +31,13 @@
 .pr__link span{transition:transform .3s var(--ease)}
 .pr__link:hover{color:var(--green-600)}
 .pr__link:hover span{transform:translateX(5px)}
+/* podcast mentions carry one link per platform instead of a single "read" link */
+.pr__listen{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.pr--l .pr__listen{justify-content:flex-end}
+.pr__listen-lab{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.pr__pod{padding:7px 14px;border:1px solid var(--border,rgba(16,0,43,.12));border-radius:var(--radius-full);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-600);white-space:nowrap;transition:color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease)}
+.pr__pod:hover{color:var(--green-600);border-color:var(--green-500);transform:translateY(-2px)}
+.pr__pod:focus-visible{outline:2px solid var(--purple-500);outline-offset:3px}
 .pr[hidden]{display:none}
 .spine__end{display:flex;justify-content:center;margin-top:4px}
 .spine__more[hidden],.spine__cap[hidden]{display:none}
@@ -48,5 +59,6 @@
 .pr__dot{flex:0 0 auto}
 .pr--l .pr__top{justify-content:flex-start}
 .pr--l .pr__quote::before,.pr--r .pr__quote::before{right:auto;left:-6px}
+.pr--l .pr__listen{justify-content:flex-start}
 .spine__end{justify-content:flex-start;margin-left:-6px}
 }
