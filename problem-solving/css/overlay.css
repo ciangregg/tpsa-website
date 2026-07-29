@@ -1,0 +1,16 @@
+.ov{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 120% at 20% 10%,#240046,#05000f);opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.ov--open{opacity:1;visibility:visible}
+.ov__pattern{position:absolute;inset:0;background:url('../assets/unit-pattern.svg') repeat;background-size:120px;opacity:.09;mix-blend-mode:screen}
+.ov__close{position:absolute;top:26px;right:clamp(20px,6vw,64px);z-index:2;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;line-height:1;transition:transform .3s,color .3s}
+.ov__close:hover{transform:rotate(90deg);color:var(--green-500)}
+.ov__inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;width:88%;max-width:1240px;margin:0 auto}
+.ov__links{display:flex;flex-direction:column;gap:6px}
+.ov__links a{display:flex;align-items:baseline;gap:20px;color:#fff;font-size:clamp(38px,8vw,92px);font-weight:700;letter-spacing:-.02em;line-height:1.04;opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease),color .3s}
+.ov--open .ov__links a{opacity:1;transform:none}
+.ov__links a:hover{color:var(--green-500)}
+.ov__num{font-size:15px;font-weight:700;color:var(--purple-400);letter-spacing:.1em}
+.ov__foot{margin-top:56px;display:flex;flex-wrap:wrap;gap:24px 60px;align-items:flex-end;justify-content:space-between;opacity:0;transition:opacity .6s var(--ease) .5s}
+.ov--open .ov__foot{opacity:1}
+.ov__foot p{color:rgba(255,255,255,.72);font-size:18px;max-width:44ch;line-height:1.5}
+.ov__foot em{color:var(--green-500);font-style:normal}
+.ov__foot a{color:#fff;font-weight:700;font-size:18px;border-bottom:2px solid var(--green-500);padding-bottom:2px}

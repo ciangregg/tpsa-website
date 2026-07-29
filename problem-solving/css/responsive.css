@@ -1,0 +1,39 @@
+@media(max-width:960px){
+.hero__inner{grid-template-columns:1fr;gap:40px}
+.hero__viz{order:-1}
+.px{grid-template-columns:1fr;gap:26px}
+.px__list{position:static;flex-direction:row;overflow-x:auto;gap:10px}
+.px__item{flex:0 0 auto;border-left:none;border-bottom:3px solid transparent;border-radius:var(--radius-sm)}
+.px__item.is-active{border-left:none;border-bottom-color:var(--green-500)}
+.px__arrow{display:none}
+}
+@media(max-width:860px){
+.about__grid{grid-template-columns:1fr;gap:28px}
+.pillars{grid-template-columns:1fr}
+.stats{grid-template-columns:1fr 1fr;gap:32px 20px}
+.team{grid-template-columns:1fr;gap:36px}
+.team__mark{position:static;flex-direction:row;flex-wrap:wrap;justify-content:center}
+.team__selector{flex-direction:row;flex-wrap:wrap;justify-content:center;width:auto}
+.team__pick{border-left:none;border-radius:var(--radius-sm)}
+.team__pick.is-active{border-left:none}
+.tmodal__card{grid-template-columns:1fr;justify-items:center;text-align:center;gap:20px;padding:32px 24px}
+.tmodal__links{justify-content:center}
+}
+@media(max-width:520px){
+.hero__cta{flex-direction:column;align-items:flex-start}
+.stats{grid-template-columns:1fr 1fr}
+}
+
+/* Respect a reduced-motion preference: collapse the CSS motion but keep every
+   element in its final, visible state (the hero title and the reveal/card
+   entrances animate in from opacity 0, so they must be forced visible). */
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{
+  animation-duration:.01ms !important;
+  animation-iteration-count:1 !important;
+  transition-duration:.01ms !important;
+  scroll-behavior:auto !important;
+}
+html{scroll-behavior:auto}
+.fade-l,.fade-w{opacity:1}
+}
