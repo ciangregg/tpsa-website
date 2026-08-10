@@ -1,7 +1,22 @@
+# The Problem Solving site is served from a directory rather than a flat .html
+# file — the first page on this site that is. Name its index explicitly instead
+# of relying on the host's DirectoryIndex default.
+DirectoryIndex index.html
+
+# That site's scripts are ES modules, which browsers refuse to execute unless
+# the Content-Type is a JavaScript type — a wrong type blocks the whole module
+# graph rather than one file. State the types it depends on.
+AddType text/javascript .js
+AddType image/svg+xml .svg
+
 RewriteEngine On
 
-# Redirect problemsolving to problem-solving
-RewriteRule ^problemsolving$ /problem-solving [R=301,L]
+# The Problem Solving Association site lives in the problem-solving/ directory.
+# Send the retired single-page version and every spelling of the path to it.
+RewriteRule ^problem-solving/index\.html$ /problem-solving/ [R=301,L]
+RewriteRule ^problem-solving\.html$ /problem-solving/ [R=301,L]
+RewriteRule ^problem-solving$ /problem-solving/ [R=301,L]
+RewriteRule ^problemsolving$ /problem-solving/ [R=301,L]
 
 # Redirect project to calendar
 RewriteRule ^projects$ /calendar [R=301,L]

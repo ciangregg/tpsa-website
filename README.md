@@ -2,7 +2,7 @@
 
 The official website for the Theoretical Physics Student Association (TPSA) of Ireland and The Problem Solving Association CLG. 
 
-The site uses a template-based architecture with reusable header and footer components to wrap around page content. This approach generates static HTML pages from modular components - `header.html`, `footer.html`, and `<name>-body.html` to compile the website. There are also a handful of other unique pages such as the `index.html` & `problem-solving.html`. 
+The site uses a template-based architecture with reusable header and footer components to wrap around page content. This approach generates static HTML pages from modular components - `header.html`, `footer.html`, and `<name>-body.html` to compile the website. There are also a handful of other unique pages such as the `index.html`, plus the Problem Solving Association site, which is a self-contained static site in `site/problem-solving/` rather than a generated page. 
 
 <img src="site/images/logo.png" alt="TPSA Logo" width="200px" height="auto" style="display: block;">
 
@@ -24,7 +24,8 @@ The site uses a template-based architecture with reusable header and footer comp
 │   ├── tpsa.css            # Main stylesheet (edit directly)
 │   ├── tpsa.js             # JavaScript functions for popups
 │   ├── index.html          # Split landing page (edit directly)
-│   ├── problem-solving.html# Problem Solving Association page (edit directly)
+│   ├── problem-solving/    # Problem Solving Association site (self-contained,
+│   │                       #   served at /problem-solving/ — see its own README)
 │   ├── images/             # Image assets directory
 │   └── *.html              # Generated pages (DON'T edit these directly)
 ├── content/                # Page content (edit these)
@@ -121,7 +122,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 #### For Unique Pages
 - `site/index.html` - Split landing page (TPSA vs Problem Solving Association)
-- `site/problem-solving.html` - The Problem Solving Association page with interactive attractor
+- `site/problem-solving/` - The Problem Solving Association site, served at `/problem-solving/`. A self-contained static site (plain HTML/CSS/ES modules, no build step, no dependencies) with its own long-scroll page: attractor hero, about, project explorer, team, press and contact. `tpsa.sh` does not touch it. All copy lives in `site/problem-solving/index.html`; see `site/problem-solving/README.md` for the editing conventions and for how to drop in a fresh design export.
 
 #### For Styling and Functionality
 - `site/tpsa.css` - All website styling, responsive design, animations, language toggle styling
@@ -153,7 +154,8 @@ The site is fully responsive with breakpoints at 650px and 490px for mobile devi
 ### URL Management
 The `.htaccess` file handles:
 - Clean URLs (removes .html extensions)
-- Redirects for legacy URLs (`problemsolving` → `problem-solving`, `projects` → `calendar`)
+- Redirects for legacy URLs (`projects` → `calendar`)
+- Redirects `problem-solving.html`, `problem-solving` and `problemsolving` → `/problem-solving/` (the directory the Problem Solving site is served from)
 
 ## 4. Testing
 Run the build script and test your changes:

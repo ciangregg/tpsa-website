@@ -1,0 +1,19 @@
+/* TPSA — Spacing & layout tokens
+   The site leans on generous, fluid whitespace (2vw rhythm, py-16 sections). */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;  /* card padding on project/team items */
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px; /* section vertical rhythm (py-16) */
+
+  --space-fluid: 2vw; /* the site's --spacing-2vw rhythm */
+
+  --container: 80%;      /* .container width on PSA page */
+  --container-max: 1280px; /* max-w-7xl */
+}

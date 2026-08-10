@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Problem Solving Association</title>
+<meta name="description" content="The Problem Solving Association CLG is an Irish non-profit applying mathematics, physics, and technology to public problems - electoral redistricting, public spending transparency, infrastructure forecasting and mathematics education - and asking not just whether technology can solve a problem, but whether it should.">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="canonical" href="https://tpsa.ie/problem-solving/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Problem Solving Association">
+<meta property="og:title" content="The Problem Solving Association">
+<meta property="og:description" content="Mathematics and technology, applied to public problems - and held to the harder question of whether they should be.">
+<meta property="og:url" content="https://tpsa.ie/problem-solving/">
+<meta property="og:image" content="https://tpsa.ie/problem-solving/assets/logo-circle.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#10002b">
+
+<!-- Marks the document as script-enabled before first paint, so the scroll
+     reveals only hide their content when JavaScript can bring it back. -->
+<script>document.documentElement.className += " js";</script>
+
+<!-- Design-system tokens, copied verbatim from the handoff bundle. -->
+<link rel="stylesheet" href="css/tokens/colors.css">
+<link rel="stylesheet" href="css/tokens/typography.css">
+<link rel="stylesheet" href="css/tokens/spacing.css">
+<link rel="stylesheet" href="css/tokens/effects.css">
+<!-- Page styles. Order is the cascade order - responsive.css stays last. -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/buttons.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/overlay.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/ethics.css">
+<link rel="stylesheet" href="css/projects.css">
+<link rel="stylesheet" href="css/viz.css">
+<link rel="stylesheet" href="css/team.css">
+<link rel="stylesheet" href="css/press.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/responsive.css">
+
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="#home" class="nav__brand">
+    <img src="assets/logo.svg" alt="" class="nav__mark">
+    <span class="nav__word">TPSA</span>
+  </a>
+  <nav class="nav__links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="nav__menu" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="overlay"><span></span><span></span><span></span><em>Menu</em></button>
+</header>
+
+<div class="ov" id="overlay" aria-hidden="true">
+  <div class="ov__pattern"></div>
+  <button class="ov__close" id="menu-close" aria-label="Close menu">✕</button>
+  <div class="ov__inner">
+    <nav class="ov__links">
+      <a href="#home"><span class="ov__num">01</span>Home</a>
+      <a href="#about"><span class="ov__num">02</span>About</a>
+      <a href="#projects"><span class="ov__num">03</span>Projects</a>
+      <a href="#team"><span class="ov__num">04</span>Team</a>
+      <a href="#contact"><span class="ov__num">05</span>Contact</a>
+    </nav>
+    <div class="ov__foot">
+      <p>We ask not just <em>“can technology solve this?”</em> but <em>“should it, and for who?”</em></p>
+      <a href="mailto:problemsolving@tpsa.ie">problemsolving@tpsa.ie</a>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============================ hero ============================ -->
+<section id="home" class="hero">
+  <div class="hero__inner wrap">
+    <div class="hero__text">
+      <div class="hero__eyebrow">The Problem Solving Association · CLG · Ireland</div>
+      <h1 class="hero__title">
+        <span class="fade-w" style="animation-delay:.2s">The</span>
+        <span class="fade-w" style="animation-delay:.32s">Problem</span>
+        <span class="fade-w" style="animation-delay:.44s">Solving</span>
+        <span class="fade-w" style="animation-delay:.56s">Association</span>
+      </h1>
+      <p class="hero__tag">Mathematics, physics, and technology, applied to public problems - and held to the harder question of whether they <em>should</em> be.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#projects">See our work</a>
+        <a class="btn btn--ghost" href="#about">About us</a>
+      </div>
+    </div>
+    <div class="hero__viz">
+      <div class="attractor">
+        <canvas id="attractor" width="500" height="500" class="attractor__canvas"></canvas>
+        <div class="attractor__slider">
+          <input id="attractor-a" type="range" min="1.5" max="5" step="0.01" value="1.89" aria-label="Attractor parameter a">
+          <span id="attractor-a-readout" style="display:none">a = 1.89</span>
+        </div>
+      </div>
+      <div class="hero__viz-hint" style="display:none">Drag to rotate · slide to reshape</div>
+    </div>
+  </div>
+  <a href="#about" class="hero__scroll" aria-label="Scroll down"><span></span></a>
+</section>
+
+<!-- ============================ about ============================ -->
+<section id="about" class="sec sec--about">
+  <div class="wrap">
+    <div data-reveal><div class="kicker">About Us</div></div>
+    <div class="about__grid">
+      <div class="about__lead" data-reveal><h2>We build public-interest tools where maths can help - and stop where it shouldn’t.</h2></div>
+      <div class="about__body" data-reveal style="--rd:.1s">
+        <p>The Problem Solving Association CLG. is a not-for-profit social enterprise working to improve public services by bringing together technology, community knowledge, and social insight. Effective solutions to complex challenges need both technical innovation and legitimate engagement with the people these systems affect.</p>
+        <p>Our work has two complementary aims: applying mathematical and technological tools where they can help, and ensuring those same technologies don’t create new problems or deepen existing inequalities.</p>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar" data-reveal>
+        <span class="pillar__idx">Our Themes</span>
+        <h3>What we work on</h3>
+        <!-- Each theme expands to the projects working under it. To add a written
+             introduction to a theme, drop a <p class="theme__desc"> in ahead of
+             the "Projects under this theme" label. -->
+        <ol class="pillar__list">
+          <li class="theme" id="theme-transparency">
+            <button class="pillar__row theme__row" type="button" id="theme-btn-transparency" data-theme="transparency" aria-expanded="false" aria-controls="theme-body-transparency">
+              <span class="pillar__n">01</span>
+              <span class="pillar__t">Democratic Integrity and Transparency</span>
+              <span class="theme__chev" aria-hidden="true"></span>
+            </button>
+            <div class="theme__body" id="theme-body-transparency" role="region" aria-labelledby="theme-btn-transparency">
+              <div class="theme__inner">
+                <div class="theme__lab">Projects under this theme</div>
+                <ul class="theme__projects">
+                  <li><button type="button" class="theme__proj" data-project="payments"><b>SPARÁN</b><span>Public finance</span></button></li>
+                  <li><button type="button" class="theme__proj" data-project="cothrom"><b>COTHROM</b><span>Electoral systems</span></button></li>
+                  <li><button type="button" class="theme__proj" data-project="advert"><b>Political Advertising</b><span>Democratic integrity</span></button></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="theme" id="theme-education">
+            <button class="pillar__row theme__row" type="button" id="theme-btn-education" data-theme="education" aria-expanded="false" aria-controls="theme-body-education">
+              <span class="pillar__n">02</span>
+              <span class="pillar__t">Education and Upskilling</span>
+              <span class="theme__chev" aria-hidden="true"></span>
+            </button>
+            <div class="theme__body" id="theme-body-education" role="region" aria-labelledby="theme-btn-education">
+              <div class="theme__inner">
+                <div class="theme__lab">Projects under this theme</div>
+                <ul class="theme__projects">
+                  <li><button type="button" class="theme__proj" data-project="ecnetica"><b>The Ecnetica Project</b><span>Education</span></button></li>
+                  <li><button type="button" class="theme__proj" data-project="tpsai"><b><span class="tpsai">TPSA<b class="tpsai__i">I</b></span></b><span>AI ethics &amp; compliance</span></button></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="theme" id="theme-foresight">
+            <button class="pillar__row theme__row" type="button" id="theme-btn-foresight" data-theme="foresight" aria-expanded="false" aria-controls="theme-body-foresight">
+              <span class="pillar__n">03</span>
+              <span class="pillar__t">Foresight and Preparedness</span>
+              <span class="theme__chev" aria-hidden="true"></span>
+            </button>
+            <div class="theme__body" id="theme-body-foresight" role="region" aria-labelledby="theme-btn-foresight">
+              <div class="theme__inner">
+                <div class="theme__lab">Projects under this theme</div>
+                <ul class="theme__projects">
+                  <li><button type="button" class="theme__proj" data-project="praxis"><b>PRAXIS</b><span>Infrastructure</span></button></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="pillar pillar--roles" data-reveal style="--rd:.08s">
+        <span class="pillar__idx">Our Roles</span>
+        <h3>How we work</h3>
+        <ol class="pillar__list">
+          <li><span class="pillar__row"><span class="pillar__n">01</span><span class="pillar__t">Bridging academic insight and governance</span></span></li>
+          <li><span class="pillar__row"><span class="pillar__n">02</span><span class="pillar__t">Developing citizen democratic involvement in the information age</span></span></li>
+          <li><span class="pillar__row"><span class="pillar__n">03</span><span class="pillar__t">Evidencing the capability of non-profit business models in Ireland</span></span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat" data-reveal>
+        <div class="stat__num"><span data-count-to="102.9" data-decimals="1" data-prefix="€" data-suffix="bn">€102.9bn</span></div>
+        <div class="stat__lab">public spending traced</div>
+      </div>
+      <div class="stat" data-reveal style="--rd:.06s">
+        <div class="stat__num"><span data-count-to="500" data-suffix="K+">500K+</span></div>
+        <div class="stat__lab">transactions consolidated</div>
+      </div>
+      <div class="stat" data-reveal style="--rd:.12s">
+        <div class="stat__num"><span data-count-to="200" data-suffix="+">200+</span></div>
+        <div class="stat__lab">state entities covered</div>
+      </div>
+      <div class="stat" data-reveal style="--rd:.18s">
+        <div class="stat__num"><span data-count-to="6">6</span></div>
+        <div class="stat__lab">active public projects</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ethics band ============================ -->
+<section class="ethics">
+  <div class="ethics__pattern"></div>
+  <div class="ethics__inner" data-reveal>
+    <p>“...working for purely <span>altruistic</span>, one might even say <span>patriotic</span>, reasons,<br>came together to use their <span>technical</span> ability...”</p>
+  </div>
+</section>
+
+<!-- ============================ projects ============================ -->
+<section id="projects" class="sec sec--projects">
+  <div class="wrap">
+    <div data-reveal><div class="kicker">Our Projects</div></div>
+    <div data-reveal style="--rd:.06s"><h2 class="sec__head">Where innovation meets democracy</h2></div>
+    <div class="px">
+
+      <div class="px__list" role="tablist" aria-label="Projects">
+        <button class="px__item is-active" role="tab" id="tab-payments" aria-controls="panel-payments" aria-selected="true" data-project="payments">
+          <span class="px__num">01</span><span class="px__labels"><span class="px__tag">SPARÁN</span><span class="px__field">Public finance</span></span><span class="px__arrow">→</span>
+        </button>
+        <button class="px__item" role="tab" id="tab-cothrom" aria-controls="panel-cothrom" aria-selected="false" data-project="cothrom">
+          <span class="px__num">02</span><span class="px__labels"><span class="px__tag">COTHROM</span><span class="px__field">Electoral systems</span></span><span class="px__arrow">→</span>
+        </button>
+        <button class="px__item" role="tab" id="tab-praxis" aria-controls="panel-praxis" aria-selected="false" data-project="praxis">
+          <span class="px__num">03</span><span class="px__labels"><span class="px__tag">PRAXIS</span><span class="px__field">Infrastructure</span></span><span class="px__arrow">→</span>
+        </button>
+        <button class="px__item" role="tab" id="tab-ecnetica" aria-controls="panel-ecnetica" aria-selected="false" data-project="ecnetica">
+          <span class="px__num">04</span><span class="px__labels"><span class="px__tag">The Ecnetica Project</span><span class="px__field">Education</span></span><span class="px__arrow">→</span>
+        </button>
+        <button class="px__item" role="tab" id="tab-tpsai" aria-controls="panel-tpsai" aria-selected="false" data-project="tpsai">
+          <span class="px__num">05</span><span class="px__labels"><span class="px__tag"><span class="tpsai">TPSA<b class="tpsai__i">I</b></span></span><span class="px__field">AI ethics &amp; compliance</span></span><span class="px__arrow">→</span>
+        </button>
+        <button class="px__item" role="tab" id="tab-advert" aria-controls="panel-advert" aria-selected="false" data-project="advert">
+          <span class="px__num">06</span><span class="px__labels"><span class="px__tag">Political Advertising</span><span class="px__field">Democratic integrity</span></span><span class="px__arrow">→</span>
+        </button>
+      </div>
+
+      <!-- 01 SPARÁN -->
+      <div class="px__detail is-active" role="tabpanel" id="panel-payments" aria-labelledby="tab-payments">
+        <div class="px__media">
+          <div class="flip" role="button" tabindex="0" aria-label="Flip for how this animation relates to the project">
+            <div class="flip__inner">
+              <div class="flip__face flip__face--front">
+                <div class="viz-frame viz-frame--light" data-viz="payments"></div>
+                <div class="flip__hint">How this relates <span aria-hidden="true">↻</span></div>
+              </div>
+              <div class="flip__face flip__face--back"><div class="flip__back-body">
+                <div class="flip__kicker">How this animation relates</div>
+                <h4>Fragmented records, consolidated</h4>
+                <p>Scattered payment records from over 190 state entities stream in and converge into a single, legible flow. It mirrors the pipelines that extract, clean and standardise €102.9 billion across 500,000+ transactions into one comprehensive, public view of state spending.</p>
+                <div class="flip__hint flip__hint--back">Back to animation <span aria-hidden="true">↺</span></div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="px__info">
+          <div class="px__meta">
+            <div><span>Field</span>Public finance</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="transparency">Transparency</button></div>
+            <div><span>Status</span><b class="px__status">Live</b></div>
+            <div><span>Working with</span>200+ state entities</div>
+            <div><span>Method</span>Open data</div>
+          </div>
+          <h3>Ireland’s government spending, made legible</h3>
+          <div class="acr">
+            <div class="acr__eyebrow"><span>SPARÁN</span> stands for</div>
+            <p class="acr__line">
+              <span class="acr__w" style="--acrd:.1s"><b class="acr__i">S</b>pending</span>
+              <span class="acr__w" style="--acrd:.16s"><b class="acr__i">P</b>rocurement</span>
+              <span class="acr__w" style="--acrd:.22s"><b class="acr__i">A</b>nalysis,</span>
+              <span class="acr__w" style="--acrd:.28s"><b class="acr__i">R</b>eporting</span>
+              <span class="acr__amp" style="--acrd:.34s">&amp;</span>
+              <span class="acr__w" style="--acrd:.4s"><b class="acr__i">A</b>ccountability</span>
+              <span class="acr__w" style="--acrd:.46s"><b class="acr__i">N</b>etwork</span>
+            </p>
+          </div>
+          <p>Public procurement generates vast transactional data, but it stays fragmented across departments and reporting systems. SPARÁN consolidates records from over 190 state entities covering €102.9 billion across 500,000+ transactions.</p>
+          <p>By building pipelines to extract, clean and standardise these records, we have worked together with  <a class="acr__w acr__w--link" style="--acrd:.28s" href="https://www.oireachtas.ie/en/members/member/Albert-Dolan.D.2024-11-29/" target="_blank" rel="noopener noreferrer">Albert Dolan T.D.</a><span class="acr__ext" aria-hidden="true">↗</span></a> to create a comprehensive view of state expenditure that is accessible to researchers, journalists, policymakers and citizens alike.</p>
+          <a class="btn btn--primary" href="https://statespend.ie/" target="_blank" rel="noopener noreferrer">View interactive dashboard</a>
+        </div>
+      </div>
+
+      <!-- 02 COTHROM -->
+      <div class="px__detail" role="tabpanel" id="panel-cothrom" aria-labelledby="tab-cothrom">
+        <div class="px__media">
+          <div class="flip" role="button" tabindex="0" aria-label="Flip for how this animation relates to the project">
+            <div class="flip__inner">
+              <div class="flip__face flip__face--front">
+                <div class="viz-frame" data-viz="cothrom"></div>
+                <div class="flip__hint">How this relates <span aria-hidden="true">↻</span></div>
+              </div>
+              <div class="flip__face flip__face--back"><div class="flip__back-body">
+                <div class="flip__kicker">How this animation relates</div>
+                <h4>A simplified COTHROM, run live on Ireland</h4>
+                <p>Population cells across the island anneal under the Potts model until they settle into three compact, equal-population districts. It is a stripped-back version of the same energy-minimising process COTHROM uses to draw fair, auditable, gerrymander-resistant boundaries - in minutes rather than a year by hand.</p>
+                <div class="flip__hint flip__hint--back">Back to animation <span aria-hidden="true">↺</span></div>
+              </div></div>
+            </div>
+          </div> 
+        </div>
+        <div class="px__info">
+          <div class="px__meta">
+            <div><span>Field</span>Electoral systems</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="transparency">Transparency</button></div>
+            <div><span>Status</span><b class="px__status">In development</b></div>
+            <div><span>Working with</span>ICHEC</div>
+            <div><span>Method</span>Potts Model · Simulated annealing</div>
+          </div>
+          <h3>Provably fair electoral redistricting</h3>
+          <div class="acr">
+            <div class="acr__eyebrow"><span>COTHROM</span> stands for</div>
+            <p class="acr__line">
+              <span class="acr__w" style="--acrd:.1s"><b class="acr__i">C</b>onstituency</span>
+              <span class="acr__w" style="--acrd:.16s"><b class="acr__i">O</b>ptimisation</span>
+              <span class="acr__w" style="--acrd:.22s"><b class="acr__i">T</b>hrough</span>
+              <a class="acr__w acr__w--link" style="--acrd:.28s" href="https://en.wikipedia.org/wiki/Hamiltonian_(quantum_mechanics)" target="_blank" rel="noopener noreferrer"><b class="acr__i">H</b>amiltonian<span class="acr__ext" aria-hidden="true">↗</span></a>
+              <span class="acr__w" style="--acrd:.34s"><b class="acr__i">R</b>epresentation</span>
+              <span class="acr__w" style="--acrd:.4s"><b class="acr__i">O</b>f</span>
+              <span class="acr__w" style="--acrd:.46s"><b class="acr__i">M</b>andates</span>
+            </p>
+          </div>
+          <p>We developed an algorithm for electoral redistricting based on a physics model for condensed-matter systems (the Potts model). Constitutional objectives are encoded into an “energy” description, then solved with advanced numerical techniques. Processing in minutes what takes a year by hand.</p>
+          <p>The end result will be quantifiable, consistent and auditable: gerrymander-resistant boundaries the public can verify.</p>
+        </div>
+      </div>
+
+      <!-- 03 PRAXIS -->
+      <div class="px__detail" role="tabpanel" id="panel-praxis" aria-labelledby="tab-praxis">
+        <div class="px__media">
+          <div class="flip" role="button" tabindex="0" aria-label="Flip for how this animation relates to the project">
+            <div class="flip__inner">
+              <div class="flip__face flip__face--front">
+                <div class="viz-frame viz-frame--light" data-viz="praxis"></div>
+                <div class="flip__hint">How this relates <span aria-hidden="true">↻</span></div>
+              </div>
+              <div class="flip__face flip__face--back"><div class="flip__back-body">
+                <div class="flip__kicker">How this animation relates</div>
+                <h4>Every path is a possible future</h4>
+                <p>Each trajectory is one simulated demographic future; their spreading band is the stochastic forecast. The envelope of many runs yields the probabilistic projections and quantified confidence intervals PRAXIS feeds into medium term network planning.</p>
+                <div class="flip__hint flip__hint--back">Back to animation <span aria-hidden="true">↺</span></div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="px__info">
+          <div class="px__meta">
+            <div><span>Field</span>Infrastructure</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="foresight">Foresight</button></div>
+            <div><span>Status</span><b class="px__status">Research Ongoing</b></div>
+            <div><span>Working with</span>TCD · ICHEC</div>
+            <div><span>Method</span>Physics-Inspired Population Dynamics Modelling</div>
+          </div>
+          <h3>Infrastructure planning under uncertainty</h3>
+          <p>The decisions on where to place high voltage stations to serve communities for the next fifty years could save taxpayers millions if done correctly. However, traditional demographic forecasting struggles with the complexity and uncertainty of population dynamics. PRAXIS applies theoretical physics principles to this challenge, treating population patterns as a complex system exhibiting power laws and collective behavior.</p>
+          <p>We're building a collaborator network centred around Trinity College Dublin's School of Engineering including EirGrid, the Central Statistics Office, and the Irish Centre for High End Computing to develop stochastic forecasting models that provide probabilistic population projections with quantified confidence intervals. These forecasts will integrate directly with network optimisation algorithms, enabling infrastructure planning that accounts for demographic uncertainty while balancing economic efficiency, system resilience, and social equity. By bridging mathematical theory with practical policy implementation, we're ensuring Ireland's infrastructure investments will serve communities effectively for generations to come.</p>
+        </div>
+      </div>
+
+      <!-- 04 Ecnetica -->
+      <div class="px__detail" role="tabpanel" id="panel-ecnetica" aria-labelledby="tab-ecnetica">
+        <div class="px__media">
+          <div class="flip" role="button" tabindex="0" aria-label="Flip for how this animation relates to the project">
+            <div class="flip__inner">
+              <div class="flip__face flip__face--front">
+                <div class="viz-frame viz-frame--light" data-viz="ecnetica"></div>
+                <div class="flip__hint">How this relates <span aria-hidden="true">↻</span></div>
+              </div>
+              <div class="flip__face flip__face--back"><div class="flip__back-body">
+                <div class="flip__kicker">How this animation relates</div>
+                <h4>One idea lights up the next</h4>
+                <p>Understanding propagates through a network of connected concepts, each idea igniting those it touches. It is how Ecnetica builds intuition - linking topics so that grasping one illuminates the rest, freely and for everyone.</p>
+                <div class="flip__hint flip__hint--back">Back to animation <span aria-hidden="true">↺</span></div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="px__info">
+          <div class="px__meta">
+            <div><span>Field</span>Education</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="education">Education</button></div>
+            <div><span>Status</span><b class="px__status">Development</b></div>
+            <div><span>Working with</span> TCD · DCU</div>
+            <div><span>Method</span>Animation · Interactivity &amp; Knowledge Tracing</div>
+          </div>
+          <h3>Advanced maths, democratised</h3>
+          <p>Ecnetica exists to democratise advanced mathematical understanding in Irish education. Through animations, expert instruction and freely accessible content, we’re dismantling the pay-to-win culture of private tuition.</p>
+          <p>The aim is to ignite intuitive understanding which is comprehensive, inspired, and absolutely free.</p>
+        </div>
+      </div>
+
+      <!-- 05 TPSAI -->
+      <div class="px__detail" role="tabpanel" id="panel-tpsai" aria-labelledby="tab-tpsai">
+        <div class="px__media">
+          <div class="flip" role="button" tabindex="0" aria-label="Flip for how this animation relates to the project">
+            <div class="flip__inner">
+              <div class="flip__face flip__face--front">
+                <div class="viz-frame viz-frame--light" data-viz="workshop"></div>
+                <div class="flip__hint">How this relates <span aria-hidden="true">↻</span></div>
+              </div>
+              <div class="flip__face flip__face--back"><div class="flip__back-body">
+                <div class="flip__kicker">How this animation relates</div>
+                <h4>A conformity check, the way the workshop teaches it</h4>
+                <p>A high-risk AI system is assessed against the EU AI Act's core obligations. Each requirement is scanned and ticked off in turn before a conformity seal is issued - the same structured, article-by-article approach the workshop equips businesses to carry out for themselves.</p>
+                <div class="flip__hint flip__hint--back">Back to animation <span aria-hidden="true">↺</span></div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="px__info">
+          <div class="px__meta">
+            <div><span>Field</span>AI ethics &amp; compliance</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="education">Education</button></div>
+            <div><span>Status</span><b class="px__status">Booking</b></div>
+            <div><span>Working with</span>For SMEs · Jennifer Waters</div>
+            <div><span>Method</span>EU AI Act · Irish law</div>
+          </div>
+          <h3><span class="tpsai">TPSA<b class="tpsai__i">I</b></span>: Ethical Compliance Workshop</h3>
+          <p>Led by our Humanities Lead Jennifer Waters - an expert in Irish and EU law concerning artificial intelligence - TPSAI runs practical workshops for smaller businesses. The name says it plainly: TPSA + AI.</p>
+          <p>Sessions cover the ethics of AI, compliance with the EU AI Act and Irish regulation, and concrete use cases where AI genuinely helps. It is pitched at non-specialists who need to know what the rules require, where the risks are, and how to adopt AI responsibly.</p>
+          <a class="btn btn--primary" href="mailto:problemsolving@tpsa.ie?subject=TPSAI%20Ethical%20Compliance%20Workshop%20booking" target="_blank" rel="noopener noreferrer">Contact us to book for your organisation</a>
+        </div>
+      </div>
+
+      <!-- 06 Political Advertising -->
+      <div class="px__detail" role="tabpanel" id="panel-advert" aria-labelledby="tab-advert">
+        <div class="px__media">
+          <div class="flip" role="button" tabindex="0" aria-label="Flip for how this animation relates to the project">
+            <div class="flip__inner">
+              <div class="flip__face flip__face--front">
+                <div class="viz-frame viz-frame--light" data-viz="advert"></div>
+                <div class="flip__hint">How this relates <span aria-hidden="true">↻</span></div>
+              </div>
+              <div class="flip__face flip__face--back"><div class="flip__back-body">
+                <div class="flip__kicker">How this animation relates</div>
+                <h4>Independent verification, ad by ad</h4>
+                <p>Political ads are audited one at a time against disclosure rules - spend figures, disclaimers, sources of funds. Compliant items pass and others are flagged, the independent check this project uses to measure how far online political advertising actually meets regulation.</p>
+                <div class="flip__hint flip__hint--back">Back to animation <span aria-hidden="true">↺</span></div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+        <div class="px__info">
+          <div class="px__meta">
+            <div><span>Field</span>Democratic integrity</div>
+            <div><span>Theme</span><button type="button" class="px__theme" data-theme="transparency">Transparency</button></div>
+            <div><span>Status</span><b class="px__status">Ready for the next election</b></div>
+            <div><span>Working with</span>Regulatory compliance</div>
+            <div><span>Method</span>Independent audit</div>
+          </div>
+          <h3>Tracking political advertising compliance</h3>
+          <p>A paradigm of both “transparency” and “self-regulation” requires independent verification. This project assesses how far spend figures, disclaimers and sources of funds for online political advertising comply with existing regulation and identifies the gaps.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ team ============================ -->
+<section id="team" class="sec sec--team">
+  <div class="wrap">
+    <div data-reveal><div class="kicker">The Team</div></div>
+    <div data-reveal style="--rd:.06s"><h2 class="sec__head">Physicists, engineers and humanists in one room.</h2></div>
+    <div class="team">
+      <div class="team__mark" data-reveal style="--ry:40px">
+        <svg class="triq" viewBox="0 0 12.7 12.7" role="tablist" aria-label="Team groups">
+          <g class="triq__loop is-active" role="tab" tabindex="0" aria-selected="true" aria-label="Leadership" data-group="leadership">
+            <path d="M 4.4283644,5.4352689 C 4.7006748,3.0093582 6.0263317,2.1349461 6.9042671,1.397626 9.3658554,3.1452379 9.958596,7.0362105 7.7283569,9.5739971 7.5631866,9.5185012 7.3485752,9.3912085 7.201904,9.2884721 9.4515233,6.7940701 8.451032,3.3405788 6.9090019,2.1762387 6.0001248,2.9384445 5.2456268,3.8464408 5.076162,5.2589774 4.8236716,5.3208633 4.7509967,5.3398032 4.4283644,5.4352689 Z"/>
+            <path d="M 6.9042671,1.397626 C 6.7919513,1.3098632 6.6276619,1.182134 6.4676668,1.0866649 4.7540799,2.1636854 3.8770257,3.993993 3.8395867,5.6671679 4.0898753,5.5548521 4.2035118,5.5071729 4.4283644,5.4352689 4.7006748,3.0093582 6.0263317,2.1349461 6.9042671,1.397626 Z"/>
+            <path d="M 6.9090019,2.1762387 C 8.451032,3.3405788 9.4515233,6.7940701 7.201904,9.2884721 7.0453226,9.1834216 6.8255359,9.0044898 6.7145414,8.8922835 8.6376747,6.8353627 7.9154398,3.7216822 6.436725,2.6029282 6.6272214,2.42047 6.7219191,2.3310584 6.9090019,2.1762387 Z"/>
+          </g>
+          <g class="triq__loop" role="tab" tabindex="0" aria-selected="false" aria-label="Researchers" data-group="researchers">
+            <path d="M 5.6074599,10.412731 C 3.3702829,11.389659 1.9504788,10.679427 0.87257767,10.287642 1.1555696,7.281873 4.2288384,4.8228179 7.5417144,5.4855916 7.5760704,5.6563773 7.5730974,5.9058945 7.5575714,6.0843886 4.2726644,5.3832951 1.7822254,7.9764693 1.5448206,9.8940966 2.65928,10.300085 3.8227403,10.499721 5.130779,9.9401276 5.3105945,10.127651 5.3631186,10.180946 5.6074606,10.412735 Z"/>
+            <path d="m 0.87257767,10.287642 c -0.019378,0.141055 -0.047793,0.347079 -0.050758,0.53339 1.78934543,0.945325 3.81312173,0.790065 5.28071523,-0.0142 C 5.8801053,10.645956 5.7824347,10.571519 5.6074643,10.412735 3.3702872,11.389662 1.9504832,10.67943 0.87258207,10.287646 Z"/>
+            <path d="M 1.5448202,9.8940966 C 1.782225,7.9764693 4.272664,5.3832951 7.5575707,6.0843886 7.5451279,6.2723526 7.4999816,6.5519308 7.4582481,6.7046584 4.7153197,6.0672113 2.3797013,8.249661 2.1504447,10.089769 1.8970738,10.01577 1.7723152,9.9787745 1.5448202,9.8940966 Z"/>
+          </g>
+          <g class="triq__loop" role="tab" tabindex="0" aria-selected="false" aria-label="Interns" data-group="interns">
+            <path d="M 9.3323807,6.8693879 C 11.297136,8.3180417 11.391834,9.9031267 11.59136,11.032121 8.8467803,12.290277 5.1807698,10.85792 4.0980236,7.6573601 4.2288384,7.5420714 4.446533,7.4203962 4.60862,7.3446385 5.6440175,10.540132 9.1353877,11.399899 10.914382,10.646723 10.709241,9.4785282 10.300168,8.3713373 9.1611542,7.5179572 9.2338285,7.2689903 9.2536493,7.1963149 9.3323807,6.8693879 Z"/>
+            <path d="m 11.59136,11.032121 c 0.132026,-0.05373 0.324724,-0.132028 0.487363,-0.222761 -0.07565,-2.0224542 -1.222041,-3.6973919 -2.6526357,-4.5662982 -0.02797,0.2731917 -0.04339,0.3953079 -0.093706,0.6263261 1.9647557,1.4486538 2.0594537,3.0337388 2.2589787,4.1627331 z"/>
+            <path d="M 10.914382,10.646723 C 9.1353877,11.399899 5.6440175,10.540129 4.60862,7.3446385 4.7780846,7.2611758 5.0426875,7.1600883 5.1957453,7.1205573 c 0.819465,2.693928 3.877208,3.6251577 5.5852887,2.9042447 0.06276,0.256343 0.09338,0.382865 0.133348,0.621921 z"/>
+          </g>
+        </svg>
+        <div class="team__selector">
+          <button class="team__pick is-active" data-group="leadership" aria-pressed="true"><span class="team__dot"></span><span class="lab">Leadership</span><span class="cnt">04</span></button>
+          <button class="team__pick" data-group="researchers" aria-pressed="false"><span class="team__dot"></span><span class="lab">Researchers</span><span class="cnt">03</span></button>
+          <button class="team__pick" data-group="interns" aria-pressed="false"><span class="team__dot"></span><span class="lab">Interns</span><span class="cnt">04</span></button>
+        </div>
+      </div>
+
+      <div class="team__content">
+        <div class="team__grid is-active" data-group="leadership">
+          <button class="tm" style="--tmd:0s" data-bio="Michael has a background in computational physics, and works to coordinate the organisation's research, and steer its direction." data-member="michael-mitchell" data-email="michael@tpsa.ie" data-linkedin="https://www.linkedin.com/in/michael-a-j-mitchell-4301771a2/">
+            <div class="tm__photo"><img src="assets/team/michael.jpg" alt="Michael Mitchell"></div>
+            <h3>Michael Mitchell</h3><div class="tm__role">Director &amp; CEO</div><span class="tm__more">Read more</span>
+          </button>
+          <button class="tm" style="--tmd:.0s" data-bio="From a theoretical physics background; Casey works to coordinate admin, engage in research, and liaise with our sister organisation, the Theoretical Physics Student Association." data-member="casey-farren-colloty" data-email-label="✉ Email Casey" data-email="casey@tpsa.ie" data-linkedin="https://www.linkedin.com/in/casey-farren-colloty-4b5347223/" data-website="https://farrencc.github.io/">
+            <div class="tm__photo"><img src="assets/team/cas.jpg" alt="Casey Farren-Colloty"></div>
+            <h3>Casey-Farren Colloty</h3><div class="tm__role">Director &amp; COO</div><span class="tm__more">Read more</span>
+          </button>
+          <button class="tm" style="--tmd:.12s" data-bio="Researches AI implementation strategies and the impact of AI on the democratic and legal tenets of rule of law; leads our AI ethics and compliance work." data-member="jennifer-waters" data-email="jennifer@tpsa.ie" data-linkedin="https://www.linkedin.com/in/jennifer-waters-42b06519b/">
+            <div class="tm__photo"><img src="assets/team/jen.jpg" alt="Jennifer Waters"></div>
+            <h3>Jennifer Waters</h3><div class="tm__role">Humanities Lead</div><span class="tm__more">Read more</span>
+          </button>
+          <button class="tm" style="--tmd:.18s" data-bio="Qualified civil engineer and thirty-year public servant; currently Chair of the Board of EirGrid." data-member="brendan-tuohy">
+            <div class="tm__photo"><img src="assets/team/brendan.jpg" alt="Brendan Tuohy"></div>
+            <h3>Brendan Tuohy</h3><div class="tm__role">Advisor to the Board</div><span class="tm__more">Read more</span>
+          </button>
+        </div>
+
+        <div class="team__grid" data-group="researchers">
+          <button class="tm" style="--tmd:0s" data-bio="Ruaidhrí's background at the PhD level involves theoretical and high-performance computational physics applied to the area of Lattice QCD in Trinity College Dublin. He leads the technical development of COTHROM, turning constitutional redistricting objectives into solvable physics models." data-member="ruaidhri-campion" data-linkedin="https://www.linkedin.com/in/ruaidhr%C3%AD-campion/" data-github="https://github.com/campioru/" data-website="https://www.maths.tcd.ie/~rcampion/">
+            <div class="tm__photo"><img src="assets/team/ruaidhri.jpg" alt="Ruaidhrí Campion"></div>
+            <h3>Ruaidhrí Campion</h3><div class="tm__role">COTHROM Technical Lead</div><span class="tm__more">Read more</span>
+          </button>
+          <button class="tm" style="--tmd:.06s" data-bio="Researches the public-policy dimensions of our work, connecting technical methods to real regulatory and democratic questions. Matthew heads our involvement in the SPARÁN project and had been vital to its success via its technical development." data-member="matthew-fenlon" data-linkedin="https://www.linkedin.com/in/matthew-fenlon-959a78173/" data-email="matthew@tpsa.ie">
+            <div class="tm__photo"><img src="assets/team/matthew_f.jpeg" alt="Matthew Fenlon"></div>
+            <h3>Matthew Fenlon</h3><div class="tm__role">Policy Researcher</div><span class="tm__more">Read more</span>
+          </button>
+          <button class="tm" style="--tmd:.12s" data-bio="Eliza's background in Theoretical Physics, with qualifications from Trinity College Dublin and the University of Cambridge, uniquely positions her to research and develop physics-inspired population dynamics models which will inform future infrastructure planning. She is also involved in the development of the COTHROM Framework." data-member="eliza-somerville" data-linkedin="https://www.linkedin.com/in/elizasomerville/" data-github="https://github.com/elizasomerville" data-website="https://elizasomerville.com/">
+            <div class="tm__photo"><img src="assets/team/eliza.jpeg" alt="Eliza Somerville"></div>
+            <h3>Eliza Somerville</h3><div class="tm__role">PRAXIS Lead Researcher</div><span class="tm__more">Read more</span>
+          </button>
+        </div>
+
+        <div class="team__grid" data-group="interns">
+          <button class="tm" style="--tmd:0s" data-bio="Investigating an alternative route to the PRAXIS research team on stochastic forecasting." data-member="daniel-barron" data-linkedin="https://www.linkedin.com/in/daniel-barron-000536277/">
+            <div class="tm__photo"><img src="assets/team/daniel.jpg" alt="Daniel Barron"></div>
+            <h3>Daniel Barron</h3><div class="tm__role">PRAXIS Researcher</div><span class="tm__more">Read more</span>
+          </button>
+          <button class="tm" style="--tmd:.06s" data-bio="Investigating an alternative route to the PRAXIS research team on stochastic forecasting." data-member="o-daniel-ocarroll" data-github="https://github.com/odanny-oc">
+            <div class="tm__photo"><img src="assets/team/daniel-o.jpeg" alt="O. Daniel O'Carroll"></div>
+            <h3>O. Daniel O'Carroll</h3><div class="tm__role">PRAXIS Researcher</div><span class="tm__more">Read more</span>
+          </button>
+          <button class="tm" style="--tmd:.12s" data-bio="Develops the Ecnetica platform to democratise advanced mathematics." data-member="amy-shannon">
+            <div class="tm__photo"><img src="assets/team/amy.jpg" alt="Amy Shannon"></div>
+            <h3>Amy Shannon</h3><div class="tm__role">Ecnetica Developer</div><span class="tm__more">Read more</span>
+          </button>
+          <button class="tm" style="--tmd:.18s" data-bio="Builds and maintains the tools and pipelines that power our projects across the association." data-member="ella-southgate" data-email="ella.intern@tpsa.ie">
+            <div class="tm__photo"><img src="assets/team/ella.jpeg" alt="Ella Southgate"></div>
+            <h3>Ella Southgate</h3><div class="tm__role">Developer</div><span class="tm__more">Read more</span>
+          </button>
+        </div>
+
+        <div class="intake intake--sep" data-group="interns">
+          <div class="intake__body">
+            <div class="kicker">Join the team</div>
+            <h3>Intern with us.</h3>
+            <p>Placements run across mathematics, physics, computer science and public-policy research working directly on the projects above. We recruit throughout the year and welcome speculative applications year-round.</p>
+            <a class="btn btn--primary" href="mailto:problemsolving@tpsa.ie?subject=Internship%20enquiry">Apply to intern</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ featured in ============================ -->
+<section id="featured" class="sec sec--press">
+  <div class="wrap">
+    <div data-reveal><div class="kicker">Featured In</div></div>
+    <div data-reveal style="--rd:.06s"><h2 class="sec__head">Our work, in the national conversation.</h2></div>
+    <div class="spine" data-visible="3">
+      <div class="spine__rule"></div>
+
+      <div class="pr pr--l" data-reveal style="--rd:.1s">
+        <div class="pr__card">
+          <div class="pr__top"><span class="pr__outlet">The David McWilliams Podcast</span><span class="pr__kind">Podcast</span><span class="pr__on">On SPARÁN</span></div>
+          <a class="pr__head" href="https://shows.acast.com/the-david-mcwilliams-podcast/episodes/the-133-billion-black-hole-why-ireland-cant-track-its-spendi" target="_blank" rel="noopener noreferrer">The €133 Billion Black Hole: Why Ireland Can’t Track Its Spending</a>
+          <p class="pr__with">Featuring <button type="button" class="pr__person" data-member="matthew-fenlon">Matthew Fenlon</button>, our Policy Researcher.</p>
+          <blockquote class="pr__quote">The Problem Solving Association should be … the mission statement for every government department.</blockquote>
+          <div class="pr__listen">
+            <span class="pr__listen-lab">Listen on</span>
+            <a class="pr__pod" href="https://shows.acast.com/the-david-mcwilliams-podcast/episodes/the-133-billion-black-hole-why-ireland-cant-track-its-spendi" target="_blank" rel="noopener noreferrer">Acast</a>
+            <a class="pr__pod" href="https://podcasts.apple.com/ie/podcast/the-david-mcwilliams-podcast/id1462649946" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+            <a class="pr__pod" href="https://open.spotify.com/episode/73jj8M2YKOoA36qvK7RItf?si=ToNTwvv0Q3WYaMUdLtuPmw" target="_blank" rel="noopener noreferrer">Spotify</a>
+          </div>
+        </div>
+        <div class="pr__mid"><div class="pr__dot"></div><div class="pr__date">28 Jul 2026</div></div>
+      </div>
+
+      <div class="pr pr--r" data-reveal style="--rd:.22s">
+        <div class="pr__card">
+          <div class="pr__top"><span class="pr__outlet">The Irish Times</span><span class="pr__kind">Opinion</span><span class="pr__on">On SPARÁN</span></div>
+          <a class="pr__head" href="https://www.irishtimes.com/opinion/2026/07/25/david-mcwilliams-theres-a-reason-the-state-gets-away-with-wasting-so-much-of-our-money/" target="_blank" rel="noopener noreferrer">David McWilliams: There’s a reason the State gets away with wasting so much of our money</a>
+          <blockquote class="pr__quote">The power of data is transparency. It is the power of the future. Let’s embrace it on behalf of all of us.</blockquote>
+          <a class="pr__link" href="https://www.irishtimes.com/opinion/2026/07/25/david-mcwilliams-theres-a-reason-the-state-gets-away-with-wasting-so-much-of-our-money/" target="_blank" rel="noopener noreferrer">Read the article <span>→</span></a>
+        </div>
+        <div class="pr__mid"><div class="pr__dot"></div><div class="pr__date">25 Jul 2026</div></div>
+      </div>
+
+      <div class="pr pr--l" data-reveal style="--rd:.34s">
+        <div class="pr__card">
+          <div class="pr__top"><span class="pr__outlet">The Irish Times</span><span class="pr__kind">Politics</span><span class="pr__on">On COTHROM</span></div>
+          <a class="pr__head" href="https://www.irishtimes.com/politics/2026/07/01/tcd-mathematicians-develop-a-formula-to-solve-constituency-boundary-conundrum/" target="_blank" rel="noopener noreferrer">TCD mathematicians develop a formula to solve constituency boundary conundrum</a>
+          <blockquote class="pr__quote">It will allow them to ask why one map should be chosen over another, which values should be prioritised and will remove the past over-reliance on intuition and precedence.</blockquote>
+          <a class="pr__link" href="https://www.irishtimes.com/politics/2026/07/01/tcd-mathematicians-develop-a-formula-to-solve-constituency-boundary-conundrum/" target="_blank" rel="noopener noreferrer">Read the article <span>→</span></a>
+        </div>
+        <div class="pr__mid"><div class="pr__dot"></div><div class="pr__date">1 Jul 2026</div></div>
+      </div>
+
+      <div class="spine__end">
+        <div class="spine__cap" aria-hidden="true"><span class="spine__dots"><i></i><i></i><i></i></span></div>
+        <button class="spine__more" aria-expanded="false" hidden><span class="spine__dots"><i></i><i></i><i></i></span><span class="spine__lab"></span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ contact ============================ -->
+<section id="contact" class="contact">
+  <div class="contact__pattern"></div>
+  <div class="wrap contact__inner">
+    <div data-reveal><div class="kicker kicker--light">Contact Us</div></div>
+    <div data-reveal style="--rd:.06s"><h2>Let’s work on something that matters.</h2></div>
+    <div data-reveal style="--rd:.12s"><p>If you’d like to collaborate on any of our projects, reach out.</p></div>
+    <div class="contact__links" data-reveal style="--rd:.18s">
+      <a href="mailto:problemsolving@tpsa.ie" class="btn btn--primary">✉ problemsolving@tpsa.ie</a>
+      <a href="https://ie.linkedin.com/company/the-problem-solving-association" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">in · LinkedIn</a>
+      <a href="https://github.com/tpsa-clg" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
+        <svg class="btn__glyph" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-2.91-.88-2.91-2.77 0-.79.28-1.44.75-1.95-.09-.23-.33-.94.07-1.95 0 0 .61-.19 2.01.75a6.9 6.9 0 0 1 1.83-.25c.62 0 1.25.08 1.83.25 1.4-.95 2.01-.75 2.01-.75.4 1.01.16 1.72.07 1.95.47.51.75 1.16.75 1.95 0 1.9-1.13 2.57-2.92 2.77.31.27.58.79.58 1.6 0 1.15-.01 2.09-.01 2.38 0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>GitHub
+      </a>
+    </div>
+  </div>
+  <footer class="foot">
+    <div class="wrap foot__row">
+      <div class="foot__brand"><img src="assets/logo.svg" alt=""><span>The Problem Solving Association CLG</span></div>
+      <div class="foot__meta">© <span id="year">2026</span> TPSA · All rights reserved</div>
+    </div>
+    <div class="hosted">
+      <span>Hosted by</span>
+      <a href="https://www.blacknight.com/" target="_blank" rel="noopener noreferrer"><img src="assets/blacknight.png" alt="Blacknight"></a>
+    </div>
+  </footer>
+</section>
+
+</main>
+</body>
+</html>
