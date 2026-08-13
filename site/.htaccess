@@ -37,6 +37,11 @@ RewriteRule ^hackathon$ /hackathons [R=301,L]
 RewriteRule ^workshop$ /hackathons [R=301,L]
 RewriteRule ^workshops$ /hackathons [R=301,L]
 
+#Redirect both workshop/s26 and hackathon/s26 to workshops26
+RewriteRule ^workshop26$ /workshops26 [R=301,L]
+RewriteRule ^hackathons26$ /workshops26 [R=301,L]
+RewriteRule ^hackathon26$ /workshops26 [R=301,L]
+
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
