@@ -59,6 +59,14 @@
 [data-group="researchers"]{--group:#9d4edd}
 [data-group="interns"]{--group:#c77dff}
 .triq__loop{cursor:pointer}
+/* Chrome paints the UA focus ring on a focused SVG <g> even when the focus came
+   from a pointer (it does not honour :focus-visible here), and it scales the
+   ring's 5px width through the viewBox transform — ~25x at this size — so a
+   click on a loop dropped a solid black blob over the knot. Firefox skips the
+   ring on pointer focus, which is why it only showed up in Chrome. Suppress the
+   UA ring and draw our own keyboard indicator in user units instead. */
+.triq__loop:focus{outline:none}
+.triq__loop:focus-visible path{stroke:var(--ink);stroke-width:.14;stroke-linejoin:round;paint-order:stroke fill}
 .triq__loop path{fill:#dfdbe6;transition:fill .5s cubic-bezier(0.16,1,0.3,1)}
 .triq__loop.is-active{filter:drop-shadow(0 0 0.4px var(--group))}
 .triq__loop.is-active path{fill:var(--group)}
