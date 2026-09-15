@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COTHROM — The Problem Solving Association</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="https://gist.githubusercontent.com/farrencc/07eaa26e80c8e28957981f07a788ea13/raw/e41c3520af1fcf2cf0577372dfe256fbdc1d16c3/TPSA_logo.svg" type="image/x-icon">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: #000000;
+            color: #ffffff;
+            padding: 8vh 5vw;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            border-bottom: #32e875 0.5vh solid;
+        }
+        .header-text {
+            display: block;
+            font-size: 7vw;
+            text-align: left;
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+            font-weight: bold;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #7b2cbf;
+            color: #fff;
+            padding: 0.5rem;
+            width: 100%;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        .nav-links li a:hover {
+            background-color: #3c096c;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .pdf-frame {
+            width: 100%;
+            height: 85vh;
+            border: 4px solid #7b2cbf;
+            border-radius: 4px;
+            display: block;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #3c096c;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .header-text {
+                font-size: 12vw;
+            }
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+            .pdf-frame {
+                height: 70vh;
+            }
+        }
+        @media (max-width: 480px) {
+            .header-text {
+                font-size: 14vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <span class="header-text" style="color: #32e875;">COTHROM</span>
+            <span class="header-text" style="font-size: clamp(1.5rem, 3vw, 3rem); color: #ffffff; font-weight: normal;">
+                Algorithm-Based, Provably Fair Electoral Redistricting
+            </span>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="problem-solving/">← Back to The Problem Solving Association</a></li>
+            <li><a href="pdf/cothrom_paper.pdf" target="_blank" rel="noopener noreferrer">Download PDF ↗</a></li>
+        </ul>
+    </nav>
+
+    <section class="bg-gray-50">
+        <div class="container py-12 max-w-7xl">
+            <div class="flex flex-col md:flex-row items-start gap-12">
+                <div class="w-full md:w-1/3 flex justify-center">
+                    <img src="images/problem-solving/Electoral_Boundaries.png"
+                         alt="Electoral Boundaries Example"
+                         class="w-full h-auto rounded-lg border-4 border-[#7b2cbf]">
+                </div>
+                <div class="w-full md:w-2/3 flex flex-col">
+                    <h2 class="text-3xl font-bold mb-6">About the Paper</h2>
+                    <p class="text-lg leading-relaxed mb-6">
+                        We have developed an algorithm for electoral redistricting in Ireland based on a physics model
+                        used in statistical physics called the Potts model. Constitutional objectives are encoded into
+                        an "energy" description, and numerical techniques known as Markov Chain Monte Carlo methods are used to find optimal electoral
+                        boundary configurations.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-6">
+                        This method processes in hours what takes months by hand, and can explore
+                        vastly more boundary configurations than a human could. The result is a transparent
+                        algorithm that offers quantifiable, consistent, and auditable application of constitutional and legal
+                        objectives with any potential for gerrymandering eliminated by design.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-start gap-4">
+                        <a href="pdf/cothrom_paper.pdf"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="bg-[#32e875] text-white px-8 py-3 rounded inline-block hover:bg-[#2bc764] transition-colors font-semibold">
+                            Download PDF ↗
+                        </a>
+                        <a href="https://arxiv.org/abs/2606.20637"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="bg-[#b31b1b] text-white px-8 py-3 rounded inline-block hover:bg-[#8f1515] transition-colors font-semibold">
+                            Find this paper on arXiv ↗
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container max-w-7xl py-8">
+            <h2 class="text-3xl font-bold mb-6">Read the Paper</h2>
+            <iframe
+                class="pdf-frame"
+                src="pdf/cothrom_paper.pdf"
+                title="COTHROM Academic Paper"
+            >
+                <p>Your browser cannot display the PDF inline.
+                    <a href="pdf/cothrom_paper.pdf" style="color: #7b2cbf;">Download it here</a>.
+                </p>
+            </iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 The Problem Solving Association. All rights reserved.</p>
+    </footer>
+
+    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;
+                text-align: center; background-color: #32e875;">
+        <p style="font-weight: bold; font-size: 18px;">Hosted by:</p>
+        <a href="https://www.blacknight.com/" target="_blank" rel="noopener noreferrer">
+            <img style="width: 150px; height: auto; padding-left: 1vw;"
+                 src="images/blacknight.png" alt="Blacknight">
+        </a>
+    </div>
+
+</body>
+</html>
