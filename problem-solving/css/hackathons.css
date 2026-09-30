@@ -1,0 +1,83 @@
+/* hackathons & documents — two doors inside the About section, above the
+   stats. The switch buttons expand their panel in place (js/hackathons.js);
+   without JavaScript both panels stay open, as the theme panels do. */
+.hk{margin-top:64px;scroll-margin-top:96px}
+.hk .kicker{margin-bottom:18px}
+.hk__intro{max-width:62ch;margin-bottom:34px}
+.hk__intro h3{font-size:clamp(22px,2.4vw,30px);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:14px;text-wrap:balance}
+.hk__intro p{font-size:18px;line-height:1.65;color:var(--ink)}
+
+.hk__switch{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hk__tab{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;text-align:left;font:inherit;background:var(--surface-card);border:0;border-left:4px solid transparent;border-radius:var(--radius-sm);padding:26px 28px;cursor:pointer;transition:background .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease),transform .3s var(--ease)}
+.hk__tab:hover{transform:translateY(-2px);box-shadow:var(--shadow-card)}
+.hk__tab.is-active{background:#fff;border-left-color:var(--green-500);box-shadow:var(--shadow-card)}
+.hk__tab:focus-visible{outline:2px solid var(--purple-500);outline-offset:4px}
+.hk__tab-n{font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--purple-500)}
+.hk__tab-labels{display:flex;flex-direction:column;gap:4px}
+.hk__tab-lab{font-size:22px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.hk__tab.is-active .hk__tab-lab{color:var(--purple-700)}
+.hk__tab-sub{font-size:13.5px;color:var(--ink-soft)}
+.hk__tab-arrow{color:var(--green-600);font-weight:700;opacity:0;transform:translateX(-6px);transition:.3s var(--ease)}
+.hk__tab.is-active .hk__tab-arrow{opacity:1;transform:none}
+
+.hk__panel{margin-top:36px}
+html.js .hk__panel{display:none}
+html.js .hk__panel.is-active{display:block;animation:hkIn .5s cubic-bezier(0.16,1,0.3,1) both}
+@keyframes hkIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* one hackathon per row, expanding to its brief and documents */
+.hkx{border-top:1px solid var(--border)}
+.hkx:last-of-type{border-bottom:1px solid var(--border)}
+.hkx__row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;width:100%;text-align:left;font:inherit;background:none;border:0;padding:22px 4px;cursor:pointer}
+.hkx__row:hover .hkx__title{color:var(--purple-700)}
+.hkx__row:focus-visible{outline:2px solid var(--purple-500);outline-offset:2px}
+.hkx__yr{font-family:var(--font-mono);font-size:15px;font-weight:700;color:var(--green-600);font-variant-numeric:tabular-nums}
+.hkx__labels{display:flex;flex-direction:column;gap:5px}
+.hkx__title{font-size:20px;font-weight:700;letter-spacing:-.01em;color:var(--ink);transition:color .3s var(--ease);text-wrap:pretty}
+.hkx__field{font-size:13px;color:var(--ink-soft)}
+.hkx__chev{width:8px;height:8px;border-right:2px solid var(--purple-500);border-bottom:2px solid var(--purple-500);transform:translateY(-2px) rotate(45deg);transition:transform .35s var(--ease)}
+.hkx.is-open .hkx__chev{transform:translateY(1px) rotate(225deg)}
+.hkx__body{display:grid;grid-template-rows:1fr;transition:grid-template-rows .45s var(--ease),visibility .45s}
+html.js .hkx__body{grid-template-rows:0fr;visibility:hidden}
+.hkx.is-open .hkx__body{grid-template-rows:1fr;visibility:visible}
+.hkx__inner{overflow:hidden;min-height:0}
+.hkx__pad{padding:4px 0 34px 0;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start}
+.hkx__meta{display:flex;flex-wrap:wrap;gap:14px 32px;padding-bottom:20px;margin-bottom:18px;border-bottom:1px solid var(--border)}
+.hkx__meta div{display:flex;flex-direction:column;gap:4px;font-size:15px;font-weight:600;color:var(--ink)}
+.hkx__meta span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.hkx__prose p{font-size:17px;line-height:1.62;color:var(--ink);margin-bottom:16px}
+.hkx__lab{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+
+/* document rows — shared by a hackathon panel and the library */
+.doclist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.doc__link{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:14px 16px;background:var(--surface-card);border-left:2px solid var(--green-500);border-radius:0 var(--radius-sm) var(--radius-sm) 0;color:var(--ink);transition:background .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease)}
+.doc__link:hover{background:#fff;color:var(--ink);transform:translateX(2px);box-shadow:var(--shadow-card)}
+.doc__link:focus-visible{outline:2px solid var(--purple-500);outline-offset:2px}
+.doc__ico{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.08em;color:#06160c;background:var(--green-500);padding:5px 6px;border-radius:2px}
+.doc__body{display:flex;flex-direction:column;gap:7px;min-width:0}
+.doc__title{font-size:15.5px;font-weight:700;line-height:1.35;color:var(--ink);text-wrap:pretty}
+.doc__link:hover .doc__title{color:var(--purple-700)}
+.doc__tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-700);background:rgba(123,44,191,.08);padding:3px 8px;border-radius:2px}
+.doc__go{font-size:15px;font-weight:700;color:var(--green-600)}
+
+/* the library: search + tag filter over every document we publish */
+.lib__controls{display:grid;grid-template-columns:minmax(260px,360px) 1fr;gap:18px 28px;align-items:center;margin-bottom:22px}
+.lib__search{position:relative;display:flex}
+.lib__search input{width:100%;font:inherit;font-size:16px;color:var(--ink);padding:13px 14px 13px 38px;background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius-md);transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.lib__search input:focus{outline:none;border-color:var(--purple-500);box-shadow:0 0 0 3px rgba(157,78,221,.15)}
+.lib__search::before{content:"";position:absolute;left:14px;top:50%;width:11px;height:11px;margin-top:-7px;border:2px solid var(--ink-soft);border-radius:50%}
+.lib__search::after{content:"";position:absolute;left:23px;top:50%;width:7px;height:2px;margin-top:4px;background:var(--ink-soft);transform:rotate(45deg)}
+.lib__tags{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--ink-soft);background:none;border:1px solid var(--border);border-radius:var(--radius-full);padding:8px 16px;cursor:pointer;transition:.3s var(--ease)}
+.chip:hover{color:var(--purple-700);border-color:var(--purple-400)}
+.chip.is-active{color:#06160c;background:var(--green-500);border-color:var(--green-500)}
+.chip:focus-visible{outline:2px solid var(--purple-500);outline-offset:2px}
+.lib__count{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid var(--border)}
+.lib__empty{font-size:17px;line-height:1.6;color:var(--ink-soft);padding:28px 0}
+
+@media(max-width:860px){
+.hk__switch{grid-template-columns:1fr}
+.hkx__pad{grid-template-columns:1fr;gap:26px}
+.lib__controls{grid-template-columns:1fr}
+}

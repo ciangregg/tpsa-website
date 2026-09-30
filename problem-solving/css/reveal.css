@@ -1,0 +1,10 @@
+/* Scroll reveals.
+   Elements marked [data-reveal] start offset and fade up the first time they
+   enter the viewport (js/reveal.js adds .is-in). The hidden state is gated on
+   html.js, so with JavaScript disabled everything renders visible.
+   Per-element tuning: --rd = delay, --ry = travel distance. */
+[data-reveal]{
+  transition:opacity .8s cubic-bezier(0.16,1,0.3,1) var(--rd,0s),
+             transform .9s cubic-bezier(0.16,1,0.3,1) var(--rd,0s);
+}
+html.js [data-reveal]:not(.is-in){opacity:0;transform:translateY(var(--ry,26px))}
