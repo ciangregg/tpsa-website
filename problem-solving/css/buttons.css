@@ -1,0 +1,16 @@
+.btn{--b:var(--green-500);display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;padding:14px 26px;border-radius:var(--radius-sm);cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease),color .3s var(--ease);border:2px solid transparent;line-height:1}
+.btn--primary{background:var(--green-500);color:#06160c}
+.btn--primary:hover{background:var(--green-600);color:#06160c;transform:translateY(-2px);box-shadow:var(--shadow-glow)}
+/* Brand-coloured social buttons, used by the team modal's link row. A personal
+   site is not a brand, so that one takes the house purple. */
+.btn--linkedin{background:#0a66c2;color:#fff}
+.btn--linkedin:hover{background:#004182;color:#fff;transform:translateY(-2px);box-shadow:0 8px 22px -8px rgba(10,102,194,.75)}
+.btn--github{background:#1b1f23;color:#fff}
+.btn--github:hover{background:#000;color:#fff;transform:translateY(-2px);box-shadow:0 8px 22px -8px rgba(27,31,35,.75)}
+.btn--website{background:var(--purple-600);color:#fff}
+.btn--website:hover{background:var(--purple-800);color:#fff;transform:translateY(-2px);box-shadow:0 8px 22px -8px rgba(123,44,191,.75)}
+.btn--ghost{background:transparent;border-color:currentColor;color:var(--purple-600)}
+.btn--ghost:hover{transform:translateY(-2px);color:var(--purple-800)}
+.hero .btn--ghost,.contact .btn--ghost{color:#fff}
+.btn__glyph{width:18px;height:18px;flex:0 0 auto;display:block}
+.hero .btn--ghost:hover,.contact .btn--ghost:hover{color:var(--green-500)}
