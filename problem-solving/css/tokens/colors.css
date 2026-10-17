@@ -1,0 +1,53 @@
+/* TPSA — The Problem Solving Association CLG — Color tokens
+   Derived from the problem-solving.html page + the triquetra brand mark.
+   The identity runs on a deep purple ramp (dark navy → lilac) paired with
+   an electric "problem-solving green" as the single action accent, on black. */
+:root {
+  /* Purple ramp — the spine of the brand (ultra-violet scale) */
+  --purple-950: #10002b; /* darkest knot stroke */
+  --purple-900: #240046;
+  --purple-800: #3c096c; /* footer + nav active/hover */
+  --purple-700: #5a189a;
+  --purple-600: #7b2cbf; /* primary purple — nav bar */
+  --purple-500: #9d4edd; /* brand mark purple / accent */
+  --purple-400: #c77dff;
+  --purple-300: #e0aaff; /* light lilac — knot ring */
+
+  /* Problem-solving green — the one action color */
+  --green-500: #32e875; /* primary buttons, accents, underlines */
+  --green-600: #2bc764; /* green hover / pressed */
+
+  /* Legacy TPSA blue (physics-side heritage; use sparingly) */
+  --blue-500: #597bb0;
+
+  /* Neutrals */
+  --black: #000000; /* hero canvas */
+  --white: #ffffff;
+  --ink: #333333;       /* body text */
+  --ink-soft: #5d636b;  /* muted / captions */
+  --surface: #ffffff;   /* page */
+  --surface-alt: #f9fafb; /* section wash (gray-50) */
+  --surface-card: #f4f4f4; /* card / project fill */
+  --border: #e5e7eb;
+  --pending: #bbbbbb;   /* disabled / "coming soon" links */
+
+  /* ---- Semantic aliases ---- */
+  --color-bg: var(--white);
+  --color-bg-inverse: var(--black);
+  --color-text: var(--ink);
+  --color-text-muted: var(--ink-soft);
+  --color-text-inverse: var(--white);
+
+  --color-primary: var(--purple-600);      /* brand purple */
+  --color-primary-strong: var(--purple-800);
+  --color-accent: var(--green-500);         /* action green */
+  --color-accent-hover: var(--green-600);
+
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-surface-card: var(--surface-card);
+  --color-border: var(--border);
+
+  --color-link: var(--purple-600);
+  --color-link-hover: var(--green-500);
+}

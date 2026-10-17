@@ -1,0 +1,25 @@
+/* TPSA — Radii, shadows, motion
+   Corners are near-square (the site uses 4px `rounded` and hard edges);
+   shadows are soft grey lifts; motion is a simple 0.3s ease with subtle
+   scale/translate on hover. No bounce, no spring. */
+:root {
+  /* Radii — deliberately restrained */
+  --radius-none: 0;
+  --radius-sm: 4px;   /* buttons, tiles (tailwind `rounded`) */
+  --radius-md: 8px;   /* inputs, small panels */
+  --radius-lg: 12px;  /* project image thumbs (rounded-lg) */
+  --radius-full: 9999px; /* circular team avatars */
+
+  /* Shadows */
+  --shadow-sm: 0 5px 6px 1px rgba(89, 123, 176, 0.35); /* heritage blue lift */
+  --shadow-card: 0 5px 15px rgba(0, 0, 0, 0.1); /* project/team hover */
+  --shadow-pop: 0 10px 30px rgba(0, 0, 0, 0.3); /* modal / popup */
+  --shadow-glow: 0 6px 20px rgba(50, 232, 117, 0.4); /* green active state */
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --dur-fast: 0.2s; /* @kind other */
+  --dur: 0.3s; /* @kind other */
+  --dur-slow: 3s; /* @kind other */ /* letter-by-letter fade-ins */
+  --transition: all var(--dur) ease;
+}
