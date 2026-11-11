@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPARÁN - The Problem Solving Association</title>
+    <meta name="description" content="SPARÁN, the Public Procurement Tracker: a consolidated, searchable database of Irish government payments and procurement, built by The Problem Solving Association.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="https://gist.githubusercontent.com/farrencc/07eaa26e80c8e28957981f07a788ea13/raw/e41c3520af1fcf2cf0577372dfe256fbdc1d16c3/TPSA_logo.svg" type="image/x-icon">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: #000000;
+            color: #ffffff;
+            padding: 8vh 5vw;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            border-bottom: #32e875 0.5vh solid;
+        }
+        .header-text {
+            display: block;
+            font-size: 7vw;
+            text-align: left;
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+            font-weight: bold;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #7b2cbf;
+            color: #fff;
+            padding: 0.5rem;
+            width: 100%;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        .nav-links li a:hover {
+            background-color: #3c096c;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .shot {
+            width: 100%;
+            height: auto;
+            border: 4px solid #7b2cbf;
+            border-radius: 4px;
+            display: block;
+        }
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+        }
+        .explore-table {
+            width: 100%;
+            min-width: 34rem;
+            border-collapse: collapse;
+        }
+        .explore-table th {
+            background: #7b2cbf;
+            color: #ffffff;
+            text-align: left;
+            font-size: 1rem;
+            padding: 0.85rem 1.25rem;
+        }
+        .explore-table td {
+            padding: 0.85rem 1.25rem;
+            border-top: 1px solid #e5e7eb;
+            vertical-align: top;
+            font-size: 1.05rem;
+        }
+        .explore-table tbody tr:nth-child(even) {
+            background: #f9fafb;
+        }
+        .explore-table td:first-child {
+            font-weight: bold;
+            width: 30%;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #3c096c;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .header-text {
+                font-size: 12vw;
+            }
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+        }
+        /* Stack the table into cards on narrow screens rather than scrolling sideways */
+        @media (max-width: 640px) {
+            .table-wrap {
+                border: none;
+                border-radius: 0;
+                overflow-x: visible;
+            }
+            .explore-table {
+                min-width: 0;
+            }
+            .explore-table thead {
+                display: none;
+            }
+            .explore-table tr {
+                display: block;
+                border: 1px solid #e5e7eb;
+                border-radius: 4px;
+                margin-bottom: 0.75rem;
+            }
+            .explore-table tbody tr:nth-child(even) {
+                background: transparent;
+            }
+            .explore-table td {
+                display: block;
+                border-top: none;
+                padding: 0.15rem 1rem;
+            }
+            .explore-table td:first-child {
+                width: auto;
+                color: #7b2cbf;
+                padding-top: 0.85rem;
+            }
+            .explore-table td:last-child {
+                padding-bottom: 0.85rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .header-text {
+                font-size: 14vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <span class="header-text" style="color: #32e875;">SPARÁN</span>
+            <span class="header-text" style="font-size: clamp(1.5rem, 3vw, 3rem); color: #ffffff; font-weight: normal;">
+                The Public Procurement Tracker
+            </span>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="problem-solving/">← Back to The Problem Solving Association</a></li>
+            <li><a href="https://lookerstudio.google.com/u/1/reporting/75264647-4a9c-4f49-8bf7-e588bac58d84/page/p_48bq3umf5c" target="_blank" rel="noopener noreferrer">Open the Dashboard ↗</a></li>
+        </ul>
+    </nav>
+
+    <section class="bg-gray-50">
+        <div class="container py-12 max-w-7xl">
+            <div class="max-w-4xl">
+                <h2 class="text-3xl font-bold mb-6">About the Project</h2>
+                <p class="text-lg leading-relaxed mb-6">
+                    Public procurement generates vast amounts of transactional data, but that information stays
+                    fragmented across departments, agencies, and reporting systems. SPARÁN consolidates this
+                    distributed data into a single analytical framework, bringing together payment records
+                    published by state entities right across the public sector.
+                </p>
+                <p class="text-lg leading-relaxed mb-6">
+                    The project addresses a fundamental data infrastructure problem: individual agencies publish
+                    payment records in inconsistent formats and at varying levels of detail, which makes
+                    cross-government analysis practically impossible. By building data pipelines to extract,
+                    clean, and standardise these records, we have created a comprehensive view of state
+                    expenditure flows that is accessible to researchers, journalists, policymakers, and citizens
+                    alike.
+                </p>
+                <p class="text-lg leading-relaxed mb-6">
+                    Our consolidated database tracks payment recipients, contract purposes, amounts, and
+                    originating entities thereby revealing spending concentration patterns, supplier market structure,
+                    and variations in reporting practice across the public sector. That visibility supports
+                    evidence-based analysis of procurement efficiency, market concentration, and the shifting
+                    boundary between direct state capacity and contracted services.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-start gap-4">
+                    <a href="https://lookerstudio.google.com/u/1/reporting/75264647-4a9c-4f49-8bf7-e588bac58d84/page/p_48bq3umf5c"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="bg-[#32e875] text-white px-8 py-3 rounded inline-block hover:bg-[#2bc764] transition-colors font-semibold">
+                        View Interactive Dashboard ↗
+                    </a>
+                    <a href="problem-solving/#projects"
+                       class="bg-[#7b2cbf] text-white px-8 py-3 rounded inline-block hover:bg-[#3c096c] transition-colors font-semibold">
+                        Our Other Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container max-w-7xl py-8">
+            <h2 class="text-3xl font-bold mb-6">What You Can Explore</h2>
+            <div class="table-wrap">
+                <table class="explore-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Question</th>
+                            <th scope="col">What the tracker shows</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Who gets paid</td>
+                            <td>Payment recipients from right across the public sector, in one place.</td>
+                        </tr>
+                        <tr>
+                            <td>What for</td>
+                            <td>The stated purpose of each contract or payment, standardised across sources.</td>
+                        </tr>
+                        <tr>
+                            <td>Who is paying</td>
+                            <td>The originating department, agency, or public body behind every record.</td>
+                        </tr>
+                        <tr>
+                            <td>Concentration</td>
+                            <td>How much expenditure flows to a small number of large suppliers.</td>
+                        </tr>
+                        <tr>
+                            <td>Reporting quality</td>
+                            <td>Where publication practice is detailed, and where it is thin.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-50">
+        <div class="container max-w-7xl py-8">
+            <h2 class="text-3xl font-bold mb-6">Inside the Tracker</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <figure class="m-0">
+                    <img src="images/problem-solving/payment_tracker_1.png"
+                         alt="Analysis of spending patterns across suppliers and recipients"
+                         class="shot">
+                    <figcaption class="mt-3 text-base text-gray-600">
+                        Revealing concentration patterns and supplier market structure.
+                    </figcaption>
+                </figure>
+                <figure class="m-0">
+                    <img src="images/problem-solving/payment_tracker_3.png"
+                         alt="Expenditure flows tracked over time across state entities"
+                         class="shot">
+                    <figcaption class="mt-3 text-base text-gray-600">
+                        Tracking expenditure flows over time and across state entities.
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container max-w-7xl py-8">
+            <h2 class="text-3xl font-bold mb-6">Why "SPARÁN"?</h2>
+            <p class="text-lg leading-relaxed mb-6">
+                <i>Sparán</i> is the Irish word for a wallet - where public money is kept, and where
+                everyone is entitled to see.
+            </p>
+            <p class="text-lg leading-relaxed">
+                SPARÁN is built and maintained by The Problem Solving Association CLG. If you are a researcher,
+                journalist, or public body who would like to work with the underlying data, or if you spot
+                something that looks wrong, we would like to hear from you.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 The Problem Solving Association. All rights reserved.</p>
+    </footer>
+
+    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;
+                text-align: center; background-color: #32e875;">
+        <p style="font-weight: bold; font-size: 18px;">Hosted by:</p>
+        <a href="https://www.blacknight.com/" target="_blank" rel="noopener noreferrer">
+            <img style="width: 150px; height: auto; padding-left: 1vw;"
+                 src="images/blacknight.png" alt="Blacknight">
+        </a>
+    </div>
+
+</body>
+</html>
