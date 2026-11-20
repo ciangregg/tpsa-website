@@ -1,0 +1,5 @@
+.ethics{position:relative;background:var(--purple-950);color:#fff;padding:clamp(80px,11vw,150px) 0;overflow:hidden}
+.ethics__pattern{position:absolute;inset:0;background:url('../assets/unit-pattern.svg') repeat;background-size:120px;opacity:.06;mix-blend-mode:screen}
+.ethics__inner{position:relative;width:88%;max-width:1100px;margin:0 auto;text-align:center}
+.ethics__inner p{font-size:clamp(28px,5vw,66px);font-weight:700;line-height:1.08;letter-spacing:-.02em}
+.ethics__inner span{color:var(--green-500)}
